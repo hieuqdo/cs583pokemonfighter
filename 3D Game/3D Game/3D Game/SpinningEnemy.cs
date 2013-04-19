@@ -18,7 +18,7 @@ namespace _3D_Game
 
         public override void Update()
         {
-            rotation *= Matrix.CreateRotationY(MathHelper.Pi / 180);
+            rotation *= Matrix.CreateRotationY(MathHelper.Pi / 90);
         }
 
         public override Matrix GetWorld()
