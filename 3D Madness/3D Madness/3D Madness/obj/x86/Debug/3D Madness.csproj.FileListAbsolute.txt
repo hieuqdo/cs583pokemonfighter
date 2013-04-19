@@ -1,8 +1,0 @@
-c:\users\hypermetal\documents\visual studio 2010\Projects\3D Madness\3D Madness\3D Madness\bin\x86\Debug\3D Madness.exe
-c:\users\hypermetal\documents\visual studio 2010\Projects\3D Madness\3D Madness\3D Madness\bin\x86\Debug\3D Madness.pdb
-c:\users\hypermetal\documents\visual studio 2010\Projects\3D Madness\3D Madness\3D Madness\obj\x86\Debug\3D Madness.csprojResolveAssemblyReference.cache
-c:\users\hypermetal\documents\visual studio 2010\Projects\3D Madness\3D Madness\3D Madness\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-c:\users\hypermetal\documents\visual studio 2010\Projects\3D Madness\3D Madness\3D Madness\obj\x86\Debug\3D Madness.exe
-c:\users\hypermetal\documents\visual studio 2010\Projects\3D Madness\3D Madness\3D Madness\obj\x86\Debug\3D Madness.pdb
-c:\users\hypermetal\documents\visual studio 2010\Projects\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Trees.xnb
-c:\users\hypermetal\documents\visual studio 2010\Projects\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Textures\Trees.xnb
