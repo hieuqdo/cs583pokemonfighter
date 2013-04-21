@@ -1,0 +1,2 @@
+D:\Users\Hieu\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D GameContent\obj\x86\Release\3D GameContent.contentprojResolveAssemblyReference.cache
+D:\Users\Hieu\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D GameContent\obj\x86\Release\Audio\GameAudio.xml
