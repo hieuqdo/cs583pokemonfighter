@@ -11,19 +11,35 @@ namespace _3D_Game
     {
         Matrix rotation = Matrix.Identity;
 
-        public SpinningEnemy(Model m)
+        float yawAngle = 0;
+        float pitchAngle = 0;
+        float rollAngle = 0;
+        Vector3 direction;
+
+        public SpinningEnemy(Model m, Vector3 Position,
+            Vector3 Direction, float yaw, float pitch, float roll)
             : base(m)
         {
+            world = Matrix.CreateTranslation(Position);
+            yawAngle = yaw;
+            pitchAngle = pitch;
+            rollAngle = roll;
+            direction = Direction;
         }
 
         public override void Update()
         {
-            rotation *= Matrix.CreateRotationY(MathHelper.Pi / 90);
+            //Rotate model
+            rotation *= Matrix.CreateFromYawPitchRoll(yawAngle,
+                pitchAngle, rollAngle);
+
+            //Move model
+            world *= Matrix.CreateTranslation(direction);
         }
 
         public override Matrix GetWorld()
         {
-            return world * rotation;
+            return rotation * world;
         }
     }
 }
