@@ -20,7 +20,9 @@ namespace _3D_Game
         SpriteBatch spriteBatch;
 
         public Camera camera { get; protected set; }
-        ModelManager modelManager;
+        public ModelManager modelManager;
+
+        public int writeFrequency = 0;
 
         public Game1()
         {
@@ -43,6 +45,7 @@ namespace _3D_Game
 
             modelManager = new ModelManager(this);
             Components.Add(modelManager);
+            camera.addModelManager(modelManager);
 
             base.Initialize();
         }
@@ -80,6 +83,7 @@ namespace _3D_Game
                 this.Exit();
 
             // TODO: Add your update logic here
+            
 
             base.Update(gameTime);
         }
@@ -95,6 +99,10 @@ namespace _3D_Game
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
+        }
+        protected void writeToGame(GameTime gameTime)
+        {
+            //Console.Out.WriteLine("test writeline");
         }
     }
 }

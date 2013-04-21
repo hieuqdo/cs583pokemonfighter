@@ -11,6 +11,7 @@ namespace _3D_Game
     {
         public Model model { get; protected set; }
         protected Matrix world = Matrix.Identity;
+        //public Vector3 position;
 
         public BasicModel(Model m)
         {
@@ -42,6 +43,11 @@ namespace _3D_Game
         public virtual Matrix GetWorld()
         {
             return world;
+        }
+
+        public Vector3 getPosition()
+        {
+            return GetWorld().Translation;
         }
     }
 }

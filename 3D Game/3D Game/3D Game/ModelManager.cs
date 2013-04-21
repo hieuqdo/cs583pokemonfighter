@@ -18,6 +18,7 @@ namespace _3D_Game
     public class ModelManager : DrawableGameComponent
     {
         List<BasicModel> models = new List<BasicModel>();
+        BasicModel p1, p2;
 
         public ModelManager(Game game)
             : base(game)
@@ -38,10 +39,12 @@ namespace _3D_Game
 
         protected override void LoadContent()
         {
-            models.Add(new SpinningEnemy(
-                Game.Content.Load<Model>(@"models\spaceship")));
-            models.Add(new Player1(
-                Game.Content.Load<Model>(@"models\spaceship")));
+            p1 = new SpinningEnemy(
+                Game.Content.Load<Model>(@"models\spaceship"));
+            models.Add(p1);
+            p2 = new Player1(
+                Game.Content.Load<Model>(@"models\spaceship"));
+            models.Add(p2);
 
             base.LoadContent();
         }
@@ -71,6 +74,16 @@ namespace _3D_Game
             }
 
             base.Draw(gameTime);
+        }
+
+        public Vector3 getPosition1()
+        {
+            return p1.getPosition();
+        }
+
+        public Vector3 getPosition2()
+        {
+            return p2.getPosition();
         }
     }
 }

@@ -25,9 +25,14 @@ namespace _3D_Game
         public Matrix view { get; protected set; }
         public Matrix projection { get; protected set; }
 
-        float speed = 3;
+        float farLeft;
+        float farRight;
 
-        MouseState prevMouseState;
+        ModelManager modelMan;
+        Vector3 posP1;
+        Vector3 posP2;
+
+        float minDist = 60;
 
         public Camera(Game game, Vector3 pos, Vector3 target, Vector3 up)
             : base(game)
@@ -54,7 +59,7 @@ namespace _3D_Game
         public override void Initialize()
         {
             // TODO: Add your initialization code here
-
+            
             base.Initialize();
         }
 
@@ -65,16 +70,23 @@ namespace _3D_Game
         public override void Update(GameTime gameTime)
         {
             // TODO: Add your update code here
-            //Move forward/backward
-            if (Keyboard.GetState().IsKeyDown(Keys.W))
-                cameraPosition += cameraDirection * speed;
-            if (Keyboard.GetState().IsKeyDown(Keys.S))
-                cameraPosition -= cameraDirection * speed;
-            //Move side to side
-            if (Keyboard.GetState().IsKeyDown(Keys.A))
-                cameraPosition += Vector3.Cross(cameraUp, cameraDirection) * speed;
-            if (Keyboard.GetState().IsKeyDown(Keys.D))
-                cameraPosition -= Vector3.Cross(cameraUp, cameraDirection) * speed;
+
+            //Register farLeft, farRight
+            posP1 = modelMan.getPosition1();
+            posP2 = modelMan.getPosition2();
+            if (posP1.X < posP2.X)
+                farLeft = posP1.X;
+            else  farLeft = posP2.X;
+            if (posP1.X > posP2.X)
+                farRight = posP1.X;
+            else  farRight = posP2.X;
+
+
+            //Adjust camera position
+            if (Math.Abs(posP1.X - posP2.X) / .5f > minDist) 
+                cameraPosition = new Vector3((posP1.X + posP2.X)/2, (posP1.Y + posP2.Y)/2, Math.Abs(posP1.X - posP2.X) / .5f);
+            else cameraPosition = new Vector3((posP1.X + posP2.X) / 2, (posP1.Y + posP2.Y) / 2, minDist);
+            //Console.Out.WriteLine("Camera Zoom (Z) = " + Math.Abs(posP1.X - posP2.X) / .5f);
 
             //Recreate the camera view matrix
             CreateLookAt();
@@ -86,6 +98,11 @@ namespace _3D_Game
         {
             view = Matrix.CreateLookAt(cameraPosition,
                 cameraPosition + cameraDirection, cameraUp);
+        }
+
+        public void addModelManager(ModelManager mm)
+        {
+            modelMan = mm;
         }
     }
 }
