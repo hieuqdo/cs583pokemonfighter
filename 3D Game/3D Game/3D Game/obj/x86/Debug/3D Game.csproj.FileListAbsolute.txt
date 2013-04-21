@@ -4,3 +4,10 @@ C:\Users\HyperMetal\documents\visual studio 2010\Projects\3D Game\3D Game\3D Gam
 C:\Users\HyperMetal\documents\visual studio 2010\Projects\3D Game\3D Game\3D Game\bin\x86\Debug\3D Game.pdb
 C:\Users\HyperMetal\documents\visual studio 2010\Projects\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.exe
 C:\Users\HyperMetal\documents\visual studio 2010\Projects\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.pdb
+D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\spaceship.xnb
+D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\3D Game.exe
+D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\3D Game.pdb
+D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.exe
+D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.pdb
+D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.csprojResolveAssemblyReference.cache

@@ -40,6 +40,8 @@ namespace _3D_Game
         {
             models.Add(new SpinningEnemy(
                 Game.Content.Load<Model>(@"models\spaceship")));
+            models.Add(new Player1(
+                Game.Content.Load<Model>(@"models\spaceship")));
 
             base.LoadContent();
         }
