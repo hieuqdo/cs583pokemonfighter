@@ -4,3 +4,11 @@ C:\Users\HyperMetal\documents\visual studio 2010\Projects\3D Game\3D Game\3D Gam
 C:\Users\HyperMetal\documents\visual studio 2010\Projects\3D Game\3D Game\3D Game\bin\x86\Debug\3D Game.pdb
 C:\Users\HyperMetal\documents\visual studio 2010\Projects\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.exe
 C:\Users\HyperMetal\documents\visual studio 2010\Projects\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.pdb
+C:\Users\Thuong\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.exe
+C:\Users\Thuong\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.pdb
+C:\Users\Thuong\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\spaceship.xnb
+C:\Users\Thuong\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\Pikachu4.xnb
+C:\Users\Thuong\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D Game\bin\x86\Debug\3D Game.exe
+C:\Users\Thuong\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D Game\bin\x86\Debug\3D Game.pdb
+C:\Users\Thuong\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.csprojResolveAssemblyReference.cache
+C:\Users\Thuong\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D Game\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt

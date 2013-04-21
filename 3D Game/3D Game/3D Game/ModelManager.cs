@@ -41,7 +41,7 @@ namespace _3D_Game
             //models.Add(new SpinningEnemy(
             //    Game.Content.Load<Model>(@"models\spaceship")));
             models.Add(new BasicModel(
-                Game.Content.Load<Model>(@"models\Pikachu4")));
+                Game.Content.Load<Model>(@"models\spaceship")));
 
             base.LoadContent();
         }

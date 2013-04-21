@@ -7,39 +7,12 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\HyperMetal\documents\visual studio 2010\Projects\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\spaceship.xnb</Output>
-      <Time>2013-04-18T17:46:23.2534221-07:00</Time>
+      <Output>C:\Users\Thuong\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\spaceship.xnb</Output>
+      <Time>2013-04-20T21:54:08.2463111-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\spaceship_0.xml</Key>
-        <Value>2013-04-18T17:46:32.1923156-07:00</Value>
+        <Value>2013-04-20T21:56:19.6008241-07:00</Value>
       </Dependency>
-    </Item>
-    <Item>
-      <Source>Models\spaceship.x</Source>
-      <Importer>XImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\spaceship_0.xml</Output>
-      <Time>2013-04-18T17:46:23.2534221-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\PikachuA.FBX</Source>
-      <Name>Models\PikachuA</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\HyperMetal\documents\visual studio 2010\Projects\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuA.xnb</Output>
-      <Time>0001-01-01T00:00:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\PikachuA_0.xml</Key>
-        <Value>2013-04-18T22:23:39.9942614-07:00</Value>
-      </Dependency>
-    </Item>
-    <Item>
-      <Source>Models\PikachuA.FBX</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\PikachuA_0.xml</Output>
-      <Time>2013-04-18T22:23:37.0688912-07:00</Time>
     </Item>
     <Item>
       <Source>Models\Pikachu4.FBX</Source>
@@ -47,48 +20,66 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\HyperMetal\documents\visual studio 2010\Projects\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\Pikachu4.xnb</Output>
-      <Time>0001-01-01T00:00:00</Time>
+      <Output>C:\Users\Thuong\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\Pikachu4.xnb</Output>
+      <Time>2013-04-20T21:54:08.22831-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Pikachu4_0.xml</Key>
+        <Value>2013-04-20T21:58:45.6421772-07:00</Value>
+      </Dependency>
     </Item>
-    <BuildSuccessful>false</BuildSuccessful>
+    <Item>
+      <Source>Models\spaceship.x</Source>
+      <Importer>XImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\spaceship_0.xml</Output>
+      <Time>2013-04-20T21:54:08.2463111-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Pikachu4.FBX</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Pikachu4_0.xml</Output>
+      <Time>2013-04-20T21:54:08.22831-07:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\HyperMetal\documents\visual studio 2010\Projects\3D Game\3D Game\3D GameContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\HyperMetal\documents\visual studio 2010\Projects\3D Game\3D Game\3D Game\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\HyperMetal\documents\visual studio 2010\Projects\3D Game\3D Game\3D GameContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\HyperMetal\documents\visual studio 2010\Projects\3D Game\3D Game\3D Game\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Thuong\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D GameContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Thuong\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D Game\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Thuong\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D GameContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Thuong\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D Game\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
         <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2010-08-23T13:41:18-07:00</Value>
+        <Value>2010-08-23T12:41:18-07:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2010-08-23T13:41:18-07:00</Value>
+        <Value>2010-08-23T12:41:18-07:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2010-08-23T13:41:18-07:00</Value>
+        <Value>2010-08-23T12:41:18-07:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2010-08-23T13:41:18-07:00</Value>
+        <Value>2010-08-23T12:41:18-07:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2010-08-23T13:41:18-07:00</Value>
+        <Value>2010-08-23T12:41:18-07:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2010-08-23T13:41:18-07:00</Value>
+        <Value>2010-08-23T12:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2013-03-01T07:40:09.0684886-08:00</Value>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2013-04-20T16:47:11.4093425-07:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
