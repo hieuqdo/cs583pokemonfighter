@@ -21,7 +21,36 @@
       <Output>obj\x86\Debug\Models\spaceship_0.xml</Output>
       <Time>2013-04-18T17:46:23.2534221-07:00</Time>
     </Item>
-    <BuildSuccessful>true</BuildSuccessful>
+    <Item>
+      <Source>Models\PikachuA.FBX</Source>
+      <Name>Models\PikachuA</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\documents\visual studio 2010\Projects\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuA.xnb</Output>
+      <Time>0001-01-01T00:00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\PikachuA_0.xml</Key>
+        <Value>2013-04-18T22:23:39.9942614-07:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\PikachuA.FBX</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\PikachuA_0.xml</Output>
+      <Time>2013-04-18T22:23:37.0688912-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Pikachu4.FBX</Source>
+      <Name>Models\Pikachu4</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\documents\visual studio 2010\Projects\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\Pikachu4.xnb</Output>
+      <Time>0001-01-01T00:00:00</Time>
+    </Item>
+    <BuildSuccessful>false</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <TargetProfile>HiDef</TargetProfile>

@@ -54,6 +54,10 @@ namespace _3D_Game
         public override void Initialize()
         {
             // TODO: Add your initialization code here
+            //Set mouse position and do initial get state
+            Mouse.SetPosition(Game.Window.ClientBounds.Width / 2,
+                Game.Window.ClientBounds.Height / 2);
+            prevMouseState = Mouse.GetState();
 
             base.Initialize();
         }
@@ -75,6 +79,39 @@ namespace _3D_Game
                 cameraPosition += Vector3.Cross(cameraUp, cameraDirection) * speed;
             if (Keyboard.GetState().IsKeyDown(Keys.D))
                 cameraPosition -= Vector3.Cross(cameraUp, cameraDirection) * speed;
+
+            //Yaw rotation
+            cameraDirection = Vector3.Transform(cameraDirection,
+                Matrix.CreateFromAxisAngle(cameraUp, (-MathHelper.PiOver4 / 150) *
+                (Mouse.GetState().X - prevMouseState.X)));
+
+            //Roll rotation
+            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
+            {
+                cameraUp = Vector3.Transform(cameraUp,
+                    Matrix.CreateFromAxisAngle(cameraDirection,
+                    MathHelper.PiOver4 / 45));
+            }
+            if (Mouse.GetState().RightButton == ButtonState.Pressed)
+            {
+                cameraUp = Vector3.Transform(cameraUp,
+                    Matrix.CreateFromAxisAngle(cameraDirection,
+                    -MathHelper.PiOver4 / 45));
+            }
+
+            //Pitch rotation
+            cameraDirection = Vector3.Transform(cameraDirection,
+                Matrix.CreateFromAxisAngle(Vector3.Cross(cameraUp, cameraDirection),
+                (MathHelper.PiOver4 / 100) *
+                (Mouse.GetState().Y - prevMouseState.Y)));
+
+            cameraUp = Vector3.Transform(cameraUp,
+                Matrix.CreateFromAxisAngle(Vector3.Cross(cameraUp, cameraDirection),
+                (MathHelper.PiOver4 / 100) *
+                (Mouse.GetState().Y - prevMouseState.Y)));
+
+            //Reset prevMouseState
+            prevMouseState = Mouse.GetState();
 
             //Recreate the camera view matrix
             CreateLookAt();

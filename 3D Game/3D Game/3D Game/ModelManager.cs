@@ -38,8 +38,10 @@ namespace _3D_Game
 
         protected override void LoadContent()
         {
-            models.Add(new SpinningEnemy(
-                Game.Content.Load<Model>(@"models\spaceship")));
+            //models.Add(new SpinningEnemy(
+            //    Game.Content.Load<Model>(@"models\spaceship")));
+            models.Add(new BasicModel(
+                Game.Content.Load<Model>(@"models\Pikachu4")));
 
             base.LoadContent();
         }
