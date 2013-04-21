@@ -11,15 +11,20 @@ namespace _3D_Game
     class Player1 : SpinningEnemy
     {
         // CONSTANTS
-        //
+        // general
         const int PLAYER_SPEED = 1;
+        const float TIME_COUNTDOWN = 0.01666666666f;
+        // rolling
         const float ROLL_TIME = .2f;
         const float ROLL_COOLDOWN = .1f;
         const int ROLL_SPEED = 3;
+        // jumping
         const int JUMP_TIME = 1;
+        const float JUMP_MOMENTUM = 2f;
+        const float DOUBLEJUMP_MOMENTUM = 2f;
         const float JUMP_SPEED = 0.4f;
-        const float GRAVITY = 0.05f;
-        const float TIME_COUNTDOWN = 0.01666666666f;
+        const float GRAVITY = 0.1f;
+        const float JUMP_COOLDOWN = .3f;
 
         Matrix Ytranslation = Matrix.Identity;
         Matrix Xtranslation = Matrix.Identity;
@@ -29,13 +34,14 @@ namespace _3D_Game
         Vector3 left = new Vector3(-1,0,0);
         Vector3 right = new Vector3(1,0,0);
 
+        bool doubleJumped = false;
         bool jumping = false;
         bool rolling = false;
         float jumpMomentum = 0;
         float rollingTimer = 0;
         float speed = PLAYER_SPEED;
         float rollCooldown = 0;
-
+        float jumpCooldown = 0;
 
         public Player1(Model m)
             : base(m)
@@ -44,6 +50,7 @@ namespace _3D_Game
 
         public override void Update()
         {
+            TickCooldowns();
             ApplyGravity();
             UpdateRoll();
             ReadKeyboardInput();
@@ -52,7 +59,12 @@ namespace _3D_Game
         private void ReadKeyboardInput()
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Up))
-                Jump();
+            {
+                if (!jumping)
+                    Jump();
+                else
+                    DoubleJump();
+            }
             if (Keyboard.GetState().IsKeyDown(Keys.RightShift))
             {
                 if (Keyboard.GetState().IsKeyDown(Keys.Left))
@@ -85,14 +97,25 @@ namespace _3D_Game
             if (jumping)
             {
                 jumpMomentum -= GRAVITY;
-                if (jumpMomentum < -1)
+                if (ModelReachedGround())
                 {
                     jumpMomentum = 0;
                     jumping = false;
+                    doubleJumped = false;
                     speed = PLAYER_SPEED;
+                    Ytranslation = Matrix.Identity;
                 }
             }
             Ytranslation *= Matrix.CreateTranslation(new Vector3(0, jumpMomentum, 0));
+        }
+
+        private bool ModelReachedGround()
+        {
+            Matrix nextPosition =
+                GetWorld() * Matrix.CreateTranslation(new Vector3(0, jumpMomentum, 0));
+            if (nextPosition.Translation.Y < 0)
+                return true;
+            return false;
         }
 
         private void UpdateRoll()
@@ -109,11 +132,6 @@ namespace _3D_Game
                     rollCooldown = ROLL_COOLDOWN;
                 }
             }
-            else
-            {
-                if(rollCooldown > 0)
-                    rollCooldown -= TIME_COUNTDOWN;
-            }
         }
 
         private void Move(Vector3 direction)
@@ -125,9 +143,19 @@ namespace _3D_Game
         {
             if (!jumping)
             {
-                speed = JUMP_SPEED;
-                jumpMomentum = 1;
+                //speed = JUMP_SPEED;
+                jumpMomentum = JUMP_MOMENTUM;
                 jumping = true;
+                jumpCooldown = JUMP_COOLDOWN;
+            }
+        }
+
+        private void DoubleJump()
+        {
+            if (jumpCooldown <= 0 && doubleJumped == false)
+            {
+                jumpMomentum = DOUBLEJUMP_MOMENTUM;
+                doubleJumped = true;
             }
         }
 
@@ -141,6 +169,14 @@ namespace _3D_Game
                 rollingRotation = Matrix.CreateRotationZ(direction.X * -1 * MathHelper.Pi/15);
                 rollingTimer = ROLL_TIME;
             }
+        }
+
+        private void TickCooldowns()
+        {
+            if (jumpCooldown > 0)
+                jumpCooldown -= TIME_COUNTDOWN;
+            if (rollCooldown > 0)
+                rollCooldown -= TIME_COUNTDOWN;
         }
     }
 }
