@@ -10,18 +10,31 @@ namespace _3D_Game
 {
     class Player1 : SpinningEnemy
     {
+        // CONSTANTS
+        //
+        const int PLAYER_SPEED = 1;
+        const float ROLL_TIME = .2f;
+        const float ROLL_COOLDOWN = .1f;
+        const int ROLL_SPEED = 3;
+        const int JUMP_TIME = 1;
+        const float JUMP_SPEED = 0.4f;
+        const float GRAVITY = 0.05f;
+        const float TIME_COUNTDOWN = 0.01666666666f;
+
         Matrix Ytranslation = Matrix.Identity;
         Matrix Xtranslation = Matrix.Identity;
         Matrix rotation = Matrix.Identity;
-        Matrix rollingMatrix;
+        Matrix rollingTranslation;
+        Matrix rollingRotation;
         Vector3 left = new Vector3(-1,0,0);
         Vector3 right = new Vector3(1,0,0);
 
         bool jumping = false;
         bool rolling = false;
         float jumpMomentum = 0;
-        float speed = 1;
         float rollingTimer = 0;
+        float speed = PLAYER_SPEED;
+        float rollCooldown = 0;
 
 
         public Player1(Model m)
@@ -33,41 +46,50 @@ namespace _3D_Game
         {
             ApplyGravity();
             UpdateRoll();
+            ReadKeyboardInput();
+        }
+
+        private void ReadKeyboardInput()
+        {
             if (Keyboard.GetState().IsKeyDown(Keys.Up))
                 Jump();
-            //if (Keyboard.GetState().IsKeyDown(Keys.Down))
-                //crouch
+            if (Keyboard.GetState().IsKeyDown(Keys.RightShift))
+            {
+                if (Keyboard.GetState().IsKeyDown(Keys.Left))
+                {
+                    Roll(left);
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.Right))
+                {
+                    Roll(right);
+                }
+                return;
+            }
             if (Keyboard.GetState().IsKeyDown(Keys.Left))
             {
-                if (Keyboard.GetState().IsKeyDown(Keys.RightShift))
-                    Roll(left);
-                else
                     Move(left);
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Right))
             {
-                if (Keyboard.GetState().IsKeyDown(Keys.RightShift))
-                    Roll(right);
-                else
                     Move(right);
             }
         }
           
         public override Matrix GetWorld()
         {
-            return world * Ytranslation * Xtranslation * rotation;
+            return world * rotation * Ytranslation * Xtranslation;
         }
 
         private void ApplyGravity()
         {
             if (jumping)
             {
-                jumpMomentum -= 0.04f;
+                jumpMomentum -= GRAVITY;
                 if (jumpMomentum < -1)
                 {
                     jumpMomentum = 0;
                     jumping = false;
-                    speed = 1;
+                    speed = PLAYER_SPEED;
                 }
             }
             Ytranslation *= Matrix.CreateTranslation(new Vector3(0, jumpMomentum, 0));
@@ -77,14 +99,20 @@ namespace _3D_Game
         {
             if (rolling)
             {
-                rollingTimer -= 0.02f;
+                rotation *= rollingRotation;
+                Xtranslation *= rollingTranslation;
+                rollingTimer -= TIME_COUNTDOWN;
                 if (rollingTimer < 0)
-                {      
+                {
                     rolling = false;
                     rotation = Matrix.Identity;
+                    rollCooldown = ROLL_COOLDOWN;
                 }
-                //else
-                //    Xtranslation *= rollingMatrix;
+            }
+            else
+            {
+                if(rollCooldown > 0)
+                    rollCooldown -= TIME_COUNTDOWN;
             }
         }
 
@@ -97,7 +125,7 @@ namespace _3D_Game
         {
             if (!jumping)
             {
-                speed = 0.4f;
+                speed = JUMP_SPEED;
                 jumpMomentum = 1;
                 jumping = true;
             }
@@ -105,13 +133,13 @@ namespace _3D_Game
 
         private void Roll(Vector3 direction)
         {
-            if (!rolling)
+            if (!rolling && rollCooldown <= 0)
             {
-                //make invulnerable for X frames..
-                //rollingMatrix = Matrix.CreateTranslation(direction * 2 * speed);
-                rotation *= Matrix.CreateRotationZ(MathHelper.Pi/90);
+                //TODO: make invulnerable for X frames..
                 rolling = true;
-                rollingTimer = 1;
+                rollingTranslation = Matrix.CreateTranslation(direction * 3 * speed);
+                rollingRotation = Matrix.CreateRotationZ(direction.X * -1 * MathHelper.Pi/15);
+                rollingTimer = ROLL_TIME;
             }
         }
     }
