@@ -149,5 +149,10 @@ namespace _3D_Game
             view = Matrix.CreateLookAt(cameraPosition,
                 cameraPosition + cameraDirection, cameraUp);
         }
+
+        public Vector3 GetCameraDirection
+        {
+            get { return cameraDirection; }
+        }
     }
 }

@@ -12,3 +12,11 @@ C:\Users\Thuong\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D Game\bi
 C:\Users\Thuong\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D Game\bin\x86\Debug\3D Game.pdb
 C:\Users\Thuong\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.csprojResolveAssemblyReference.cache
 C:\Users\Thuong\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D Game\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\spaceship.xnb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\3D Game.exe
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\3D Game.pdb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.csprojResolveAssemblyReference.cache
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.exe
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.pdb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\ammo.xnb

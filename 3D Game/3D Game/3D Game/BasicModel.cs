@@ -43,5 +43,7 @@ namespace _3D_Game
         {
             return world;
         }
+
+        public bool Collides
     }
 }
