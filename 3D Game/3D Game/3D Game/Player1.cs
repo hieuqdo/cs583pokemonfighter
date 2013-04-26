@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace _3D_Game
 {
-    class Player1 : SpinningEnemy
+    class Player1 : BasicModel
     {
         // CONSTANTS
         // general
@@ -24,7 +24,7 @@ namespace _3D_Game
         const float DOUBLEJUMP_MOMENTUM = 2f;
         const float JUMP_SPEED = 0.4f;
         const float GRAVITY = 0.1f;
-        const float JUMP_COOLDOWN = .3f;
+        const float JUMP_COOLDOWN = .1f;
 
         Matrix Ytranslation = Matrix.Identity;
         Matrix Xtranslation = Matrix.Identity;
@@ -34,18 +34,34 @@ namespace _3D_Game
         Vector3 left = new Vector3(-1,0,0);
         Vector3 right = new Vector3(1,0,0);
 
+        //history
         bool doubleJumped = false;
         bool jumping = false;
         bool rolling = false;
+        bool jumpKeyHeld = false;
+        bool leftKeyHeld = false;
+        bool rightKeyHeld = false;
         float jumpMomentum = 0;
         float rollingTimer = 0;
         float speed = PLAYER_SPEED;
         float rollCooldown = 0;
         float jumpCooldown = 0;
 
+        protected Keys upKey;
+        protected Keys downKey;
+        protected Keys leftKey;
+        protected Keys rightKey;
+        protected Keys shieldKey;
+
         public Player1(Model m)
             : base(m)
         {
+            upKey = Keys.Up;
+            downKey = Keys.Down;
+            leftKey = Keys.Left;
+            rightKey = Keys.Right;
+            shieldKey = Keys.RightShift;
+            tint = Color.MediumVioletRed;
         }
 
         public override void Update()
@@ -58,38 +74,70 @@ namespace _3D_Game
 
         private void ReadKeyboardInput()
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.Up))
+            if (Keyboard.GetState().IsKeyDown(upKey))
             {
-                if (!jumping)
+                if (!jumping && !jumpKeyHeld)
                     Jump();
-                else
+                else if(!jumpKeyHeld)
                     DoubleJump();
+                jumpKeyHeld = true;
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.RightShift))
+            else
+                jumpKeyHeld = false;
+            if (Keyboard.GetState().IsKeyDown(shieldKey))
             {
-                if (Keyboard.GetState().IsKeyDown(Keys.Left))
+                if (Keyboard.GetState().IsKeyDown(leftKey))
                 {
-                    Roll(left);
+                    if (!leftKeyHeld)
+                    {
+                        Roll(left);
+                        leftKeyHeld = true;
+                    }
                 }
-                if (Keyboard.GetState().IsKeyDown(Keys.Right))
+                else
+                    leftKeyHeld = false;
+                    // shield
+                if (Keyboard.GetState().IsKeyDown(rightKey))
                 {
-                    Roll(right);
+                    if (!rightKeyHeld)
+                    {
+                        Roll(right);
+                        rightKeyHeld = true;
+                    }
                 }
+                else
+                    rightKeyHeld = false;
+                    // shield
+                
                 return;
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.Left))
+            if (Keyboard.GetState().IsKeyDown(leftKey))
             {
+                if (!rolling)
                     Move(left);
+                leftKeyHeld = true;
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.Right))
+            else
+                leftKeyHeld = false;
+            if (Keyboard.GetState().IsKeyDown(rightKey))
             {
+                if (!rolling)
                     Move(right);
+                rightKeyHeld = true;
             }
+            else
+                rightKeyHeld = false;
+
         }
           
         public override Matrix GetWorld()
         {
             return world * rotation * Ytranslation * Xtranslation;
+        }
+
+        private void shield()
+        {
+            
         }
 
         private void ApplyGravity()

@@ -18,7 +18,7 @@ namespace _3D_Game
     public class ModelManager : DrawableGameComponent
     {
         List<BasicModel> models = new List<BasicModel>();
-        BasicModel p1, p2;
+        BasicModel p1, p2, stage;
 
         public ModelManager(Game game)
             : base(game)
@@ -33,19 +33,20 @@ namespace _3D_Game
         public override void Initialize()
         {
             // TODO: Add your initialization code here
-
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
-            p1 = new SpinningEnemy(
+            p1 = new Player1(
                 Game.Content.Load<Model>(@"models\spaceship"));
             models.Add(p1);
-            p2 = new Player1(
+            p2 = new Player2(
                 Game.Content.Load<Model>(@"models\spaceship"));
             models.Add(p2);
-
+            stage = new Stage1(
+                Game.Content.Load<Model>(@"models\stage"));
+            models.Add(stage);
             base.LoadContent();
         }
 

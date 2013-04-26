@@ -11,11 +11,15 @@ namespace _3D_Game
     {
         public Model model { get; protected set; }
         protected Matrix world = Matrix.Identity;
+        protected Color tint = Color.White;
         //public Vector3 position;
+
+        public float scale { get; set; }
 
         public BasicModel(Model m)
         {
             model = m;
+            scale = 1;
         }
 
         public virtual void Update()
@@ -31,18 +35,19 @@ namespace _3D_Game
             {
                 foreach (BasicEffect be in mesh.Effects)
                 {
+                    be.EmissiveColor = tint.ToVector3();
                     be.EnableDefaultLighting();
                     be.Projection = camera.projection;
                     be.View = camera.view;
                     be.World = GetWorld() * mesh.ParentBone.Transform;
                 }
-                mesh.Draw();
+                mesh.Draw();    
             }
         }
 
         public virtual Matrix GetWorld()
         {
-            return world;
+            return Matrix.CreateScale(scale) * world;
         }
 
         public Vector3 getPosition()
