@@ -2,3 +2,4 @@ D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D GameContent\obj\x86\Debug\3
 C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D GameContent\obj\x86\Debug\3D GameContent.contentprojResolveAssemblyReference.cache
 C:\Users\Thuong\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D GameContent\obj\x86\Debug\3D GameContent.contentprojResolveAssemblyReference.cache
 C:\Users\hieu\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D GameContent\obj\x86\Debug\3D GameContent.contentprojResolveAssemblyReference.cache
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D GameContent\obj\x86\Debug\3D GameContent.contentprojResolveAssemblyReference.cache

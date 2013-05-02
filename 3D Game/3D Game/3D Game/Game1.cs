@@ -24,6 +24,9 @@ namespace _3D_Game
 
         public int writeFrequency = 0;
 
+        SpriteFont sampleFont;
+        string sampleText;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -60,6 +63,7 @@ namespace _3D_Game
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            sampleFont = Content.Load<SpriteFont>(@"Fonts\georgia");
         }
 
         /// <summary>
@@ -97,6 +101,14 @@ namespace _3D_Game
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            //Draw sample text
+            spriteBatch.Begin();
+
+            sampleText = "Hello World";
+            spriteBatch.DrawString(sampleFont, sampleText,
+                new Vector2(10, 10), Color.Black);
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }

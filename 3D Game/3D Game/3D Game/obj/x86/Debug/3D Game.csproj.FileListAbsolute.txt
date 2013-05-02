@@ -44,3 +44,23 @@ C:\Users\hieu\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D Game\bin\
 C:\Users\hieu\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\stage.xnb
 C:\Users\hieu\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\5B212572\stage.fbm\cf9b3053_0.xnb
 C:\Users\hieu\Documents\Visual Studio 2010\Projects\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\5B212572\stage.fbm\7f50457c_0.xnb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\spaceship.xnb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuDh.xnb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuEyeDh.xnb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuHohoDh.xnb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuMouthDh.xnb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\Pikachu.xnb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\stage.xnb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\AD6C2915\Pikachu.fbm\PikachuMouthDh_0.xnb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\AD6C2915\Pikachu.fbm\PikachuDh_0.xnb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\AD6C2915\Pikachu.fbm\PikachuHohoDh_0.xnb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\AD6C2915\Pikachu.fbm\PikachuEyeDh_0.xnb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\5B7A2844\stage.fbm\cf9b3053_0.xnb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\5B7A2844\stage.fbm\7f50457c_0.xnb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\3D Game.exe
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\3D Game.pdb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.csprojResolveAssemblyReference.cache
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.exe
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.pdb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Fonts\georgia.xnb
