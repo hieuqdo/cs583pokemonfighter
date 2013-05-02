@@ -12,8 +12,14 @@ namespace _3D_Game
     {
         // CONSTANTS
         // general
-        const int PLAYER_SPEED = 1;
+        const int PLAYER_RUN_SPEED = 1;
+        const int PLAYER_SPRINT_SPEED = 2;
+        const float SPRINT_KEYPRESS_INTERVAL = 0.3f;
         const float TIME_COUNTDOWN = 0.01666666666f;
+        const int NO_SPRINT_STATE = -1;
+        const int FIRST_PRESS_STATE = 0;
+        const int FIRST_RELEASE_STATE = 1;
+        const int SECOND_PRESS_STATE = 2;
         // rolling
         const float ROLL_TIME = .2f;
         const float ROLL_COOLDOWN = .1f;
@@ -38,14 +44,16 @@ namespace _3D_Game
         bool doubleJumped = false;
         bool jumping = false;
         bool rolling = false;
-        bool jumpKeyHeld = false;
-        bool leftKeyHeld = false;
-        bool rightKeyHeld = false;
+        bool sprintingLeft = false;
+        bool sprintingRight = false;
         float jumpMomentum = 0;
         float rollingTimer = 0;
-        float speed = PLAYER_SPEED;
+        float sprintCheckTimer = 0;
+        float sprintCheckTimer2 = 0;
+        float speed = PLAYER_RUN_SPEED;
         float rollCooldown = 0;
         float jumpCooldown = 0;
+        KeyboardState oldState, newState;
 
         protected Keys upKey;
         protected Keys downKey;
@@ -62,77 +70,68 @@ namespace _3D_Game
             rightKey = Keys.Right;
             shieldKey = Keys.RightShift;
             tint = Color.MediumVioletRed;
+            oldState = Keyboard.GetState();
         }
 
         public override void Update()
         {
+            newState = Keyboard.GetState();
             TickCooldowns();
             ApplyGravity();
             UpdateRoll();
+            CheckSprint();
             ReadKeyboardInput();
+            oldState = newState;
         }
 
         private void ReadKeyboardInput()
         {
-            if (Keyboard.GetState().IsKeyDown(upKey))
+            if (newState.IsKeyDown(upKey))
             {
-                if (!jumping && !jumpKeyHeld)
+                if (!jumping && oldState.IsKeyUp(upKey))
                     Jump();
-                else if(!jumpKeyHeld)
+                else if (oldState.IsKeyUp(upKey))
                     DoubleJump();
-                jumpKeyHeld = true;
             }
-            else
-                jumpKeyHeld = false;
             if (Keyboard.GetState().IsKeyDown(shieldKey))
             {
                 if (Keyboard.GetState().IsKeyDown(leftKey))
                 {
-                    if (!leftKeyHeld)
+                    if (oldState.IsKeyUp(leftKey))
                     {
                         Roll(left);
-                        leftKeyHeld = true;
                     }
                 }
-                else
-                    leftKeyHeld = false;
-                    // shield
                 if (Keyboard.GetState().IsKeyDown(rightKey))
                 {
-                    if (!rightKeyHeld)
+                    if (oldState.IsKeyUp(rightKey))
                     {
                         Roll(right);
-                        rightKeyHeld = true;
                     }
                 }
-                else
-                    rightKeyHeld = false;
-                    // shield
-                
                 return;
             }
             if (Keyboard.GetState().IsKeyDown(leftKey))
             {
-                if (!rolling)
-                    Move(left);
-                leftKeyHeld = true;
+                if (!rolling){
+                    Move(left); 
+                }
             }
-            else
-                leftKeyHeld = false;
             if (Keyboard.GetState().IsKeyDown(rightKey))
             {
-                if (!rolling)
+                if(!rolling)
                     Move(right);
-                rightKeyHeld = true;
             }
-            else
-                rightKeyHeld = false;
-
         }
           
         public override Matrix GetWorld()
         {
             return world * rotation * Ytranslation * Xtranslation;
+        }
+
+        private void CheckSprint()
+        {
+            
         }
 
         private void shield()
@@ -150,7 +149,7 @@ namespace _3D_Game
                     jumpMomentum = 0;
                     jumping = false;
                     doubleJumped = false;
-                    speed = PLAYER_SPEED;
+                    //speed = PLAYER_SPEED;
                     Ytranslation = Matrix.Identity;
                 }
             }
@@ -225,6 +224,8 @@ namespace _3D_Game
                 jumpCooldown -= TIME_COUNTDOWN;
             if (rollCooldown > 0)
                 rollCooldown -= TIME_COUNTDOWN;
+            if (sprintCheckTimer > 0)
+                sprintCheckTimer -= TIME_COUNTDOWN;
         }
     }
 }
