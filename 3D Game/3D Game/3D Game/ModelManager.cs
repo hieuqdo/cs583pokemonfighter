@@ -86,5 +86,28 @@ namespace _3D_Game
         {
             return p2.getPosition();
         }
+
+        public Vector3 getPositionStage()
+        {
+            return stage.getPosition();
+        }
+
+        public float getSpeed1()
+        {
+            return ((Player1)p1).getSpeed();
+        }
+
+        public float getSpeed2()
+        {
+            return ((Player1)p2).getSpeed();
+        }
+
+        public bool isColliding()
+        {
+            if (p1.CollidesWith(p2.model, p2.GetWorld()))
+                return true;
+            else return false;
+        }
+
     }
 }

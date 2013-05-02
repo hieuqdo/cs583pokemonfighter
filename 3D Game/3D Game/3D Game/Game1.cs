@@ -21,6 +21,8 @@ namespace _3D_Game
 
         public Camera camera { get; protected set; }
         public ModelManager modelManager;
+        public SoundManager soundManager;
+        Developer_Debug_Menu debug;
 
         public int writeFrequency = 0;
 
@@ -49,6 +51,9 @@ namespace _3D_Game
             modelManager = new ModelManager(this);
             Components.Add(modelManager);
             camera.addModelManager(modelManager);
+            soundManager = new SoundManager();
+            debug = new Developer_Debug_Menu(this);
+            Components.Add(debug);
 
             base.Initialize();
         }
@@ -64,6 +69,9 @@ namespace _3D_Game
 
             // TODO: use this.Content to load your game content here
             sampleFont = Content.Load<SpriteFont>(@"Fonts\georgia");
+
+            soundManager.LoadContent(Content);
+            MediaPlayer.Play(soundManager.menuMusic);
         }
 
         /// <summary>
@@ -105,8 +113,8 @@ namespace _3D_Game
             spriteBatch.Begin();
 
             sampleText = "Hello World";
-            spriteBatch.DrawString(sampleFont, sampleText,
-                new Vector2(10, 10), Color.Black);
+            //spriteBatch.DrawString(sampleFont, sampleText,
+            //    new Vector2(10, 10), Color.Black);
 
             spriteBatch.End();
 

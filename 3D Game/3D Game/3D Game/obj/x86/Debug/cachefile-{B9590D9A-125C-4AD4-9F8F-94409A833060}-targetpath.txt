@@ -12,3 +12,5 @@ Content\FBX\AD6C2915\Pikachu.fbm\PikachuEyeDh_0.xnb
 Content\FBX\5B7A2844\stage.fbm\cf9b3053_0.xnb
 Content\FBX\5B7A2844\stage.fbm\7f50457c_0.xnb
 Content\Fonts\georgia.xnb
+Content\Audio\menumusic.xnb
+Content\Audio\menumusic.wma

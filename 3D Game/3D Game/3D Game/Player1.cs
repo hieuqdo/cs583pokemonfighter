@@ -227,5 +227,10 @@ namespace _3D_Game
             if (sprintCheckTimer > 0)
                 sprintCheckTimer -= TIME_COUNTDOWN;
         }
+
+        public float getSpeed()
+        {
+            return speed;
+        }
     }
 }

@@ -109,6 +109,8 @@
   <ItemGroup>
     <Compile Include="BasicModel.cs" />
     <Compile Include="Camera.cs" />
+    <Compile Include="Developer Debug Menu.cs" />
+    <Compile Include="SoundManager.cs" />
     <Compile Include="Stage1.cs" />
     <Compile Include="ModelManager.cs" />
     <Compile Include="Player1.cs" />
