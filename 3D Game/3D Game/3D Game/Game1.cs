@@ -22,12 +22,13 @@ namespace _3D_Game
         public Camera camera { get; protected set; }
         public ModelManager modelManager;
         public SoundManager soundManager;
-        Developer_Debug_Menu debug;
+        public Developer_Debug_Menu debug;
 
         public int writeFrequency = 0;
+        private KeyboardState newState, oldState;
 
-        SpriteFont sampleFont;
         string sampleText;
+        SpriteFont sampleFont;
 
         public Game1()
         {
@@ -52,8 +53,10 @@ namespace _3D_Game
             Components.Add(modelManager);
             camera.addModelManager(modelManager);
             soundManager = new SoundManager();
+
             debug = new Developer_Debug_Menu(this);
-            Components.Add(debug);
+
+            oldState = Keyboard.GetState();
 
             base.Initialize();
         }
@@ -95,7 +98,10 @@ namespace _3D_Game
                 this.Exit();
 
             // TODO: Add your update logic here
-            
+            newState = Keyboard.GetState();
+            if (newState.IsKeyDown(Keys.OemTilde) && oldState.IsKeyUp(Keys.OemTilde))
+                toggleDebug();
+            oldState = newState;
 
             base.Update(gameTime);
         }
@@ -123,6 +129,13 @@ namespace _3D_Game
         protected void writeToGame(GameTime gameTime)
         {
             //Console.Out.WriteLine("test writeline");
+        }
+
+        private void toggleDebug()
+        {
+            if (Components.Contains(debug))
+                Components.Remove(debug);
+            else Components.Add(debug);
         }
     }
 }

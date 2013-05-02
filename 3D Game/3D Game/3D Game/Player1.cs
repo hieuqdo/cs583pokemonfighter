@@ -48,8 +48,10 @@ namespace _3D_Game
         bool sprintingRight = false;
         float jumpMomentum = 0;
         float rollingTimer = 0;
-        float sprintCheckTimer = 0;
-        float sprintCheckTimer2 = 0;
+        float sprintCheckTimerLeft = 0;
+        float sprintCheckTimerLeft2 = 0;
+        float sprintCheckTimerRight = 0;
+        float sprintCheckTimerRight2 = 0;
         float speed = PLAYER_RUN_SPEED;
         float rollCooldown = 0;
         float jumpCooldown = 0;
@@ -79,7 +81,8 @@ namespace _3D_Game
             TickCooldowns();
             ApplyGravity();
             UpdateRoll();
-            CheckSprint();
+            CheckSprintLeft();
+            CheckSprintRight();
             ReadKeyboardInput();
             oldState = newState;
         }
@@ -95,33 +98,16 @@ namespace _3D_Game
             }
             if (Keyboard.GetState().IsKeyDown(shieldKey))
             {
-                if (Keyboard.GetState().IsKeyDown(leftKey))
-                {
-                    if (oldState.IsKeyUp(leftKey))
-                    {
-                        Roll(left);
-                    }
-                }
-                if (Keyboard.GetState().IsKeyDown(rightKey))
-                {
-                    if (oldState.IsKeyUp(rightKey))
-                    {
-                        Roll(right);
-                    }
-                }
+                if (Keyboard.GetState().IsKeyDown(leftKey) && oldState.IsKeyUp(leftKey))
+                    Roll(left);
+                if (Keyboard.GetState().IsKeyDown(rightKey) && oldState.IsKeyUp(rightKey))
+                    Roll(right);
                 return;
             }
-            if (Keyboard.GetState().IsKeyDown(leftKey))
-            {
-                if (!rolling){
-                    Move(left); 
-                }
-            }
-            if (Keyboard.GetState().IsKeyDown(rightKey))
-            {
-                if(!rolling)
-                    Move(right);
-            }
+            if (Keyboard.GetState().IsKeyDown(leftKey) && !rolling)
+                Move(left); 
+            if (Keyboard.GetState().IsKeyDown(rightKey) && !rolling)
+                Move(right);
         }
           
         public override Matrix GetWorld()
@@ -129,9 +115,44 @@ namespace _3D_Game
             return world * rotation * Ytranslation * Xtranslation;
         }
 
-        private void CheckSprint()
+        private void CheckSprintLeft()
         {
-            
+            if (sprintingLeft)
+            {
+                if (newState.IsKeyUp(leftKey))
+                    sprintingLeft = false;
+            }
+            else
+            {
+                if (newState.IsKeyDown(leftKey) && oldState.IsKeyUp(leftKey))
+                    sprintCheckTimerLeft = SPRINT_KEYPRESS_INTERVAL;
+                else if (newState.IsKeyUp(leftKey) && sprintCheckTimerLeft > 0)
+                    sprintCheckTimerLeft2 = SPRINT_KEYPRESS_INTERVAL;
+                if (newState.IsKeyDown(leftKey) && sprintCheckTimerLeft2 > 0)
+                    sprintingLeft = true;
+            }
+        }
+
+        private void CheckSprintRight()
+        {
+            if (sprintingRight)
+            {
+                if (newState.IsKeyUp(rightKey))
+                    sprintingRight = false;
+            }
+            else
+            {
+                if (newState.IsKeyDown(rightKey) && oldState.IsKeyUp(rightKey))
+                    sprintCheckTimerRight = SPRINT_KEYPRESS_INTERVAL;
+                else if (newState.IsKeyUp(rightKey) && sprintCheckTimerRight > 0)
+                    sprintCheckTimerRight2 = SPRINT_KEYPRESS_INTERVAL;
+                if (newState.IsKeyDown(rightKey) && sprintCheckTimerRight2 > 0)
+                    sprintingRight = true;
+            }
+            if (sprintingRight || sprintingLeft)
+                speed = PLAYER_SPRINT_SPEED;
+            else
+                speed = PLAYER_RUN_SPEED;
         }
 
         private void shield()
@@ -212,7 +233,7 @@ namespace _3D_Game
             {
                 //TODO: make invulnerable for X frames..
                 rolling = true;
-                rollingTranslation = Matrix.CreateTranslation(direction * 3 * speed);
+                rollingTranslation = Matrix.CreateTranslation(direction * ROLL_SPEED);
                 rollingRotation = Matrix.CreateRotationZ(direction.X * -1 * MathHelper.Pi/15);
                 rollingTimer = ROLL_TIME;
             }
@@ -224,8 +245,14 @@ namespace _3D_Game
                 jumpCooldown -= TIME_COUNTDOWN;
             if (rollCooldown > 0)
                 rollCooldown -= TIME_COUNTDOWN;
-            if (sprintCheckTimer > 0)
-                sprintCheckTimer -= TIME_COUNTDOWN;
+            if (sprintCheckTimerLeft > 0)
+                sprintCheckTimerLeft -= TIME_COUNTDOWN;
+            if (sprintCheckTimerLeft2 > 0)
+                sprintCheckTimerLeft2 -= TIME_COUNTDOWN;
+            if (sprintCheckTimerRight > 0)
+                sprintCheckTimerRight -= TIME_COUNTDOWN;
+            if (sprintCheckTimerRight2 > 0)
+                sprintCheckTimerRight2 -= TIME_COUNTDOWN;
         }
 
         public float getSpeed()
