@@ -47,6 +47,7 @@ namespace _3D_Game
             stage = new Stage1(
                 Game.Content.Load<Model>(@"models\stage"));
             models.Add(stage);
+
             base.LoadContent();
         }
 
@@ -107,6 +108,12 @@ namespace _3D_Game
             if (p1.CollidesWith(p2.model, p2.GetWorld()))
                 return true;
             else return false;
+        }
+
+        public void reset()
+        {
+            models.Clear();
+            LoadContent();
         }
 
     }

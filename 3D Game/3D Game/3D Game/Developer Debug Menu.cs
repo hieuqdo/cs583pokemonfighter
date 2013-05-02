@@ -118,6 +118,16 @@ namespace _3D_Game
             spriteBatch.DrawString(font, speed2,
                 new Vector2(10, offset + 10), Color.Black);
 
+            //Draw currentGameState
+            offset += font.MeasureString(speed2).Y;
+            spriteBatch.DrawString(font, ((Game1)Game).currentGameState.ToString(),
+                new Vector2(10, offset + 10), Color.Black);
+
+            //Draw currentGameState
+            offset += font.MeasureString(speed2).Y;
+            spriteBatch.DrawString(font, ((Game1)Game).splashScreen.currentOption.ToString(),
+                new Vector2(10, offset + 10), Color.Black);
+
             spriteBatch.End();
 
             base.Draw(gameTime);

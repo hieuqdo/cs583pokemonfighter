@@ -30,6 +30,11 @@ namespace _3D_Game
         string sampleText;
         SpriteFont sampleFont;
 
+        public enum GameState { MENU, PLAYING, INSTRUCTIONS, GAMEOVER }
+        public GameState currentGameState = GameState.MENU;
+
+        public SplashScreen splashScreen;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -58,6 +63,14 @@ namespace _3D_Game
 
             oldState = Keyboard.GetState();
 
+            modelManager.Enabled = false;
+            modelManager.Visible = false;
+
+            //Splash screen component
+            splashScreen = new SplashScreen(this);
+            Components.Add(splashScreen);
+            
+
             base.Initialize();
         }
 
@@ -71,7 +84,7 @@ namespace _3D_Game
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            sampleFont = Content.Load<SpriteFont>(@"Fonts\georgia");
+            sampleFont = Content.Load<SpriteFont>(@"Fonts\georgia");       
 
             soundManager.LoadContent(Content);
             MediaPlayer.Play(soundManager.menuMusic);
@@ -101,6 +114,18 @@ namespace _3D_Game
             newState = Keyboard.GetState();
             if (newState.IsKeyDown(Keys.OemTilde) && oldState.IsKeyUp(Keys.OemTilde))
                 toggleDebug();
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Z) &&
+                Keyboard.GetState().IsKeyDown(Keys.X) &&
+                Keyboard.GetState().IsKeyDown(Keys.C) &&
+                Keyboard.GetState().IsKeyDown(Keys.V))
+                if (currentGameState == Game1.GameState.PLAYING)
+                {
+                    ChangeGameState(Game1.GameState.MENU);
+                    MediaPlayer.Play(soundManager.menuMusic);
+                    MediaPlayer.IsRepeating = true;
+                }
+
             oldState = newState;
 
             base.Update(gameTime);
@@ -136,6 +161,44 @@ namespace _3D_Game
             if (Components.Contains(debug))
                 Components.Remove(debug);
             else Components.Add(debug);
+        }
+
+        public void ChangeGameState(GameState state)
+        {
+            currentGameState = state;         
+
+            switch (currentGameState)
+            {
+                case GameState.PLAYING:
+                    modelManager.reset();
+                    modelManager.Enabled = true;
+                    modelManager.Visible = true;
+                    splashScreen.Enabled = false;
+                    splashScreen.Visible = false;
+
+                    MediaPlayer.Play(soundManager.battleMusic);
+                    MediaPlayer.IsRepeating = true;
+                    break;
+
+                case GameState.MENU:
+                    modelManager.Enabled = false;
+                    modelManager.Visible = false;
+                    splashScreen.Enabled = true;
+                    splashScreen.Visible = true;
+                    splashScreen.currentOption = SplashScreen.MenuOption.START;
+                 
+                    break;
+
+                case GameState.INSTRUCTIONS:
+                    modelManager.Enabled = false;
+                    modelManager.Visible = false;
+                    splashScreen.Enabled = true;
+                    splashScreen.Visible = true;
+                    
+                    break;
+
+
+            }        
         }
     }
 }

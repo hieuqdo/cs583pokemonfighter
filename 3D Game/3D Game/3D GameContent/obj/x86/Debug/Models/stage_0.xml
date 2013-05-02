@@ -3,7 +3,7 @@
   <Asset Type="Graphics:NodeContent">
     <Name>RootNode</Name>
     <Identity>
-      <SourceFilename>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D GameContent\Models\stage.FBX</SourceFilename>
+      <SourceFilename>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D GameContent\Models\stage.FBX</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
@@ -3500,7 +3500,7 @@ MinZ: 0.000000, MaxZ: 1.000000
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>cf9b3053.dds</Name>
       <Identity>
-        <SourceFilename>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D GameContent\Models\stage.FBX</SourceFilename>
+        <SourceFilename>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D GameContent\Models\stage.FBX</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -3522,7 +3522,7 @@ MinZ: 0.000000, MaxZ: 1.000000
     <Resource ID="#Resource2" Type="Graphics:BasicMaterialContent">
       <Name>7f50457c.dds</Name>
       <Identity>
-        <SourceFilename>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D GameContent\Models\stage.FBX</SourceFilename>
+        <SourceFilename>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D GameContent\Models\stage.FBX</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -3543,7 +3543,7 @@ MinZ: 0.000000, MaxZ: 1.000000
     </Resource>
   </Resources>
   <ExternalReferences>
-    <ExternalReference ID="#External1" TargetType="Graphics:TextureContent">..\FBX\596825B5\stage.fbm\cf9b3053.dds</ExternalReference>
-    <ExternalReference ID="#External2" TargetType="Graphics:TextureContent">..\FBX\596825B5\stage.fbm\7f50457c.dds</ExternalReference>
+    <ExternalReference ID="#External1" TargetType="Graphics:TextureContent">..\FBX\5B7A2844\stage.fbm\cf9b3053.dds</ExternalReference>
+    <ExternalReference ID="#External2" TargetType="Graphics:TextureContent">..\FBX\5B7A2844\stage.fbm\7f50457c.dds</ExternalReference>
   </ExternalReferences>
 </XnaContent>

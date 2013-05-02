@@ -14,26 +14,26 @@ namespace _3D_Game
     public class SoundManager
     {
         public SoundEffect playerShootSound;
-        public SoundEffect explodeSound;
+        public SoundEffect jumpSound;
         public Song menuMusic;
-        public Song bgMusic;
+        public Song battleMusic;
 
         // Constructor
         public SoundManager()
         {
             playerShootSound = null;
-            explodeSound = null;
+            jumpSound = null;
             menuMusic = null; 
-            bgMusic = null;
+            battleMusic = null;
         }
 
         // Load Content
         public void LoadContent(ContentManager Content)
         {
             //playerShootSound = Content.Load<SoundEffect>("playershoot");
-            //explodeSound = Content.Load<SoundEffect>("explode");
+            jumpSound = Content.Load<SoundEffect>(@"audio\jump");
             menuMusic = Content.Load<Song>(@"audio\menumusic");
-            //bgMusic = Content.Load<Song>("theme");
+            battleMusic = Content.Load<Song>(@"audio\battlemusic");
             
         }
     }
