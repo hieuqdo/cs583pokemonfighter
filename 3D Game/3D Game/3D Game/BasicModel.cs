@@ -44,6 +44,21 @@ namespace _3D_Game
             return world;
         }
 
-        public bool Collides
+        public bool CollidesWith(Model otherModel, Matrix otherWorld)
+        {
+            //Loop through each ModelMesh in both objects and compare
+            //all bounding spheres for collisions
+            foreach (ModelMesh myModelMeshes in model.Meshes)
+            {
+                foreach (ModelMesh hisModelMeshes in otherModel.Meshes)
+                {
+                    if (myModelMeshes.BoundingSphere.Transform(
+                        GetWorld()).Intersects(
+                        hisModelMeshes.BoundingSphere.Transform(otherWorld)))
+                        return true;
+                }
+            }
+            return false;
+        }
     }
 }

@@ -38,6 +38,11 @@ namespace _3D_Game
         //List of LevelInfo objects
         List<LevelInfo> levelInfoList = new List<LevelInfo>();
 
+        const int pointsPerKill = 20;
+
+        public int consecutiveKills = 0;
+        int rapidFireKillRequirement = 3;
+
         public ModelManager(Game game)
             : base(game)
         {
@@ -170,6 +175,19 @@ namespace _3D_Game
                     SpawnEnemy();
                 }
             }
+            else
+            {
+                if (/*explosions.Count == 0 &&*/ models.Count == 0)
+                {
+                    // ALL EXPLOSIONS AND SHIPS ARE REMOVED AND THE LEVEL IS OVER
+                    ++currentLevel;
+                    enemiesThisLevel = 0;
+                    missedThisLevel = 0;
+                    ((Game1)Game).ChangeGameState(
+                        Game1.GameState.LEVEL_CHANGE,
+                        currentLevel);
+                }
+            }
         }
 
         protected void UpdateModels()
@@ -184,6 +202,17 @@ namespace _3D_Game
                 if (models[i].GetWorld().Translation.Z >
                     ((Game1)Game).camera.cameraPosition.Z + 100)
                 {
+                    //If player has missed more than allowed, game over
+                    ++missedThisLevel;
+                    if (missedThisLevel >
+                        levelInfoList[currentLevel].missesAllowed)
+                    {
+                        ((Game1)Game).ChangeGameState(
+                            Game1.GameState.END, currentLevel);
+                    }
+
+                    //Reset the kill count
+                    //consecutiveKills = 0;
                     models.RemoveAt(i);
                     --i;
                 }
@@ -211,7 +240,46 @@ namespace _3D_Game
                     shots.RemoveAt(i);
                     --i;
                 }
+                else
+                {
+                    //If shot is still in play, check for collisions
+                    for (int j = 0; j < models.Count; ++j)
+                    {
+                        if (shots[i].CollidesWith(models[j].model,
+                            models[j].GetWorld()))
+                        {
+                            //Collision! remove the ship and shot.
+                            //Update consecutive kill count
+                            //and start power-up if requirement met
+                            ++consecutiveKills;
+                            if (consecutiveKills == rapidFireKillRequirement)
+                            {
+                                ((Game1)Game).StartPowerUp(Game1.PowerUps.RAPID_FIRE);
+                            }
+                            ((Game1)Game).AddPoints(pointsPerKill * (currentLevel + 1));
+                            models.RemoveAt(j);
+                            shots.RemoveAt(i);
+                            --i;
+                            break;
+                        }
+                    }
+                }
             }
+        }
+
+        public int missesLeft
+        {
+            get
+            {
+                return
+                    levelInfoList[currentLevel].missesAllowed
+                    - missedThisLevel;
+            }
+        }
+
+        public int getModelsCount()
+        {
+            return models.Count;
         }
     }
 }

@@ -28,10 +28,10 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\ammo.xnb</Output>
-      <Time>2013-04-25T22:02:25.3232657-07:00</Time>
+      <Time>2013-04-25T22:45:33.2051703-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\ammo_0.xml</Key>
-        <Value>2013-04-25T22:10:22.5969202-07:00</Value>
+        <Value>2013-04-25T22:56:55.922937-07:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -39,7 +39,52 @@
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\ammo_0.xml</Output>
-      <Time>2013-04-25T22:02:25.3232657-07:00</Time>
+      <Time>2013-04-25T22:45:33.2051703-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Crosshair.png</Source>
+      <Name>Textures\Crosshair</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\Crosshair.xnb</Output>
+      <Time>2013-04-25T23:00:06.6461791-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\SplashScreenFont.spritefont</Source>
+      <Name>Fonts\SplashScreenFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Fonts\SplashScreenFont.xnb</Output>
+      <Time>2013-05-01T14:19:59.9466812-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\SplashScreenFontLarge.spritefont</Source>
+      <Name>Fonts\SplashScreenFontLarge</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Fonts\SplashScreenFontLarge.xnb</Output>
+      <Time>2013-05-01T14:20:18.8220822-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\ScoreFont.spritefont</Source>
+      <Name>Fonts\ScoreFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Fonts\ScoreFont.xnb</Output>
+      <Time>2013-05-01T15:02:08.7110719-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\PowerupFont.spritefont</Source>
+      <Name>Fonts\PowerupFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Fonts\PowerupFont.xnb</Output>
+      <Time>2013-05-01T16:10:59.3912803-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

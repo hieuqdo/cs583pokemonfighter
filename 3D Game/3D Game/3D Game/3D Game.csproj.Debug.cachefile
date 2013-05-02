@@ -1,2 +1,7 @@
 Content\Models\spaceship.xnb
 Content\Models\ammo.xnb
+Content\Textures\Crosshair.xnb
+Content\Fonts\SplashScreenFont.xnb
+Content\Fonts\SplashScreenFontLarge.xnb
+Content\Fonts\ScoreFont.xnb
+Content\Fonts\PowerupFont.xnb
