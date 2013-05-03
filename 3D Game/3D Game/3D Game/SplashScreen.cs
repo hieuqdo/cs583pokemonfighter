@@ -21,8 +21,7 @@ namespace _3D_Game
         string secondaryTextToDraw = "How to Play";
         SpriteFont font;
         SpriteFont menuFont;
-        SpriteBatch spriteBatch;
-        //Game1.GameState currentGameState;
+        SpriteBatch spriteBatch;        
 
         public enum MenuOption { START, INSTRUCTIONS, NULL }
         public MenuOption currentOption = MenuOption.START;
@@ -30,6 +29,8 @@ namespace _3D_Game
 
         Texture2D titleScreen;
         Texture2D instructions;
+
+        SoundManager soundManager;
 
         public SplashScreen(Game game)
             : base(game)
@@ -86,10 +87,13 @@ namespace _3D_Game
                 if (((Game1)Game).currentGameState == Game1.GameState.INSTRUCTIONS)                
                     ((Game1)Game).ChangeGameState(Game1.GameState.MENU);                
             }
-            
-            
+
+
 
             if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+            {
+                soundManager.selectSound.Play();
+
                 switch (currentOption)
                 {
                     case MenuOption.START:
@@ -101,13 +105,13 @@ namespace _3D_Game
                         ((Game1)Game).ChangeGameState(Game1.GameState.INSTRUCTIONS);
                         currentOption = MenuOption.NULL;
                         break;
-         
+
                     /*case MenuOption.NULL:
                         if (((Game1)Game).currentGameState == Game1.GameState.INSTRUCTIONS)
                             ((Game1)Game).ChangeGameState(Game1.GameState.MENU);
                         break;*/
-                }                        
-                               
+                }
+            }                               
 
             base.Update(gameTime);
         }
@@ -179,5 +183,10 @@ namespace _3D_Game
 
             base.Draw(gameTime);
         }
-    }
+
+        public void setSoundManager(SoundManager s)
+        {
+            soundManager = s;
+        }
+    }    
 }

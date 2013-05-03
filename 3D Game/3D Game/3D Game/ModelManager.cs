@@ -20,6 +20,9 @@ namespace _3D_Game
         List<BasicModel> models = new List<BasicModel>();
         BasicModel p1, p2, stage;
 
+        SoundManager soundManager;
+        public enum sound { JUMP, DOUBLEJUMP, ATTACK, SHIELD, ROLL } 
+
         public ModelManager(Game game)
             : base(game)
         {
@@ -47,6 +50,11 @@ namespace _3D_Game
             stage = new Stage1(
                 Game.Content.Load<Model>(@"models\stage"));
             models.Add(stage);
+
+            //Assign all the models this Model Manager
+            foreach (BasicModel m in models)
+                m.setModelManager(this);
+
 
             base.LoadContent();
         }
@@ -114,6 +122,37 @@ namespace _3D_Game
         {
             models.Clear();
             LoadContent();
+        }
+
+        public void setSoundManager(SoundManager m)
+        {
+            soundManager = m;
+        }
+
+        public void playSound(sound s)
+        {
+            switch (s)
+            {
+                case sound.JUMP:
+                    soundManager.jumpSound.Play();
+                    break;
+
+                case sound.DOUBLEJUMP:
+                    soundManager.doubleJumpSound.Play();
+                    break;
+
+                case sound.ATTACK:
+                    soundManager.doubleJumpSound.Play();
+                    break;
+
+                case sound.SHIELD:
+                    soundManager.doubleJumpSound.Play();
+                    break;
+
+                case sound.ROLL:
+                    soundManager.doubleJumpSound.Play();
+                    break;
+            }
         }
 
     }

@@ -215,6 +215,7 @@ namespace _3D_Game
                 jumpMomentum = JUMP_MOMENTUM;
                 jumping = true;
                 jumpCooldown = JUMP_COOLDOWN;
+                myModelManager.playSound(ModelManager.sound.JUMP);
             }
         }
 
@@ -224,6 +225,7 @@ namespace _3D_Game
             {
                 jumpMomentum = DOUBLEJUMP_MOMENTUM;
                 doubleJumped = true;
+                myModelManager.playSound(ModelManager.sound.DOUBLEJUMP);
             }
         }
 

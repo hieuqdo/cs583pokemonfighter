@@ -58,6 +58,7 @@ namespace _3D_Game
             Components.Add(modelManager);
             camera.addModelManager(modelManager);
             soundManager = new SoundManager();
+            modelManager.setSoundManager(soundManager);
 
             debug = new Developer_Debug_Menu(this);
 
@@ -69,7 +70,7 @@ namespace _3D_Game
             //Splash screen component
             splashScreen = new SplashScreen(this);
             Components.Add(splashScreen);
-            
+            splashScreen.setSoundManager(soundManager);
 
             base.Initialize();
         }
@@ -88,6 +89,7 @@ namespace _3D_Game
 
             soundManager.LoadContent(Content);
             MediaPlayer.Play(soundManager.menuMusic);
+            MediaPlayer.IsRepeating = true;
         }
 
         /// <summary>

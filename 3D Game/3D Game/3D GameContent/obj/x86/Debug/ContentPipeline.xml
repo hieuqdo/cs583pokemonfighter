@@ -264,6 +264,33 @@
       <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\jump.xnb</Output>
       <Time>2013-05-02T00:05:59.1724573-07:00</Time>
     </Item>
+    <Item>
+      <Source>Audio\doublejump.wav</Source>
+      <Name>Audio\doublejump</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\doublejump.xnb</Output>
+      <Time>2013-05-02T16:37:58.5031884-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\select.wav</Source>
+      <Name>Audio\select</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\select.xnb</Output>
+      <Time>2013-05-02T19:02:05.3231977-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\ballopen.wav</Source>
+      <Name>Audio\ballopen</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\ballopen.xnb</Output>
+      <Time>2013-05-02T19:03:47.0111232-07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

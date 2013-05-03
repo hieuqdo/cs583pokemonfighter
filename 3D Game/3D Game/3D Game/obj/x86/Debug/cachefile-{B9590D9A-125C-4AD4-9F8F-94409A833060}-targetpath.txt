@@ -20,3 +20,6 @@ Content\Fonts\menuFont.xnb
 Content\Audio\battlemusic.xnb
 Content\Audio\battlemusic.wma
 Content\Audio\jump.xnb
+Content\Audio\doublejump.xnb
+Content\Audio\select.xnb
+Content\Audio\ballopen.xnb

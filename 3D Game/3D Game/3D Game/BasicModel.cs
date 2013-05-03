@@ -16,6 +16,8 @@ namespace _3D_Game
 
         public float scale { get; set; }
 
+        public ModelManager myModelManager;
+
         public BasicModel(Model m)
         {
             model = m;
@@ -70,6 +72,11 @@ namespace _3D_Game
                 }
             }
             return false;
+        }
+
+        public void setModelManager(ModelManager m)
+        {
+            myModelManager = m;
         }
     }
 }
