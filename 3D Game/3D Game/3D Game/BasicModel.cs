@@ -11,10 +11,17 @@ namespace _3D_Game
     {
         public Model model { get; protected set; }
         protected Matrix world = Matrix.Identity;
+        protected Color tint = Color.White;
+        //public Vector3 position;
+
+        public float scale { get; set; }
+
+        public ModelManager myModelManager;
 
         public BasicModel(Model m)
         {
             model = m;
+            scale = 1;
         }
 
         public virtual void Update()
@@ -30,24 +37,30 @@ namespace _3D_Game
             {
                 foreach (BasicEffect be in mesh.Effects)
                 {
+                    be.EmissiveColor = tint.ToVector3();
                     be.EnableDefaultLighting();
                     be.Projection = camera.projection;
                     be.View = camera.view;
                     be.World = GetWorld() * mesh.ParentBone.Transform;
                 }
-                mesh.Draw();
+                mesh.Draw();    
             }
         }
 
         public virtual Matrix GetWorld()
         {
-            return world;
+            return Matrix.CreateScale(scale) * world;
+        }
+
+        public Vector3 getPosition()
+        {
+            return GetWorld().Translation;
         }
 
         public bool CollidesWith(Model otherModel, Matrix otherWorld)
         {
             //Loop through each ModelMesh in both objects and compare
-            //all bounding spheres for collisions
+            //all bounding psheres for collisions
             foreach (ModelMesh myModelMeshes in model.Meshes)
             {
                 foreach (ModelMesh hisModelMeshes in otherModel.Meshes)
@@ -59,6 +72,11 @@ namespace _3D_Game
                 }
             }
             return false;
+        }
+
+        public void setModelManager(ModelManager m)
+        {
+            myModelManager = m;
         }
     }
 }

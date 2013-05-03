@@ -25,15 +25,14 @@ namespace _3D_Game
         public Matrix view { get; protected set; }
         public Matrix projection { get; protected set; }
 
-        //float speed = 3;
+        float farLeft;
+        float farRight;
 
-        MouseState prevMouseState;
+        ModelManager modelMan;
+        Vector3 posP1;
+        Vector3 posP2;
 
-        //Max yaw/pitch variables
-        float totalYaw = MathHelper.PiOver4 / 2;
-        float currentYaw = 0;
-        float totalPitch = MathHelper.PiOver4 / 2;
-        float currentPitch = 0;
+        float minDist = 60;
 
         public Camera(Game game, Vector3 pos, Vector3 target, Vector3 up)
             : base(game)
@@ -60,11 +59,7 @@ namespace _3D_Game
         public override void Initialize()
         {
             // TODO: Add your initialization code here
-            //Set mouse position and do initial get state
-            Mouse.SetPosition(Game.Window.ClientBounds.Width / 2,
-                Game.Window.ClientBounds.Height / 2);
-            prevMouseState = Mouse.GetState();
-
+            
             base.Initialize();
         }
 
@@ -75,68 +70,23 @@ namespace _3D_Game
         public override void Update(GameTime gameTime)
         {
             // TODO: Add your update code here
-            /*
-            //Move forward/backward
-            if (Keyboard.GetState().IsKeyDown(Keys.W))
-                cameraPosition += cameraDirection * speed;
-            if (Keyboard.GetState().IsKeyDown(Keys.S))
-                cameraPosition -= cameraDirection * speed;
-            //Move side to side
-            if (Keyboard.GetState().IsKeyDown(Keys.A))
-                cameraPosition += Vector3.Cross(cameraUp, cameraDirection) * speed;
-            if (Keyboard.GetState().IsKeyDown(Keys.D))
-                cameraPosition -= Vector3.Cross(cameraUp, cameraDirection) * speed;
-             * */
 
-            //Yaw rotation
-            float yawAngle = (-MathHelper.PiOver4 / 150) *
-                (Mouse.GetState().X - prevMouseState.X);
+            //Register farLeft, farRight
+            posP1 = modelMan.getPosition1();
+            posP2 = modelMan.getPosition2();
+            if (posP1.X < posP2.X)
+                farLeft = posP1.X;
+            else  farLeft = posP2.X;
+            if (posP1.X > posP2.X)
+                farRight = posP1.X;
+            else  farRight = posP2.X;
 
-            if (Math.Abs(currentYaw + yawAngle) < totalYaw)
-            {
-                cameraDirection = Vector3.Transform(cameraDirection,
-                    Matrix.CreateFromAxisAngle(cameraUp, yawAngle));
-                currentYaw += yawAngle;
-            }
 
-            /*
-            //Roll rotation
-            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
-            {
-                cameraUp = Vector3.Transform(cameraUp,
-                    Matrix.CreateFromAxisAngle(cameraDirection,
-                    MathHelper.PiOver4 / 45));
-            }
-            if (Mouse.GetState().RightButton == ButtonState.Pressed)
-            {
-                cameraUp = Vector3.Transform(cameraUp,
-                    Matrix.CreateFromAxisAngle(cameraDirection,
-                    -MathHelper.PiOver4 / 45));
-            }
-            */
-
-            //Pitch rotation
-            float pitchAngle = (MathHelper.PiOver4 / 150) *
-                (Mouse.GetState().Y - prevMouseState.Y);
-
-            if (Math.Abs(currentPitch + pitchAngle) < totalPitch)
-            {
-                cameraDirection = Vector3.Transform(cameraDirection,
-                    Matrix.CreateFromAxisAngle(
-                        Vector3.Cross(cameraUp, cameraDirection),
-                    pitchAngle));
-
-                currentPitch += pitchAngle;
-            }
-
-            /*cameraUp = Vector3.Transform(cameraUp,
-                Matrix.CreateFromAxisAngle(Vector3.Cross(cameraUp, cameraDirection),
-                (MathHelper.PiOver4 / 100) *
-                (Mouse.GetState().Y - prevMouseState.Y)));
-            */
-
-            //Reset prevMouseState
-            prevMouseState = Mouse.GetState();
+            //Adjust camera position
+            if (Math.Abs(posP1.X - posP2.X) / .5f > minDist) 
+                cameraPosition = new Vector3((posP1.X + posP2.X)/2, (posP1.Y + posP2.Y)/2, Math.Abs(posP1.X - posP2.X) / .5f);
+            else cameraPosition = new Vector3((posP1.X + posP2.X) / 2, (posP1.Y + posP2.Y) / 2, minDist);
+            //Console.Out.WriteLine("Camera Zoom (Z) = " + Math.Abs(posP1.X - posP2.X) / .5f);
 
             //Recreate the camera view matrix
             CreateLookAt();
@@ -150,9 +100,9 @@ namespace _3D_Game
                 cameraPosition + cameraDirection, cameraUp);
         }
 
-        public Vector3 GetCameraDirection
+        public void addModelManager(ModelManager mm)
         {
-            get { return cameraDirection; }
+            modelMan = mm;
         }
     }
 }

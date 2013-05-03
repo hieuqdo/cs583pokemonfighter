@@ -20,45 +20,28 @@ namespace _3D_Game
         SpriteBatch spriteBatch;
 
         public Camera camera { get; protected set; }
-        ModelManager modelManager;
+        public ModelManager modelManager;
+        public SoundManager soundManager;
+        public Developer_Debug_Menu debug;
 
-        public Random rnd { get; protected set; }
+        public int writeFrequency = 0;
+        private KeyboardState newState, oldState;
 
-        float shotSpeed = 10;
-        int shotDelay = 300;
-        int shotCountdown = 0;
+        string sampleText;
+        SpriteFont sampleFont;
 
-        Texture2D crosshairTexture;
+        public enum GameState { MENU, PLAYING, INSTRUCTIONS, GAMEOVER }
+        public GameState currentGameState = GameState.MENU;
 
-        public enum GameState { START, PLAY, LEVEL_CHANGE, END }
-        GameState currentGameState = GameState.START;
-
-        SplashScreen splashScreen;
-        int score = 0;
-
-        SpriteFont scoreFont;
-
-        int originalShotDelay = 300;
-        public enum PowerUps { RAPID_FIRE }
-        int shotDelayRapidFire = 100;
-        int rapidFireTime = 10000;
-        int powerUpCountdown = 0;
-        string powerUpText = "";
-        int powerUpTextTimer = 0;
-        SpriteFont powerUpFont;
+        public SplashScreen splashScreen;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
-
-            rnd = new Random();
-
+            graphics.PreferredBackBufferHeight = 600;
             graphics.PreferredBackBufferWidth = 800;
-                graphics.PreferredBackBufferHeight = 600;
-            #if !DEBUG
-                graphics.IsFullScreen = true;
-            #endif
+            graphics.ApplyChanges();
+            Content.RootDirectory = "Content";
         }
 
         /// <summary>
@@ -76,15 +59,21 @@ namespace _3D_Game
 
             modelManager = new ModelManager(this);
             Components.Add(modelManager);
+            camera.addModelManager(modelManager);
+            soundManager = new SoundManager();
+            modelManager.setSoundManager(soundManager);
+
+            debug = new Developer_Debug_Menu(this);
+
+            oldState = Keyboard.GetState();
+
             modelManager.Enabled = false;
             modelManager.Visible = false;
 
             //Splash screen component
             splashScreen = new SplashScreen(this);
             Components.Add(splashScreen);
-            splashScreen.SetData("Welcome to Space Defender!", 
-                currentGameState);
-
+            splashScreen.setSoundManager(soundManager);
 
             base.Initialize();
         }
@@ -99,9 +88,11 @@ namespace _3D_Game
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            crosshairTexture = Content.Load<Texture2D>(@"textures\crosshair");
-            scoreFont = Content.Load<SpriteFont>(@"Fonts\ScoreFont");
-            powerUpFont = Content.Load<SpriteFont>(@"fonts\PowerupFont");
+            sampleFont = Content.Load<SpriteFont>(@"Fonts\georgia");       
+
+            soundManager.LoadContent(Content);
+            MediaPlayer.Play(soundManager.menuMusic);
+            MediaPlayer.IsRepeating = true;
         }
 
         /// <summary>
@@ -125,15 +116,22 @@ namespace _3D_Game
                 this.Exit();
 
             // TODO: Add your update logic here
-            //Only check for shots if you're in the play game state
-            if (currentGameState == GameState.PLAY)
-            {
-                //See if the player has fired a shot
-                FireShots(gameTime);
-            }
+            newState = Keyboard.GetState();
+            if (newState.IsKeyDown(Keys.OemTilde) && oldState.IsKeyUp(Keys.OemTilde) && currentGameState == Game1.GameState.PLAYING)
+                toggleDebug();
 
-            //Update power-up timer
-            UpdatePowerUp(gameTime);
+            if (Keyboard.GetState().IsKeyDown(Keys.Z) &&
+                Keyboard.GetState().IsKeyDown(Keys.X) &&
+                Keyboard.GetState().IsKeyDown(Keys.C) &&
+                Keyboard.GetState().IsKeyDown(Keys.V))
+                if (currentGameState == Game1.GameState.PLAYING)
+                {
+                    ChangeGameState(Game1.GameState.MENU);
+                    MediaPlayer.Play(soundManager.menuMusic);
+                    MediaPlayer.IsRepeating = true;
+                }
+
+            oldState = newState;
 
             base.Update(gameTime);
         }
@@ -144,169 +142,68 @@ namespace _3D_Game
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
+            GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            //Draw sample text
+            spriteBatch.Begin();
+
+            sampleText = "Hello World";
+            //spriteBatch.DrawString(sampleFont, sampleText,
+            //    new Vector2(10, 10), Color.Black);
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
-
-
-            //Only draw crosshair if in play game state
-            if (currentGameState == GameState.PLAY)
-            {
-                spriteBatch.Begin();
-
-                spriteBatch.Draw(crosshairTexture,
-                    new Vector2((Window.ClientBounds.Width / 2)
-                        - (crosshairTexture.Width / 2),
-                        (Window.ClientBounds.Height / 2)
-                        - (crosshairTexture.Height / 2)),
-                        Color.White);
-
-                //Draw the current score
-                string scoreText = "Score: " + score;
-                spriteBatch.DrawString(scoreFont, scoreText,
-                    new Vector2(10, 10), Color.Red);
-
-                //Let the player know how many misses he has left
-                spriteBatch.DrawString(scoreFont, "Misses Left: " +
-                    modelManager.missesLeft,
-                    new Vector2(10, scoreFont.MeasureString(scoreText).Y + 20),
-                    Color.Red);
-
-                //Let the player know how many models are left
-                spriteBatch.DrawString(scoreFont, "Enemies Left: " +
-                    modelManager.getModelsCount(),
-                    new Vector2(10, scoreFont.MeasureString(scoreText).Y + 40),
-                    Color.Red);
-
-                //Display consecutive kills
-                spriteBatch.DrawString(scoreFont, "Consecutive kills: " +
-                    modelManager.consecutiveKills,
-                    new Vector2(10, scoreFont.MeasureString(scoreText).Y + 60),
-                    Color.Red);
-
-
-                //If power-up text timer is live, draw power-up text
-                if (powerUpTextTimer > 0)
-                {
-                    powerUpTextTimer -= gameTime.ElapsedGameTime.Milliseconds;
-                    Vector2 textSize = powerUpFont.MeasureString(powerUpText);
-                    spriteBatch.DrawString(powerUpFont,
-                        powerUpText,
-                        new Vector2((Window.ClientBounds.Width / 2) -
-                            (textSize.X / 2),
-                            (Window.ClientBounds.Height / 2) -
-                            (textSize.Y / 2)),
-                            Color.Goldenrod);
-                }
-
-                spriteBatch.End();
-            }
+        }
+        protected void writeToGame(GameTime gameTime)
+        {
+            //Console.Out.WriteLine("test writeline");
         }
 
-        protected void FireShots(GameTime gameTime)
+        private void toggleDebug()
         {
-            if (shotCountdown <= 0)
-            {
-                //Did player press space bar or left mouse button?
-                if (Keyboard.GetState().IsKeyDown(Keys.Space) ||
-                    Mouse.GetState().LeftButton == ButtonState.Pressed)
-                {
-                    //Add a shot to the model manager
-                    modelManager.AddShot(
-                        camera.cameraPosition + new Vector3(0, -5, 0),
-                        camera.GetCameraDirection * shotSpeed);
-
-                    //Reset the shot countdown
-                    shotCountdown = shotDelay;
-                }
-            }
-            else
-                shotCountdown -= gameTime.ElapsedGameTime.Milliseconds;
+            if (Components.Contains(debug))
+                Components.Remove(debug);
+            else Components.Add(debug);
         }
 
-        public void ChangeGameState(GameState state, int level)
+        public void ChangeGameState(GameState state)
         {
-            currentGameState = state;
-            CancelPowerUps();
+            currentGameState = state;         
 
             switch (currentGameState)
             {
-                case GameState.LEVEL_CHANGE:
-                    splashScreen.SetData("Level " + (level + 1),
-                        GameState.LEVEL_CHANGE);
-                    modelManager.Enabled = false;
-                    modelManager.Visible = false;
-                    splashScreen.Enabled = true;
-                    splashScreen.Visible = true;
-
-                    //Stop the soundtrack loop
-                    //trackCue.Stop(AudioStopOptions.Immediate);
-                    break;
-
-                case GameState.PLAY:
+                case GameState.PLAYING:
+                    modelManager.reset();
                     modelManager.Enabled = true;
                     modelManager.Visible = true;
                     splashScreen.Enabled = false;
                     splashScreen.Visible = false;
 
-                    //if (trackCue.IsPlaying)
-                    //trackCue.Stop(AudioStopOptions.Immediate);
-
-                    //To play a stopped cue, get the cue from the soundbank again
-                    //trackCue = soundBank.GetCue("Tracks");
-                    //trackCue.Play();
+                    MediaPlayer.Play(soundManager.battleMusic);
+                    MediaPlayer.IsRepeating = true;
                     break;
 
-                case GameState.END:
-                    splashScreen.SetData("Game Over.\nLevel: " + (level + 1) +
-                        "\nScore: " + score, GameState.END);
+                case GameState.MENU:
                     modelManager.Enabled = false;
                     modelManager.Visible = false;
                     splashScreen.Enabled = true;
                     splashScreen.Visible = true;
-
-                    //Stop the soundtrack loop
-                    //trackCue.Stop(AudioStopOptions.Immediate);
+                    splashScreen.currentOption = SplashScreen.MenuOption.START;
+                 
                     break;
-            }
-        }
 
-        public void AddPoints(int points)
-        {
-            score += points;
-        }
-
-        private void CancelPowerUps()
-        {
-            shotDelay = originalShotDelay;
-            modelManager.consecutiveKills = 0;
-        }
-
-        protected void UpdatePowerUp(GameTime gameTime)
-        {
-            if (powerUpCountdown > 0)
-                powerUpCountdown -= gameTime.ElapsedGameTime.Milliseconds;
-            if (powerUpCountdown <= 0)
-            {
-                CancelPowerUps();
-                powerUpCountdown = 0;
-            }
-        }
-
-        public void StartPowerUp(PowerUps powerUp)
-        {
-            switch (powerUp)
-            {
-                case PowerUps.RAPID_FIRE:
-                    shotDelay = shotDelayRapidFire;
-                    powerUpCountdown = rapidFireTime;
-                    powerUpText = "Rapid Fire Mode!";
-                    powerUpTextTimer = 1000;
-                    //soundBank.PlayCue("RapidFire");
+                case GameState.INSTRUCTIONS:
+                    modelManager.Enabled = false;
+                    modelManager.Visible = false;
+                    splashScreen.Enabled = true;
+                    splashScreen.Visible = true;
+                    
                     break;
-            }
+
+
+            }        
         }
     }
 }
