@@ -84,26 +84,29 @@ namespace _3D_Game
             }
             else if (Keyboard.GetState().IsKeyDown(Keys.Back))
             {
-                if (((Game1)Game).currentGameState == Game1.GameState.INSTRUCTIONS)                
-                    ((Game1)Game).ChangeGameState(Game1.GameState.MENU);                
+                if (((Game1)Game).currentGameState == Game1.GameState.INSTRUCTIONS)
+                {
+                    ((Game1)Game).ChangeGameState(Game1.GameState.MENU);
+                    soundManager.backSelectSound.Play();
+                }
             }
 
 
 
             if (Keyboard.GetState().IsKeyDown(Keys.Enter))
-            {
-                soundManager.selectSound.Play();
-
+            {                
                 switch (currentOption)
                 {
                     case MenuOption.START:
                         ((Game1)Game).ChangeGameState(Game1.GameState.PLAYING);
                         currentOption = MenuOption.NULL;
+                        soundManager.selectSound.Play();
                         break;
 
                     case MenuOption.INSTRUCTIONS:
                         ((Game1)Game).ChangeGameState(Game1.GameState.INSTRUCTIONS);
                         currentOption = MenuOption.NULL;
+                        soundManager.selectSound.Play();
                         break;
 
                     /*case MenuOption.NULL:

@@ -68,6 +68,8 @@ namespace _3D_Game
         protected Keys shieldKey;
         protected Keys attackKey;
 
+        public int currPercentage;
+        public int maxPercentage = 999;
 
         public Player1(Model m)
             : base(m)
@@ -80,6 +82,8 @@ namespace _3D_Game
             attackKey = Keys.OemQuestion;
             tint = DEFAULT_TINT;
             oldState = Keyboard.GetState();
+            
+            currPercentage = 0;
         }
 
         public override void Update()
@@ -284,6 +288,15 @@ namespace _3D_Game
         public float getSpeed()
         {
             return speed;
+        }
+
+        public void reset()
+        {
+            currPercentage = 0;
+            myModelManager.playSound(ModelManager.sound.DEATHCRY);
+            myModelManager.playSound(ModelManager.sound.DEATHBLAST);
+
+            Xtranslation = Matrix.Identity;
         }
     }
 }

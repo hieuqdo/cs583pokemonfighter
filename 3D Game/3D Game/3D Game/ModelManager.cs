@@ -22,7 +22,12 @@ namespace _3D_Game
         InteractionMediator mediator;
 
         SoundManager soundManager;
-        public enum sound { JUMP, DOUBLEJUMP, ATTACK, SHIELD, ROLL } 
+
+        SpriteBatch spriteBatch;
+        SpriteFont percentFont;
+
+        public enum sound { JUMP, DOUBLEJUMP, ATTACK, SHIELD, ROLL,
+                            DEATHCRY, DEATHBLAST } 
 
         public ModelManager(Game game)
             : base(game)
@@ -59,6 +64,8 @@ namespace _3D_Game
             foreach (BasicModel m in models)
                 m.setModelManager(this);
 
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+            percentFont = Game.Content.Load<SpriteFont>(@"fonts\menuFont");
 
             base.LoadContent();
         }
@@ -76,6 +83,18 @@ namespace _3D_Game
                 models[i].Update();
             }
 
+            if (getPosition1().Y > ((Stage1)stage).deathPlane_TOP ||
+                getPosition1().Y < ((Stage1)stage).deathPlane_BOT ||
+                getPosition1().X > ((Stage1)stage).deathPlane_LEFT ||
+                getPosition1().X < ((Stage1)stage).deathPlane_RIGHT)
+                ((Player1)p1).reset();
+
+            if (getPosition2().Y > ((Stage1)stage).deathPlane_TOP ||
+                getPosition2().Y < ((Stage1)stage).deathPlane_BOT ||
+                getPosition2().X > ((Stage1)stage).deathPlane_LEFT ||
+                getPosition2().X < ((Stage1)stage).deathPlane_RIGHT)
+                ((Player1)p2).reset();
+
             base.Update(gameTime);
         }
 
@@ -86,6 +105,9 @@ namespace _3D_Game
             {
                 bm.Draw(((Game1)Game).camera);
             }
+
+            drawPercentage(((Player1)p1).currPercentage, 1);
+            drawPercentage(((Player1)p2).currPercentage, 2);
 
             base.Draw(gameTime);
         }
@@ -156,7 +178,31 @@ namespace _3D_Game
                 case sound.ROLL:
                     soundManager.doubleJumpSound.Play();
                     break;
+
+                case sound.DEATHCRY:
+                    soundManager.deathCrySound.Play();
+                    break;
+
+                case sound.DEATHBLAST:
+                    soundManager.deathExplosionSound.Play();
+                    break;
+
             }
+        }
+
+        public void drawPercentage(int percent, int offset)
+        {
+            string temp = "" + percent + "%";
+
+            spriteBatch.Begin();
+
+            spriteBatch.DrawString(percentFont, temp,
+                    new Vector2(
+                        Game.Window.ClientBounds.Width / 7 * (offset * 2),                       
+                        Game.Window.ClientBounds.Height / 5 * 4),
+                        Color.White);
+
+            spriteBatch.End();
         }
 
     }

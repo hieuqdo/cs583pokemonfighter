@@ -132,3 +132,8 @@ D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\
 D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\battlemusic.wma
 D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\SplashInstructions.xnb
 D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\SplashScreen3rd.xnb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\SplashInstructions.xnb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\SplashScreen3rd.xnb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\death.xnb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\menuback.xnb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\homerun.xnb

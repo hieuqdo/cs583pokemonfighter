@@ -27,8 +27,6 @@ namespace _3D_Game
         public int writeFrequency = 0;
         private KeyboardState newState, oldState;
 
-        string sampleText;
-        SpriteFont sampleFont;
 
         public enum GameState { MENU, PLAYING, INSTRUCTIONS, GAMEOVER }
         public GameState currentGameState = GameState.MENU;
@@ -88,8 +86,7 @@ namespace _3D_Game
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            sampleFont = Content.Load<SpriteFont>(@"Fonts\georgia");       
-
+    
             soundManager.LoadContent(Content);
             MediaPlayer.Play(soundManager.menuMusic);
             MediaPlayer.IsRepeating = true;
@@ -145,14 +142,6 @@ namespace _3D_Game
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            //Draw sample text
-            spriteBatch.Begin();
-
-            sampleText = "Hello World";
-            //spriteBatch.DrawString(sampleFont, sampleText,
-            //    new Vector2(10, 10), Color.Black);
-
-            spriteBatch.End();
 
             base.Draw(gameTime);
         }
