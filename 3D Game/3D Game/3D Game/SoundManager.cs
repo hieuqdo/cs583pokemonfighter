@@ -19,6 +19,9 @@ namespace _3D_Game
         public SoundEffect shieldSound;
         public SoundEffect rollSound;
         public SoundEffect selectSound;
+        public SoundEffect backSelectSound;
+        public SoundEffect deathCrySound;
+        public SoundEffect deathExplosionSound;
         public Song menuMusic;
         public Song battleMusic;
 
@@ -41,6 +44,9 @@ namespace _3D_Game
             //shieldSound = Content.Load<SoundEffect>(@"audio\shield");
             //rollSound = Content.Load<SoundEffect>(@"audio\roll");
             selectSound = Content.Load <SoundEffect>(@"audio\select");
+            backSelectSound = Content.Load<SoundEffect>(@"audio\menuback");
+            deathCrySound = Content.Load<SoundEffect>(@"audio\death");
+            deathExplosionSound = Content.Load<SoundEffect>(@"audio\homerun");
             menuMusic = Content.Load<Song>(@"audio\menumusic");
             battleMusic = Content.Load<Song>(@"audio\battlemusic");
             

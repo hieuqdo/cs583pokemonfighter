@@ -10,6 +10,7 @@ namespace _3D_Game
 {
     class Player2 : Player1
     {
+        
         public Player2(Model m)
             : base(m)
         {
@@ -18,7 +19,9 @@ namespace _3D_Game
             leftKey = Keys.A;
             rightKey = Keys.D;
             shieldKey = Keys.LeftShift;
-            tint = Color.Aquamarine;
+            attackKey = Keys.Q;
+            DEFAULT_TINT = Color.DarkBlue;
+            tint = DEFAULT_TINT;
         }
 
     }

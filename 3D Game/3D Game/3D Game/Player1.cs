@@ -32,6 +32,9 @@ namespace _3D_Game
         const float GRAVITY = 0.1f;
         const float JUMP_COOLDOWN = .1f;
 
+        protected Color DEFAULT_TINT = Color.MediumVioletRed;
+        public InteractionMediator mediator;
+
         Matrix Ytranslation = Matrix.Identity;
         Matrix Xtranslation = Matrix.Identity;
         Matrix rotation = Matrix.Identity;
@@ -47,6 +50,7 @@ namespace _3D_Game
         bool sprintingLeft = false;
         bool sprintingRight = false;
         float jumpMomentum = 0;
+        public float stunTimer = 0;
         float rollingTimer = 0;
         float sprintCheckTimerLeft = 0;
         float sprintCheckTimerLeft2 = 0;
@@ -62,6 +66,10 @@ namespace _3D_Game
         protected Keys leftKey;
         protected Keys rightKey;
         protected Keys shieldKey;
+        protected Keys attackKey;
+
+        public int currPercentage;
+        public int maxPercentage = 999;
 
         public Player1(Model m)
             : base(m)
@@ -71,8 +79,11 @@ namespace _3D_Game
             leftKey = Keys.Left;
             rightKey = Keys.Right;
             shieldKey = Keys.RightShift;
-            tint = Color.MediumVioletRed;
+            attackKey = Keys.OemQuestion;
+            tint = DEFAULT_TINT;
             oldState = Keyboard.GetState();
+            
+            currPercentage = 0;
         }
 
         public override void Update()
@@ -83,7 +94,14 @@ namespace _3D_Game
             UpdateRoll();
             CheckSprintLeft();
             CheckSprintRight();
-            ReadKeyboardInput();
+            if (stunTimer <= 0)
+            {
+                ReadKeyboardInput();
+                ReadAttackInput();
+                tint = DEFAULT_TINT;
+            }
+            else
+                tint = Color.Red;
             oldState = newState;
         }
 
@@ -108,6 +126,14 @@ namespace _3D_Game
                 Move(left); 
             if (Keyboard.GetState().IsKeyDown(rightKey) && !rolling)
                 Move(right);
+        }
+
+        public void ReadAttackInput()
+        {
+            if (newState.IsKeyDown(attackKey))
+            {
+                mediator.attack(this);
+            }
         }
           
         public override Matrix GetWorld()
@@ -255,11 +281,22 @@ namespace _3D_Game
                 sprintCheckTimerRight -= TIME_COUNTDOWN;
             if (sprintCheckTimerRight2 > 0)
                 sprintCheckTimerRight2 -= TIME_COUNTDOWN;
+            if (stunTimer > 0)
+                stunTimer -= TIME_COUNTDOWN;
         }
 
         public float getSpeed()
         {
             return speed;
+        }
+
+        public void reset()
+        {
+            currPercentage = 0;
+            myModelManager.playSound(ModelManager.sound.DEATHCRY);
+            myModelManager.playSound(ModelManager.sound.DEATHBLAST);
+
+            Xtranslation = Matrix.Identity;
         }
     }
 }

@@ -54,8 +54,8 @@ namespace _3D_Game
             //Load fonts
             font = Game.Content.Load<SpriteFont>(@"fonts\georgia");
             menuFont = Game.Content.Load<SpriteFont>(@"fonts\menuFont");
-            titleScreen = Game.Content.Load<Texture2D>(@"Textures\titleScreen");
-            instructions = Game.Content.Load<Texture2D>(@"Textures\instructions");
+            titleScreen = Game.Content.Load<Texture2D>(@"Textures\SplashScreen3rd");
+            instructions = Game.Content.Load<Texture2D>(@"Textures\SplashInstructions");
 
             //Create sprite batch
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
@@ -84,26 +84,29 @@ namespace _3D_Game
             }
             else if (Keyboard.GetState().IsKeyDown(Keys.Back))
             {
-                if (((Game1)Game).currentGameState == Game1.GameState.INSTRUCTIONS)                
-                    ((Game1)Game).ChangeGameState(Game1.GameState.MENU);                
+                if (((Game1)Game).currentGameState == Game1.GameState.INSTRUCTIONS)
+                {
+                    ((Game1)Game).ChangeGameState(Game1.GameState.MENU);
+                    soundManager.backSelectSound.Play();
+                }
             }
 
 
 
             if (Keyboard.GetState().IsKeyDown(Keys.Enter))
-            {
-                soundManager.selectSound.Play();
-
+            {                
                 switch (currentOption)
                 {
                     case MenuOption.START:
                         ((Game1)Game).ChangeGameState(Game1.GameState.PLAYING);
                         currentOption = MenuOption.NULL;
+                        soundManager.selectSound.Play();
                         break;
 
                     case MenuOption.INSTRUCTIONS:
                         ((Game1)Game).ChangeGameState(Game1.GameState.INSTRUCTIONS);
                         currentOption = MenuOption.NULL;
+                        soundManager.selectSound.Play();
                         break;
 
                     /*case MenuOption.NULL:

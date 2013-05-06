@@ -110,6 +110,7 @@
     <Compile Include="BasicModel.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="Developer Debug Menu.cs" />
+    <Compile Include="InteractionMediator.cs" />
     <Compile Include="SoundManager.cs" />
     <Compile Include="SplashScreen.cs" />
     <Compile Include="Stage1.cs" />
