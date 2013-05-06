@@ -17,7 +17,7 @@ namespace _3D_Game
         public Stage1(Model m)
             : base(m)
         {
-            scale = .1f;
+            scale = .7f;
 
             deathPlane_TOP = 100;
             deathPlane_BOT = -100;
@@ -28,7 +28,7 @@ namespace _3D_Game
         public override Matrix GetWorld()
         {
             // Matrix.CreateTranslation(new Vector3(735, -650, -1000))
-            return world * Matrix.CreateTranslation(new Vector3(735, -650, -1000)) * Matrix.CreateScale(scale);
+            return world * Matrix.CreateTranslation(new Vector3(0, -685, 230));
         }
     }
 }

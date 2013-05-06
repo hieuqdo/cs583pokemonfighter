@@ -31,6 +31,7 @@ namespace _3D_Game
         const float JUMP_SPEED = 0.4f;
         const float GRAVITY = 0.1f;
         const float JUMP_COOLDOWN = .1f;
+        const float LATERAL_MOMENTUM = 1.2f;
 
         protected Color DEFAULT_TINT = Color.MediumVioletRed;
         public InteractionMediator mediator;
@@ -50,6 +51,7 @@ namespace _3D_Game
         bool sprintingLeft = false;
         bool sprintingRight = false;
         float jumpMomentum = 0;
+        float lateralMomentum = 0;
         public float stunTimer = 0;
         float rollingTimer = 0;
         float sprintCheckTimerLeft = 0;
@@ -91,6 +93,7 @@ namespace _3D_Game
             newState = Keyboard.GetState();
             TickCooldowns();
             ApplyGravity();
+            ApplyFriction();
             UpdateRoll();
             CheckSprintLeft();
             CheckSprintRight();
@@ -114,18 +117,29 @@ namespace _3D_Game
                 else if (oldState.IsKeyUp(upKey))
                     DoubleJump();
             }
-            if (Keyboard.GetState().IsKeyDown(shieldKey))
+            if (newState.IsKeyDown(shieldKey))
             {
-                if (Keyboard.GetState().IsKeyDown(leftKey) && oldState.IsKeyUp(leftKey))
+                if (newState.IsKeyDown(leftKey) && oldState.IsKeyUp(leftKey))
                     Roll(left);
-                if (Keyboard.GetState().IsKeyDown(rightKey) && oldState.IsKeyUp(rightKey))
+                if (newState.IsKeyDown(rightKey) && oldState.IsKeyUp(rightKey))
                     Roll(right);
                 return;
             }
-            if (Keyboard.GetState().IsKeyDown(leftKey) && !rolling)
-                Move(left); 
-            if (Keyboard.GetState().IsKeyDown(rightKey) && !rolling)
-                Move(right);
+            if (newState.IsKeyDown(leftKey))
+            {
+                if (!rolling)
+                    Move(left);
+            }
+            else if (oldState.IsKeyDown(leftKey))
+                lateralMomentum = -speed * 1.2f;
+            if (newState.IsKeyDown(rightKey))
+            {
+                if (!rolling)
+                    Move(right);
+            }
+            else if (oldState.IsKeyDown(rightKey))
+                lateralMomentum = speed * 1.2f;
+
         }
 
         public void ReadAttackInput()
@@ -201,6 +215,27 @@ namespace _3D_Game
                 }
             }
             Ytranslation *= Matrix.CreateTranslation(new Vector3(0, jumpMomentum, 0));
+        }
+
+        private void ApplyFriction()
+        {
+            if (lateralMomentum > 0)
+            {
+                lateralMomentum -= GRAVITY;
+                if (lateralMomentum < 0)
+                {
+                    lateralMomentum = 0;
+                }
+            }
+            if (lateralMomentum < 0)
+            {
+                lateralMomentum += GRAVITY;
+                if (lateralMomentum > 0)
+                {
+                    lateralMomentum = 0;
+                }
+            }
+            Xtranslation *= Matrix.CreateTranslation(new Vector3(lateralMomentum, 0, 0));
         }
 
         private bool ModelReachedGround()
@@ -297,6 +332,11 @@ namespace _3D_Game
             myModelManager.playSound(ModelManager.sound.DEATHBLAST);
 
             Xtranslation = Matrix.Identity;
+        }
+
+        public void knockback(float momentum)
+        {
+            lateralMomentum = momentum;
         }
     }
 }

@@ -90,6 +90,7 @@ namespace _3D_Game
             soundManager.LoadContent(Content);
             MediaPlayer.Play(soundManager.menuMusic);
             MediaPlayer.IsRepeating = true;
+            
         }
 
         /// <summary>
@@ -117,10 +118,16 @@ namespace _3D_Game
             if (newState.IsKeyDown(Keys.OemTilde) && oldState.IsKeyUp(Keys.OemTilde) && currentGameState == Game1.GameState.PLAYING)
                 toggleDebug();
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Z) &&
-                Keyboard.GetState().IsKeyDown(Keys.X) &&
-                Keyboard.GetState().IsKeyDown(Keys.C) &&
-                Keyboard.GetState().IsKeyDown(Keys.V))
+            if (newState.IsKeyDown(Keys.OemMinus) && oldState.IsKeyUp(Keys.OemMinus))
+                soundManager.decreaseVolume();
+            if (newState.IsKeyDown(Keys.OemPlus) && oldState.IsKeyUp(Keys.OemPlus))
+                soundManager.increaseVolume();
+            MediaPlayer.Volume = soundManager.volume;
+
+            if (newState.IsKeyDown(Keys.Z) &&
+                newState.IsKeyDown(Keys.X) &&
+                newState.IsKeyDown(Keys.C) &&
+                newState.IsKeyDown(Keys.V))
                 if (currentGameState == Game1.GameState.PLAYING)
                 {
                     ChangeGameState(Game1.GameState.MENU);
@@ -179,7 +186,6 @@ namespace _3D_Game
                     modelManager.Visible = false;
                     splashScreen.Enabled = true;
                     splashScreen.Visible = true;
-                    splashScreen.currentOption = SplashScreen.MenuOption.START;
                  
                     break;
 

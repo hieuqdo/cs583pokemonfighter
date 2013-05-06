@@ -20,6 +20,7 @@ namespace _3D_Game
         string p1, p2, stage;
         string speed1, speed2;
         string collision;
+        float volume;
         SpriteFont font;
         SpriteBatch spriteBatch;
 
@@ -81,6 +82,8 @@ namespace _3D_Game
             //Update p2 speed
             speed2 = "P2 Speed: " + ((Game1)Game).modelManager.getSpeed2();
 
+            volume = SoundEffect.MasterVolume;
+
             base.Update(gameTime);
         }
 
@@ -124,8 +127,13 @@ namespace _3D_Game
                 new Vector2(10, offset + 10), Color.Black);
 
             //Draw currentGameState
+            //offset += font.MeasureString(speed2).Y;
+            //spriteBatch.DrawString(font, ((Game1)Game).splashScreen.currentOption.ToString(),
+            //    new Vector2(10, offset + 10), Color.Black);
+
+            //Draw Volume Level
             offset += font.MeasureString(speed2).Y;
-            spriteBatch.DrawString(font, ((Game1)Game).splashScreen.currentOption.ToString(),
+            spriteBatch.DrawString(font, volume.ToString(),
                 new Vector2(10, offset + 10), Color.Black);
 
             spriteBatch.End();

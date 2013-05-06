@@ -8,7 +8,8 @@ namespace _3D_Game
     class InteractionMediator
     {
         Player1 p1, p2;
-        const int damageModifier = 5;
+        const int damageModifier = 1;
+
 
         public InteractionMediator(Player1 player1, Player1 player2)
         {
@@ -29,6 +30,10 @@ namespace _3D_Game
                     target.currPercentage = target.maxPercentage;
                 else
                     target.currPercentage += damageModifier;
+
+                float knockbackDirection = (target.getPosition().X - attacker.getPosition().X);
+                knockbackDirection = knockbackDirection / Math.Abs(knockbackDirection);
+                target.knockback(target.currPercentage / 50f * knockbackDirection);
             }
         }
     }

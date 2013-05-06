@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Framework="Microsoft.Xna.Framework" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
       <Source>Models\spaceship.x</Source>
@@ -11,7 +11,7 @@
       <Time>2013-04-18T21:00:16-07:00</Time>
       <Dependency>
         <Key>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\Models\spaceship_0.xml</Key>
-        <Value>2013-04-20T21:56:47.1477195-07:00</Value>
+        <Value>2013-05-05T22:00:40.1159844-07:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -20,6 +20,321 @@
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\Models\spaceship_0.xml</Output>
       <Time>2013-04-18T21:00:16-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\PikachuDh.tga</Source>
+      <Name>Models\PikachuDh</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuDh.xnb</Output>
+      <Time>2013-05-05T21:12:53.2847544-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\PikachuEyeDh.tga</Source>
+      <Name>Models\PikachuEyeDh</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuEyeDh.xnb</Output>
+      <Time>2013-05-05T21:12:53.2897591-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\PikachuHohoDh.tga</Source>
+      <Name>Models\PikachuHohoDh</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuHohoDh.xnb</Output>
+      <Time>2013-05-05T21:12:53.2917607-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\PikachuMouthDh.tga</Source>
+      <Name>Models\PikachuMouthDh</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuMouthDh.xnb</Output>
+      <Time>2013-05-05T21:12:53.2947637-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\instructions.png</Source>
+      <Name>Textures\instructions</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\instructions.xnb</Output>
+      <Time>2013-05-05T21:12:53-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\titleScreen.jpg</Source>
+      <Name>Textures\titleScreen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\titleScreen.xnb</Output>
+      <Time>2013-05-05T21:12:53-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\SplashInstructions.png</Source>
+      <Name>Textures\SplashInstructions</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\SplashInstructions.xnb</Output>
+      <Time>2013-05-05T21:12:53-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\SplashScreen3rd.png</Source>
+      <Name>Textures\SplashScreen3rd</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\SplashScreen3rd.xnb</Output>
+      <Time>2013-05-05T21:12:53-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Pikachu.FBX</Source>
+      <Name>Models\Pikachu</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\Pikachu.xnb</Output>
+      <Time>2013-05-05T21:12:53.2747449-07:00</Time>
+      <Dependency>
+        <Key>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\Models\Pikachu_0.xml</Key>
+        <Value>2013-05-05T22:00:40.6114559-07:00</Value>
+      </Dependency>
+      <Request>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuMouthDh_0.xnb</Request>
+      <Request>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuDh_0.xnb</Request>
+      <Request>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuHohoDh_0.xnb</Request>
+      <Request>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuEyeDh_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\stage.FBX</Source>
+      <Name>Models\stage</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\stage.xnb</Output>
+      <Time>2013-05-05T21:12:53.3478143-07:00</Time>
+      <Dependency>
+        <Key>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\Models\stage_0.xml</Key>
+        <Value>2013-05-05T22:00:41.4999549-07:00</Value>
+      </Dependency>
+      <Request>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\cf9b3053_0.xnb</Request>
+      <Request>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\7f50457c_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Fonts\georgia.spritefont</Source>
+      <Name>Fonts\georgia</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Fonts\georgia.xnb</Output>
+      <Time>2013-05-05T21:12:53.2637343-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\menuFont.spritefont</Source>
+      <Name>Fonts\menuFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Fonts\menuFont.xnb</Output>
+      <Time>2013-05-05T21:12:53.2647354-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\menumusic.mp3</Source>
+      <Name>Audio\menumusic</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\menumusic.xnb</Output>
+      <Extra>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\menumusic.wma</Extra>
+      <Time>2013-05-05T21:12:53.2567281-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\battlemusic.mp3</Source>
+      <Name>Audio\battlemusic</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\battlemusic.xnb</Output>
+      <Extra>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\battlemusic.wma</Extra>
+      <Time>2013-05-05T21:12:53.2327052-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\jump.wav</Source>
+      <Name>Audio\jump</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\jump.xnb</Output>
+      <Time>2013-05-05T21:12:53.2427141-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\doublejump.wav</Source>
+      <Name>Audio\doublejump</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\doublejump.xnb</Output>
+      <Time>2013-05-05T21:12:53.2377095-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\select.wav</Source>
+      <Name>Audio\select</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\select.xnb</Output>
+      <Time>2013-05-05T21:12:53.2587294-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\ballopen.wav</Source>
+      <Name>Audio\ballopen</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\ballopen.xnb</Output>
+      <Time>2013-05-05T21:12:53.2166896-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\death.wav</Source>
+      <Name>Audio\death</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\death.xnb</Output>
+      <Time>2013-05-05T21:12:53.2347074-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\menuback.wav</Source>
+      <Name>Audio\menuback</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\menuback.xnb</Output>
+      <Time>2013-05-05T21:12:53.2437149-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\homerun.wav</Source>
+      <Name>Audio\homerun</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\homerun.xnb</Output>
+      <Time>2013-05-05T21:12:53.2417136-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Pikachu.FBX</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\Models\Pikachu_0.xml</Output>
+      <Time>2013-05-05T21:12:53.2747449-07:00</Time>
+    </Item>
+    <Item>
+      <Source>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\FBX\157E1F2F\Pikachu.fbm\PikachuMouthDh.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuMouthDh_0.xnb</Output>
+      <Time>2013-05-05T22:00:40.5403884-07:00</Time>
+    </Item>
+    <Item>
+      <Source>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\FBX\157E1F2F\Pikachu.fbm\PikachuDh.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuDh_0.xnb</Output>
+      <Time>2013-05-05T22:00:40.5413892-07:00</Time>
+    </Item>
+    <Item>
+      <Source>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\FBX\157E1F2F\Pikachu.fbm\PikachuHohoDh.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuHohoDh_0.xnb</Output>
+      <Time>2013-05-05T22:00:40.5433914-07:00</Time>
+    </Item>
+    <Item>
+      <Source>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\FBX\157E1F2F\Pikachu.fbm\PikachuEyeDh.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuEyeDh_0.xnb</Output>
+      <Time>2013-05-05T22:00:40.5463947-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\stage.FBX</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\Models\stage_0.xml</Output>
+      <Time>2013-05-05T21:12:53.3478143-07:00</Time>
+    </Item>
+    <Item>
+      <Source>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\FBX\D7491E5E\stage.fbm\cf9b3053.dds</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\cf9b3053_0.xnb</Output>
+      <Time>2013-05-05T22:00:40.9381316-07:00</Time>
+    </Item>
+    <Item>
+      <Source>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\FBX\D7491E5E\stage.fbm\7f50457c.dds</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\7f50457c_0.xnb</Output>
+      <Time>2013-05-05T22:00:40.9451384-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

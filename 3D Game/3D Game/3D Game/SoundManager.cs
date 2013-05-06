@@ -25,6 +25,8 @@ namespace _3D_Game
         public Song menuMusic;
         public Song battleMusic;
 
+        public float volume = .6f;
+
         // Constructor
         public SoundManager()
         {
@@ -33,6 +35,7 @@ namespace _3D_Game
             doubleJumpSound = null;
             menuMusic = null; 
             battleMusic = null;
+            SoundEffect.MasterVolume = volume;
         }
 
         // Load Content
@@ -49,7 +52,22 @@ namespace _3D_Game
             deathExplosionSound = Content.Load<SoundEffect>(@"audio\homerun");
             menuMusic = Content.Load<Song>(@"audio\menumusic");
             battleMusic = Content.Load<Song>(@"audio\battlemusic");
-            
+        }
+
+        public void increaseVolume()
+        {
+            volume += .2f;
+            if (volume > 1)
+                volume = 1;
+            SoundEffect.MasterVolume = volume;
+        }
+
+        public void decreaseVolume()
+        {
+            volume -= .2f;
+            if (volume < 0)
+                volume = 0;
+            SoundEffect.MasterVolume = volume;
         }
     }
 }
