@@ -166,3 +166,7 @@ C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\
 C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\7f50457c_0.xnb
 C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\menumusic.wma
 C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\battlemusic.wma
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\attack.xnb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\stock.xnb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\theme.xnb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\theme.wma

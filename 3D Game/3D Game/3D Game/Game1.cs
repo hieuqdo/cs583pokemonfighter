@@ -28,10 +28,10 @@ namespace _3D_Game
         private KeyboardState newState, oldState;
 
 
-        public enum GameState { MENU, PLAYING, INSTRUCTIONS, GAMEOVER }
+        public enum GameState { MENU, PLAYING, INSTRUCTIONS, P1WIN, P2WIN }
         public GameState currentGameState = GameState.MENU;
 
-        public SplashScreen splashScreen;
+        public SplashScreen splashScreen;      
 
         public Game1()
         {
@@ -89,7 +89,7 @@ namespace _3D_Game
     
             soundManager.LoadContent(Content);
             MediaPlayer.Play(soundManager.menuMusic);
-            MediaPlayer.IsRepeating = true;
+            MediaPlayer.IsRepeating = true;            
             
         }
 
@@ -185,19 +185,23 @@ namespace _3D_Game
                     modelManager.Enabled = false;
                     modelManager.Visible = false;
                     splashScreen.Enabled = true;
-                    splashScreen.Visible = true;
-                 
+                    splashScreen.Visible = true;          
                     break;
 
                 case GameState.INSTRUCTIONS:
                     modelManager.Enabled = false;
                     modelManager.Visible = false;
                     splashScreen.Enabled = true;
-                    splashScreen.Visible = true;
-                    
+                    splashScreen.Visible = true;                  
                     break;
 
-
+                case GameState.P1WIN:
+                case GameState.P2WIN:
+                    modelManager.Enabled = false;
+                    modelManager.Visible = false;
+                    splashScreen.Enabled = true;
+                    splashScreen.Visible = true;                  
+                    break;
             }        
         }
     }

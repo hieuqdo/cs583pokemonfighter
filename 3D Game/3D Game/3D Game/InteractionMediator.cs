@@ -17,8 +17,10 @@ namespace _3D_Game
             p2 = player2;
         }
 
-        public void attack(Player1 attacker)
+        public bool attack(Player1 attacker)
         {
+            if (p1.isAlive == false || p2.isAlive == false)
+                return false;
             Player1 target;
             if (attacker == p1)
                 target = p2;
@@ -34,7 +36,10 @@ namespace _3D_Game
                 float knockbackDirection = (target.getPosition().X - attacker.getPosition().X);
                 knockbackDirection = knockbackDirection / Math.Abs(knockbackDirection);
                 target.knockback(target.currPercentage / 50f * knockbackDirection);
+
+                return true;
             }
+            return false;
         }
     }
 }

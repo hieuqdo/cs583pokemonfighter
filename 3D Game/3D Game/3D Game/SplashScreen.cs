@@ -21,8 +21,11 @@ namespace _3D_Game
         Rectangle screenRectangle;
         Texture2D titleScreen;
         Texture2D instructions;
+        Texture2D winScreenP1, winScreenP2;
 
         SoundManager soundManager;
+
+        SpriteFont font;
 
         public SplashScreen(Game game)
             : base(game)
@@ -44,6 +47,9 @@ namespace _3D_Game
         {
             titleScreen = Game.Content.Load<Texture2D>(@"Textures\SplashScreen3rd");
             instructions = Game.Content.Load<Texture2D>(@"Textures\SplashInstructions");
+            winScreenP1 = Game.Content.Load<Texture2D>(@"Textures\instructions");
+            winScreenP2 = Game.Content.Load<Texture2D>(@"Textures\instructions");
+            font = Game.Content.Load<SpriteFont>(@"fonts\georgia");
 
             //Create sprite batch
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
@@ -70,6 +76,16 @@ namespace _3D_Game
                 {
                     ((Game1)Game).ChangeGameState(Game1.GameState.MENU);
                     soundManager.backSelectSound.Play();
+                    //MediaPlayer.Play(soundManager.menuMusic);
+                    //MediaPlayer.IsRepeating = true;
+                }
+                else if (((Game1)Game).currentGameState == Game1.GameState.P1WIN ||
+                    ((Game1)Game).currentGameState == Game1.GameState.P2WIN)
+                {
+                    ((Game1)Game).ChangeGameState(Game1.GameState.MENU);
+                    soundManager.selectSound.Play();
+                    MediaPlayer.Play(soundManager.menuMusic);
+                    MediaPlayer.IsRepeating = true;
                 }
             }
 
@@ -82,8 +98,11 @@ namespace _3D_Game
 
             if (Keyboard.GetState().IsKeyDown(Keys.Enter))
             {
-                ((Game1)Game).ChangeGameState(Game1.GameState.PLAYING);
-                soundManager.selectSound.Play();
+                if (((Game1)Game).currentGameState == Game1.GameState.MENU)
+                {
+                    ((Game1)Game).ChangeGameState(Game1.GameState.PLAYING);
+                    soundManager.selectSound.Play();
+                }         
             }                               
 
             base.Update(gameTime);
@@ -103,6 +122,33 @@ namespace _3D_Game
                 spriteBatch.Draw(titleScreen,
                     screenRectangle, Color.White);
             }
+            else if (((Game1)Game).currentGameState == Game1.GameState.P1WIN)
+            {
+                spriteBatch.Draw(winScreenP1,
+                    screenRectangle, Color.White);
+
+                spriteBatch.DrawString(
+                    font,
+                    "Player 1 Wins!",
+                    new Vector2(Game.Window.ClientBounds.Width / 2,
+                        Game.Window.ClientBounds.Height) / 2,
+                    Color.Red); 
+
+            }
+            else if (((Game1)Game).currentGameState == Game1.GameState.P2WIN)
+            {
+                spriteBatch.Draw(winScreenP2,
+                    screenRectangle, Color.White);
+
+                spriteBatch.DrawString(
+                    font,
+                    "Player 2 Wins!",
+                    new Vector2(Game.Window.ClientBounds.Width / 2,
+                        Game.Window.ClientBounds.Height / 2),
+                    Color.Red); 
+
+            }
+
             spriteBatch.End();
 
             base.Draw(gameTime);

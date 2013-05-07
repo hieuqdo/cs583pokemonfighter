@@ -24,24 +24,20 @@ namespace _3D_Game
         public SoundEffect deathExplosionSound;
         public Song menuMusic;
         public Song battleMusic;
+        public Song themeMusic;
 
         public float volume = .6f;
 
         // Constructor
         public SoundManager()
         {
-            attackSound = null;
-            jumpSound = null;
-            doubleJumpSound = null;
-            menuMusic = null; 
-            battleMusic = null;
             SoundEffect.MasterVolume = volume;
         }
 
         // Load Content
         public void LoadContent(ContentManager Content)
         {
-            //attackSound = Content.Load<SoundEffect>("attack");
+            attackSound = Content.Load<SoundEffect>(@"audio\attack");
             jumpSound = Content.Load<SoundEffect>(@"audio\jump");
             doubleJumpSound = Content.Load<SoundEffect>(@"audio\doublejump");
             //shieldSound = Content.Load<SoundEffect>(@"audio\shield");
@@ -52,6 +48,7 @@ namespace _3D_Game
             deathExplosionSound = Content.Load<SoundEffect>(@"audio\homerun");
             menuMusic = Content.Load<Song>(@"audio\menumusic");
             battleMusic = Content.Load<Song>(@"audio\battlemusic");
+            themeMusic = Content.Load<Song>(@"audio\theme");
         }
 
         public void increaseVolume()

@@ -336,6 +336,34 @@
       <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\homerun.xnb</Output>
       <Time>2013-05-03T14:15:42.4537557-07:00</Time>
     </Item>
+    <Item>
+      <Source>Audio\attack.wav</Source>
+      <Name>Audio\attack</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\attack.xnb</Output>
+      <Time>2013-05-06T23:53:35.822262-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\stock.png</Source>
+      <Name>Textures\stock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\stock.xnb</Output>
+      <Time>2013-05-06T23:56:15.0965045-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\theme.mp3</Source>
+      <Name>Audio\theme</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\theme.xnb</Output>
+      <Extra>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\theme.wma</Extra>
+      <Time>2013-05-07T01:10:10.1281743-07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

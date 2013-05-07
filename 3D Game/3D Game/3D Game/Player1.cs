@@ -33,7 +33,7 @@ namespace _3D_Game
         const float JUMP_COOLDOWN = .1f;
         const float LATERAL_MOMENTUM = 1.2f;
 
-        protected Color DEFAULT_TINT = Color.MediumVioletRed;
+        public Color DEFAULT_TINT = Color.MediumVioletRed;
         public InteractionMediator mediator;
 
         Matrix Ytranslation = Matrix.Identity;
@@ -50,10 +50,14 @@ namespace _3D_Game
         bool rolling = false;
         bool sprintingLeft = false;
         bool sprintingRight = false;
+        bool inAir = false; //detect for shielding, maybe aerials
+        public bool isAlive = true; //for determining death camera
+        public bool isShielding = false; //model manager will draw shield
         float jumpMomentum = 0;
         float lateralMomentum = 0;
         public float stunTimer = 0;
         float rollingTimer = 0;
+        float deathTimer = -1;
         float sprintCheckTimerLeft = 0;
         float sprintCheckTimerLeft2 = 0;
         float sprintCheckTimerRight = 0;
@@ -62,6 +66,9 @@ namespace _3D_Game
         float rollCooldown = 0;
         float jumpCooldown = 0;
         KeyboardState oldState, newState;
+        public Texture2D myShield;
+        public Vector2 shieldOrigin;
+        public Color shieldColor = Color.Green;
 
         protected Keys upKey;
         protected Keys downKey;
@@ -72,6 +79,7 @@ namespace _3D_Game
 
         public int currPercentage;
         public int maxPercentage = 999;
+        public int currStock;
 
         public Player1(Model m)
             : base(m)
@@ -86,15 +94,21 @@ namespace _3D_Game
             oldState = Keyboard.GetState();
             
             currPercentage = 0;
+            currStock = 2;
         }
 
         public override void Update()
         {
             newState = Keyboard.GetState();
+            if (getPosition().Y > 0)
+                inAir = true;
+            else inAir = false;
             TickCooldowns();
             ApplyGravity();
             ApplyFriction();
             UpdateRoll();
+            updateRespawn(); //respawn char if deathTimer is ready
+            updateShield(); //draw and/or adjust shield
             CheckSprintLeft();
             CheckSprintRight();
             if (stunTimer <= 0)
@@ -110,43 +124,50 @@ namespace _3D_Game
 
         private void ReadKeyboardInput()
         {
-            if (newState.IsKeyDown(upKey))
+            if (isAlive)
             {
-                if (!jumping && oldState.IsKeyUp(upKey))
-                    Jump();
-                else if (oldState.IsKeyUp(upKey))
-                    DoubleJump();
+                if (newState.IsKeyDown(upKey))
+                {
+                    if (!jumping && oldState.IsKeyUp(upKey))
+                        Jump();
+                    else if (oldState.IsKeyUp(upKey))
+                        DoubleJump();
+                }
+                if (newState.IsKeyDown(shieldKey))
+                {
+                    //if (!inAir)
+                    if(!rolling)
+                        shield();
+                    if (newState.IsKeyDown(leftKey) && oldState.IsKeyUp(leftKey))
+                        Roll(left);
+                    if (newState.IsKeyDown(rightKey) && oldState.IsKeyUp(rightKey))
+                        Roll(right);
+                    return;
+                }
+                else isShielding = false;
+                if (newState.IsKeyDown(leftKey))
+                {
+                    if (!rolling)
+                        Move(left);
+                }
+                else if (oldState.IsKeyDown(leftKey))
+                    lateralMomentum = -speed * 1.2f;
+                if (newState.IsKeyDown(rightKey))
+                {
+                    if (!rolling)
+                        Move(right);
+                }
+                else if (oldState.IsKeyDown(rightKey))
+                    lateralMomentum = speed * 1.2f;
             }
-            if (newState.IsKeyDown(shieldKey))
-            {
-                if (newState.IsKeyDown(leftKey) && oldState.IsKeyUp(leftKey))
-                    Roll(left);
-                if (newState.IsKeyDown(rightKey) && oldState.IsKeyUp(rightKey))
-                    Roll(right);
-                return;
-            }
-            if (newState.IsKeyDown(leftKey))
-            {
-                if (!rolling)
-                    Move(left);
-            }
-            else if (oldState.IsKeyDown(leftKey))
-                lateralMomentum = -speed * 1.2f;
-            if (newState.IsKeyDown(rightKey))
-            {
-                if (!rolling)
-                    Move(right);
-            }
-            else if (oldState.IsKeyDown(rightKey))
-                lateralMomentum = speed * 1.2f;
-
         }
 
         public void ReadAttackInput()
         {
             if (newState.IsKeyDown(attackKey))
             {
-                mediator.attack(this);
+                if (mediator.attack(this) == true)
+                    myModelManager.playSound(ModelManager.sound.ATTACK);
             }
         }
           
@@ -197,7 +218,7 @@ namespace _3D_Game
 
         private void shield()
         {
-            
+            isShielding = true;
         }
 
         private void ApplyGravity()
@@ -295,6 +316,7 @@ namespace _3D_Game
             if (!rolling && rollCooldown <= 0)
             {
                 //TODO: make invulnerable for X frames..
+                isShielding = false;
                 rolling = true;
                 rollingTranslation = Matrix.CreateTranslation(direction * ROLL_SPEED);
                 rollingRotation = Matrix.CreateRotationZ(direction.X * -1 * MathHelper.Pi/15);
@@ -318,6 +340,10 @@ namespace _3D_Game
                 sprintCheckTimerRight2 -= TIME_COUNTDOWN;
             if (stunTimer > 0)
                 stunTimer -= TIME_COUNTDOWN;
+            if (deathTimer - TIME_COUNTDOWN > 0)
+                deathTimer -= TIME_COUNTDOWN;
+            else if (deathTimer > 0)
+                deathTimer = 0;
         }
 
         public float getSpeed()
@@ -327,16 +353,42 @@ namespace _3D_Game
 
         public void reset()
         {
-            currPercentage = 0;
             myModelManager.playSound(ModelManager.sound.DEATHCRY);
             myModelManager.playSound(ModelManager.sound.DEATHBLAST);
+            isAlive = false;
+            tint = Color.Black;
 
-            Xtranslation = Matrix.Identity;
+            if (currStock > 0)
+            {
+                --currStock;                      
+                currPercentage = 0;       
+                deathTimer = 2;               
+            }
+        }
+
+        public void updateRespawn()
+        {
+            if (deathTimer == 0 && currStock > 0)
+            {
+                deathTimer = -1;
+                Xtranslation = Matrix.Identity;
+                isAlive = true;
+                tint = DEFAULT_TINT;
+            }
+            else if (deathTimer == 0)
+                myModelManager.endGame(DEFAULT_TINT);
         }
 
         public void knockback(float momentum)
         {
             lateralMomentum = momentum;
+        }
+
+        public void updateShield()
+        {
+            shieldOrigin = new Vector2(
+                getPosition().X + 200, 
+                getPosition().Y + 200);
         }
     }
 }
