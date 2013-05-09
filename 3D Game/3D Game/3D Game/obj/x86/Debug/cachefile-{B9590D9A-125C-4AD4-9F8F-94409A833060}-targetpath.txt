@@ -32,3 +32,13 @@ Content\Audio\attack.xnb
 Content\Textures\stock.xnb
 Content\Audio\theme.xnb
 Content\Audio\theme.wma
+Content\Models\pikachu_final.xnb
+Content\FBX\AD5D2B7E\pikachu_final.fbm\PikachuEyeDh_0.xnb
+Content\FBX\AD5D2B7E\pikachu_final.fbm\PikachuDh_0.xnb
+Content\FBX\AD5D2B7E\pikachu_final.fbm\PikachuHohoDh_0.xnb
+Content\FBX\AD5D2B7E\pikachu_final.fbm\PikachuMouthDh_0.xnb
+Content\Audio\smashattack.xnb
+Content\Audio\smashhit.xnb
+Content\Audio\shock.xnb
+Content\Audio\shield.xnb
+Content\Textures\stadium_bg.xnb

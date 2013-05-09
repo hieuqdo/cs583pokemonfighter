@@ -28,7 +28,8 @@ namespace _3D_Game
         public override Matrix GetWorld()
         {
             // Matrix.CreateTranslation(new Vector3(735, -650, -1000))
-            return world * Matrix.CreateTranslation(new Vector3(0, -685, 230));
+            // Matrix.CreateTranslation(new Vector3(0, -685, 230))
+            return world * Matrix.CreateTranslation(new Vector3(735, -650, -1000)) * Matrix.CreateScale(.1f);
         }
     }
 }

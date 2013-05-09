@@ -31,7 +31,9 @@ namespace _3D_Game
         public enum GameState { MENU, PLAYING, INSTRUCTIONS, P1WIN, P2WIN }
         public GameState currentGameState = GameState.MENU;
 
-        public SplashScreen splashScreen;      
+        public SplashScreen splashScreen;
+
+        Texture2D bg;
 
         public Game1()
         {
@@ -86,6 +88,7 @@ namespace _3D_Game
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            bg = Content.Load<Texture2D>(@"textures\stadium_bg");
     
             soundManager.LoadContent(Content);
             MediaPlayer.Play(soundManager.menuMusic);
@@ -149,6 +152,17 @@ namespace _3D_Game
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            if (currentGameState == GameState.PLAYING)
+            {
+                spriteBatch.Begin();
+                spriteBatch.Draw(
+                    bg,
+                    new Rectangle(0, 0, 
+                        GraphicsDevice.PresentationParameters.BackBufferWidth,
+                        GraphicsDevice.PresentationParameters.BackBufferHeight), 
+                    Color.White);
+                spriteBatch.End();
+            }
 
             base.Draw(gameTime);
         }

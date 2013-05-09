@@ -26,8 +26,9 @@ namespace _3D_Game
         SpriteBatch spriteBatch;
         SpriteFont percentFont;
 
-        public enum sound { JUMP, DOUBLEJUMP, ATTACK, SHIELD, ROLL,
-                            DEATHCRY, DEATHBLAST }
+        public enum sound { JUMP, DOUBLEJUMP, ATTACK, SMASH, SMASHHIT, SHOCK,
+                            SHIELD, ROLL,
+                            RESPAWN, DEATHCRY, DEATHBLAST }
 
         Texture2D stock;
 
@@ -50,10 +51,12 @@ namespace _3D_Game
         protected override void LoadContent()
         {
             p1 = new Player1(
-                Game.Content.Load<Model>(@"models\spaceship"));
+                Game.Content.Load<Model>(@"models\pikachu_final"));
+            ((Player1)p1).setPosition(-25);
             models.Add(p1);
             p2 = new Player2(
-                Game.Content.Load<Model>(@"models\spaceship"));
+                Game.Content.Load<Model>(@"models\pikachu_final"));
+            ((Player1)p2).setPosition(25);
             models.Add(p2);
             stage = new Stage1(
                 Game.Content.Load<Model>(@"models\stage"));
@@ -171,12 +174,28 @@ namespace _3D_Game
                     soundManager.attackSound.Play();
                     break;
 
+                case sound.SMASH:
+                    soundManager.smashAttackSound.Play();
+                    break;
+
+                case sound.SMASHHIT:
+                    soundManager.smashHitSound.Play();
+                    break;
+
+                case sound.SHOCK:
+                    soundManager.shockSound.Play();
+                    break;
+
                 case sound.SHIELD:
-                    soundManager.doubleJumpSound.Play();
+                    soundManager.shieldSound.Play();
                     break;
 
                 case sound.ROLL:
                     soundManager.doubleJumpSound.Play();
+                    break;
+
+                case sound.RESPAWN:
+                    soundManager.respawnSound.Play();
                     break;
 
                 case sound.DEATHCRY:

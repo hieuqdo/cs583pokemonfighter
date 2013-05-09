@@ -89,7 +89,7 @@ namespace _3D_Game
                 }
             }
 
-            if (Keyboard.GetState().IsKeyDown(Keys.F1))
+            if (Keyboard.GetState().IsKeyDown(Keys.F1) && ((Game1)Game).currentGameState == Game1.GameState.MENU)
             {
                 ((Game1)Game).ChangeGameState(Game1.GameState.INSTRUCTIONS);
                 soundManager.selectSound.Play();

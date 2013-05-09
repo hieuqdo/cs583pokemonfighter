@@ -15,6 +15,7 @@ namespace _3D_Game
         const int PLAYER_RUN_SPEED = 1;
         const int PLAYER_SPRINT_SPEED = 2;
         const float SPRINT_KEYPRESS_INTERVAL = 0.3f;
+        const float SMASH_KEYPRESS_INTERVAL = 0.3f;
         const float TIME_COUNTDOWN = 0.01666666666f;
         const int NO_SPRINT_STATE = -1;
         const int FIRST_PRESS_STATE = 0;
@@ -32,6 +33,10 @@ namespace _3D_Game
         const float GRAVITY = 0.1f;
         const float JUMP_COOLDOWN = .1f;
         const float LATERAL_MOMENTUM = 1.2f;
+        // smashing
+        const float SMASH_TIME = .2f;
+        const float SMASH_COOLDOWN = .1f;
+        const float SMASH_SPEED = 1;
 
         public Color DEFAULT_TINT = Color.MediumVioletRed;
         public InteractionMediator mediator;
@@ -40,6 +45,7 @@ namespace _3D_Game
         Matrix Xtranslation = Matrix.Identity;
         Matrix rotation = Matrix.Identity;
         Matrix rollingTranslation;
+        Matrix smashingTranslation;
         Matrix rollingRotation;
         Vector3 left = new Vector3(-1,0,0);
         Vector3 right = new Vector3(1,0,0);
@@ -47,7 +53,9 @@ namespace _3D_Game
         //history
         bool doubleJumped = false;
         bool jumping = false;
-        bool rolling = false;
+        public bool rolling = false;
+        public bool smashing = false;
+        bool smashHit = false;
         bool sprintingLeft = false;
         bool sprintingRight = false;
         bool inAir = false; //detect for shielding, maybe aerials
@@ -57,6 +65,7 @@ namespace _3D_Game
         float lateralMomentum = 0;
         public float stunTimer = 0;
         float rollingTimer = 0;
+        float smashTimer = 0;
         float deathTimer = -1;
         float sprintCheckTimerLeft = 0;
         float sprintCheckTimerLeft2 = 0;
@@ -64,6 +73,7 @@ namespace _3D_Game
         float sprintCheckTimerRight2 = 0;
         float speed = PLAYER_RUN_SPEED;
         float rollCooldown = 0;
+        float smashCooldown = 0;
         float jumpCooldown = 0;
         KeyboardState oldState, newState;
         public Texture2D myShield;
@@ -107,6 +117,7 @@ namespace _3D_Game
             ApplyGravity();
             ApplyFriction();
             UpdateRoll();
+            UpdateSmash();
             updateRespawn(); //respawn char if deathTimer is ready
             updateShield(); //draw and/or adjust shield
             CheckSprintLeft();
@@ -124,19 +135,14 @@ namespace _3D_Game
 
         private void ReadKeyboardInput()
         {
+            //Only read input if alive
             if (isAlive)
             {
-                if (newState.IsKeyDown(upKey))
-                {
-                    if (!jumping && oldState.IsKeyUp(upKey))
-                        Jump();
-                    else if (oldState.IsKeyUp(upKey))
-                        DoubleJump();
-                }
+                // Process Shielding
                 if (newState.IsKeyDown(shieldKey))
                 {
                     //if (!inAir)
-                    if(!rolling)
+                    if (!rolling)
                         shield();
                     if (newState.IsKeyDown(leftKey) && oldState.IsKeyUp(leftKey))
                         Roll(left);
@@ -145,29 +151,98 @@ namespace _3D_Game
                     return;
                 }
                 else isShielding = false;
-                if (newState.IsKeyDown(leftKey))
+
+                //Only read other input if not shielding
+                if (!isShielding)
                 {
-                    if (!rolling)
-                        Move(left);
+                    //Process Jumping
+                    if (newState.IsKeyDown(upKey))
+                    {
+                        if (!jumping && oldState.IsKeyUp(upKey))
+                            Jump();
+                        else if (oldState.IsKeyUp(upKey))
+                            DoubleJump();
+                    }
+
+                    //Process left and right
+                    if (newState.IsKeyDown(leftKey))
+                    {
+                        if (!rolling)
+                            Move(left);
+                    }
+                    else if (oldState.IsKeyDown(leftKey))
+                        lateralMomentum = -speed * 1.2f;
+                    if (newState.IsKeyDown(rightKey))
+                    {
+                        if (!rolling)
+                            Move(right);
+                    }
+                    else if (oldState.IsKeyDown(rightKey))
+                        lateralMomentum = speed * 1.2f;
                 }
-                else if (oldState.IsKeyDown(leftKey))
-                    lateralMomentum = -speed * 1.2f;
-                if (newState.IsKeyDown(rightKey))
+            }
+        }
+
+        private void UpdateSmash()
+        {
+            if (smashing)
+            {
+                Xtranslation *= smashingTranslation;
+                smashTimer -= TIME_COUNTDOWN;
+                if (mediator.smashAttack(this))
                 {
-                    if (!rolling)
-                        Move(right);
+                    myModelManager.playSound(ModelManager.sound.SMASHHIT);
+                    myModelManager.playSound(ModelManager.sound.SHOCK);
+                    smashHit = true;
                 }
-                else if (oldState.IsKeyDown(rightKey))
-                    lateralMomentum = speed * 1.2f;
+                if (smashTimer <= 0)
+                {
+                    smashing = false;
+                    smashHit = false;
+                    smashCooldown = SMASH_COOLDOWN;                    
+                }
             }
         }
 
         public void ReadAttackInput()
         {
-            if (newState.IsKeyDown(attackKey))
+            //Only read input if not shielding
+            if (!isShielding)
             {
-                if (mediator.attack(this) == true)
-                    myModelManager.playSound(ModelManager.sound.ATTACK);
+                // If smash left
+                if (newState.IsKeyDown(attackKey) && newState.IsKeyDown(leftKey) &&
+                    (oldState.IsKeyUp(attackKey) && oldState.IsKeyUp(leftKey)) &&
+                    !smashing)
+                {
+                    myModelManager.playSound(ModelManager.sound.SMASH);
+                    Vector3 direction = new Vector3(-1, 0, 0);
+                    if (!smashing && smashCooldown <= 0)
+                    {
+                        smashing = true;
+                        smashingTranslation = Matrix.CreateTranslation(direction * SMASH_SPEED);
+                        smashTimer = SMASH_TIME;
+                    }
+                }
+                // If smash right
+                else if (newState.IsKeyDown(attackKey) && newState.IsKeyDown(rightKey) &&
+                    (oldState.IsKeyUp(attackKey) && oldState.IsKeyUp(rightKey)) &&
+                    !smashing)
+                {
+                    myModelManager.playSound(ModelManager.sound.SMASH);
+                    Vector3 direction = new Vector3(1, 0, 0);
+                    if (!smashing && smashCooldown <= 0)
+                    {
+                        smashing = true;
+                        smashingTranslation = Matrix.CreateTranslation(direction * SMASH_SPEED);
+                        smashTimer = SMASH_TIME;
+                    }
+                }
+                // If normal attack
+                else if (newState.IsKeyDown(attackKey) && oldState.IsKeyUp(attackKey))
+                {
+                    if (!smashing && mediator.attack(this) == true)
+                        myModelManager.playSound(ModelManager.sound.ATTACK);
+                }
             }
         }
           
@@ -330,6 +405,8 @@ namespace _3D_Game
                 jumpCooldown -= TIME_COUNTDOWN;
             if (rollCooldown > 0)
                 rollCooldown -= TIME_COUNTDOWN;
+            if (smashCooldown > 0)
+                smashCooldown -= TIME_COUNTDOWN;
             if (sprintCheckTimerLeft > 0)
                 sprintCheckTimerLeft -= TIME_COUNTDOWN;
             if (sprintCheckTimerLeft2 > 0)
@@ -361,7 +438,8 @@ namespace _3D_Game
             if (currStock > 0)
             {
                 --currStock;                      
-                currPercentage = 0;       
+                currPercentage = 0;
+                lateralMomentum = 0;
                 deathTimer = 2;               
             }
         }
@@ -372,6 +450,7 @@ namespace _3D_Game
             {
                 deathTimer = -1;
                 Xtranslation = Matrix.Identity;
+                myModelManager.playSound(ModelManager.sound.RESPAWN);
                 isAlive = true;
                 tint = DEFAULT_TINT;
             }
@@ -389,6 +468,11 @@ namespace _3D_Game
             shieldOrigin = new Vector2(
                 getPosition().X + 200, 
                 getPosition().Y + 200);
+        }
+
+        public void setPosition(float xdistance)
+        {
+            Xtranslation *= Matrix.CreateTranslation(new Vector3(xdistance, 0, 0));
         }
     }
 }
