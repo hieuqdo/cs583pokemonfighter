@@ -18,6 +18,7 @@ namespace _3D_Game
     public class ModelManager : DrawableGameComponent
     {
         List<BasicModel> models = new List<BasicModel>();
+        List<BasicModel> shots = new List<BasicModel>();
         BasicModel p1, p2, stage;
         Player1 player1, player2;
         InteractionMediator mediator;
@@ -26,6 +27,10 @@ namespace _3D_Game
 
         SpriteBatch spriteBatch;
         SpriteFont percentFont;
+
+        float shotSpeed = .5f;
+        int shotDelay = 300;
+        int shotCountdown = 0;
 
         public enum sound { JUMP, DOUBLEJUMP, ATTACK, SMASH, SMASHHIT, SHOCK,
                             SHIELD, ROLL,
@@ -101,6 +106,7 @@ namespace _3D_Game
                 models[i].Update();
             }
 
+            UpdateShots();
             updateDeaths();
             updateFaceDirection();
 
@@ -129,6 +135,12 @@ namespace _3D_Game
         {
             //Loop through and draw each model
             foreach (BasicModel bm in models)
+            {
+                bm.Draw(((Game1)Game).camera);
+            }
+
+            //Loop through and draw each shot
+            foreach (BasicModel bm in shots)
             {
                 bm.Draw(((Game1)Game).camera);
             }
@@ -356,6 +368,28 @@ namespace _3D_Game
             MediaPlayer.Play(soundManager.themeMusic);
             MediaPlayer.IsRepeating = true;
         }
+        public void AddShot(Vector3 position, Vector3 direction)
+        {
+            shots.Add(new SpinningEnemy(
+                Game.Content.Load<Model>(@"models\ammo"),
+                position, direction * shotSpeed));
+        }
 
+        public void UpdateShots()
+        {
+            //Loop through shots
+            for (int i = 0; i < shots.Count; i++)
+            {
+                //Update each shot
+                ((SpinningEnemy)shots[i]).Update();
+
+                //If shot is out of bounds, remove it from game
+                /*if (shots[i].GetWorld().Translation.X < Game.GraphicsDevice.PresentationParameters.BackBufferWidth)
+                {
+                    shots.RemoveAt(i);
+                    --i;
+                }*/
+            }
+        }
     }
 }

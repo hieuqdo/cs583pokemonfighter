@@ -20,6 +20,7 @@ namespace _3D_Game
             rightKey = Keys.Right;
             shieldKey = Keys.RightShift;
             attackKey = Keys.OemQuestion;
+            secondAttackKey = Keys.E;
             DEFAULT_TINT = Color.DarkBlue;
             tint = DEFAULT_TINT;
             flipModifier = -1;

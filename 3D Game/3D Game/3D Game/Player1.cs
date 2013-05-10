@@ -89,6 +89,7 @@ namespace _3D_Game
         protected Keys rightKey;
         protected Keys shieldKey;
         protected Keys attackKey;
+        protected Keys secondAttackKey;
 
         public int currPercentage;
         public int maxPercentage = 999;
@@ -103,6 +104,7 @@ namespace _3D_Game
             rightKey = Keys.D;
             shieldKey = Keys.LeftShift;
             attackKey = Keys.Q;
+            secondAttackKey = Keys.OemPeriod;
             tint = DEFAULT_TINT;
             oldState = Keyboard.GetState();
             
@@ -252,6 +254,12 @@ namespace _3D_Game
                 else if (newState.IsKeyDown(attackKey) && oldState.IsKeyUp(attackKey))
                 {
                     if (!smashing && mediator.attack(this, InteractionMediator.attackType.BASIC) == true)
+                        myModelManager.playSound(ModelManager.sound.ATTACK);
+                }
+                // If ranged attack
+                else if (newState.IsKeyDown(secondAttackKey) && oldState.IsKeyUp(secondAttackKey))
+                {
+                    if (!smashing && mediator.attack(this, InteractionMediator.attackType.RANGE) == true)
                         myModelManager.playSound(ModelManager.sound.ATTACK);
                 }
             }

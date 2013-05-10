@@ -7,11 +7,11 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\spaceship.xnb</Output>
-      <Time>2013-05-09T21:49:02.2411755-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\spaceship.xnb</Output>
+      <Time>2013-05-09T23:12:23.9306551-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\spaceship_0.xml</Key>
-        <Value>2013-05-09T22:14:51.2193076-07:00</Value>
+        <Value>2013-05-09T23:13:39.6752787-07:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -20,8 +20,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuDh.xnb</Output>
-      <Time>2013-05-09T21:49:02.1761684-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuDh.xnb</Output>
+      <Time>2013-05-09T23:12:23.8126373-07:00</Time>
     </Item>
     <Item>
       <Source>Models\PikachuEyeDh.tga</Source>
@@ -29,8 +29,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuEyeDh.xnb</Output>
-      <Time>2013-05-09T21:49:02.183157-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuEyeDh.xnb</Output>
+      <Time>2013-05-09T23:12:23.8266391-07:00</Time>
     </Item>
     <Item>
       <Source>Models\PikachuHohoDh.tga</Source>
@@ -38,8 +38,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuHohoDh.xnb</Output>
-      <Time>2013-05-09T21:49:02.18515-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuHohoDh.xnb</Output>
+      <Time>2013-05-09T23:12:23.8316419-07:00</Time>
     </Item>
     <Item>
       <Source>Models\PikachuMouthDh.tga</Source>
@@ -47,8 +47,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuMouthDh.xnb</Output>
-      <Time>2013-05-09T21:49:02.1901503-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuMouthDh.xnb</Output>
+      <Time>2013-05-09T23:12:23.8446415-07:00</Time>
     </Item>
     <Item>
       <Source>Textures\instructions.png</Source>
@@ -56,8 +56,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\instructions.xnb</Output>
-      <Time>2013-05-09T21:49:02.503725-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\instructions.xnb</Output>
+      <Time>2013-05-09T23:12:24.2846992-07:00</Time>
     </Item>
     <Item>
       <Source>Textures\titleScreen.jpg</Source>
@@ -65,8 +65,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\titleScreen.xnb</Output>
-      <Time>2013-05-09T21:49:02.5416326-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\titleScreen.xnb</Output>
+      <Time>2013-05-09T23:12:24.3057009-07:00</Time>
     </Item>
     <Item>
       <Source>Textures\SplashInstructions.png</Source>
@@ -74,8 +74,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\SplashInstructions.xnb</Output>
-      <Time>2013-05-09T21:49:02.3762514-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\SplashInstructions.xnb</Output>
+      <Time>2013-05-09T23:12:24.2346932-07:00</Time>
     </Item>
     <Item>
       <Source>Textures\SplashScreen3rd.png</Source>
@@ -83,8 +83,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\SplashScreen3rd.xnb</Output>
-      <Time>2013-05-09T21:49:02.4493314-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\SplashScreen3rd.xnb</Output>
+      <Time>2013-05-09T23:12:24.2457-07:00</Time>
     </Item>
     <Item>
       <Source>Textures\stock.png</Source>
@@ -92,8 +92,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\stock.xnb</Output>
-      <Time>2013-05-09T21:49:02.5336316-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\stock.xnb</Output>
+      <Time>2013-05-09T23:12:24.2937011-07:00</Time>
     </Item>
     <Item>
       <Source>Textures\stadium_bg.jpg</Source>
@@ -101,8 +101,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\stadium_bg.xnb</Output>
-      <Time>2013-05-09T21:49:02.5316317-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\stadium_bg.xnb</Output>
+      <Time>2013-05-09T23:12:24.2916996-07:00</Time>
     </Item>
     <Item>
       <Source>Textures\GAMEOVER1.png</Source>
@@ -110,8 +110,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\GAMEOVER1.xnb</Output>
-      <Time>2013-05-09T21:49:02.3314025-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\GAMEOVER1.xnb</Output>
+      <Time>2013-05-09T23:12:24.1576858-07:00</Time>
     </Item>
     <Item>
       <Source>Textures\GAMEOVER2.png</Source>
@@ -119,8 +119,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\GAMEOVER2.xnb</Output>
-      <Time>2013-05-09T21:49:02.3347243-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\GAMEOVER2.xnb</Output>
+      <Time>2013-05-09T23:12:24.1726884-07:00</Time>
     </Item>
     <Item>
       <Source>Textures\SPLASHEND.png</Source>
@@ -128,8 +128,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\SPLASHEND.xnb</Output>
-      <Time>2013-05-09T21:49:02.355249-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\SPLASHEND.xnb</Output>
+      <Time>2013-05-09T23:12:24.2276923-07:00</Time>
     </Item>
     <Item>
       <Source>Models\Pikachu.FBX</Source>
@@ -137,16 +137,16 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\Pikachu.xnb</Output>
-      <Time>2013-05-09T21:49:02.1661479-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\Pikachu.xnb</Output>
+      <Time>2013-05-09T23:12:23.794635-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Pikachu_0.xml</Key>
-        <Value>2013-05-09T22:14:53.6355949-07:00</Value>
+        <Value>2013-05-09T23:13:42.8286819-07:00</Value>
       </Dependency>
-      <Request>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\A63C2686\Pikachu.fbm\PikachuMouthDh_0.xnb</Request>
-      <Request>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\A63C2686\Pikachu.fbm\PikachuDh_0.xnb</Request>
-      <Request>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\A63C2686\Pikachu.fbm\PikachuHohoDh_0.xnb</Request>
-      <Request>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\A63C2686\Pikachu.fbm\PikachuEyeDh_0.xnb</Request>
+      <Request>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\AD6C2915\Pikachu.fbm\PikachuMouthDh_0.xnb</Request>
+      <Request>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\AD6C2915\Pikachu.fbm\PikachuDh_0.xnb</Request>
+      <Request>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\AD6C2915\Pikachu.fbm\PikachuHohoDh_0.xnb</Request>
+      <Request>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\AD6C2915\Pikachu.fbm\PikachuEyeDh_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\stage.FBX</Source>
@@ -154,14 +154,14 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\stage.xnb</Output>
-      <Time>2013-05-09T21:49:02.314167-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\stage.xnb</Output>
+      <Time>2013-05-09T23:12:24.0456687-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\stage_0.xml</Key>
-        <Value>2013-05-09T22:14:55.0791502-07:00</Value>
+        <Value>2013-05-09T23:13:45.7160478-07:00</Value>
       </Dependency>
-      <Request>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\596825B5\stage.fbm\cf9b3053_0.xnb</Request>
-      <Request>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\596825B5\stage.fbm\7f50457c_0.xnb</Request>
+      <Request>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\5B7A2844\stage.fbm\cf9b3053_0.xnb</Request>
+      <Request>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\5B7A2844\stage.fbm\7f50457c_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\pikachu_final.FBX</Source>
@@ -169,16 +169,16 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\pikachu_final.xnb</Output>
-      <Time>2013-05-09T21:49:02.2321566-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\pikachu_final.xnb</Output>
+      <Time>2013-05-09T23:12:23.9136501-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\pikachu_final_0.xml</Key>
-        <Value>2013-05-09T22:14:56.3716468-07:00</Value>
+        <Value>2013-05-09T23:13:48.3423842-07:00</Value>
       </Dependency>
-      <Request>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\96D328EF\pikachu_final.fbm\PikachuEyeDh_0.xnb</Request>
-      <Request>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\96D328EF\pikachu_final.fbm\PikachuDh_0.xnb</Request>
-      <Request>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\96D328EF\pikachu_final.fbm\PikachuHohoDh_0.xnb</Request>
-      <Request>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\96D328EF\pikachu_final.fbm\PikachuMouthDh_0.xnb</Request>
+      <Request>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\AD5D2B7E\pikachu_final.fbm\PikachuEyeDh_0.xnb</Request>
+      <Request>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\AD5D2B7E\pikachu_final.fbm\PikachuDh_0.xnb</Request>
+      <Request>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\AD5D2B7E\pikachu_final.fbm\PikachuHohoDh_0.xnb</Request>
+      <Request>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\AD5D2B7E\pikachu_final.fbm\PikachuMouthDh_0.xnb</Request>
     </Item>
     <Item>
       <Source>Fonts\georgia.spritefont</Source>
@@ -186,8 +186,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Fonts\georgia.xnb</Output>
-      <Time>2013-05-09T21:49:02.1227091-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Fonts\georgia.xnb</Output>
+      <Time>2013-05-09T23:12:23.7616335-07:00</Time>
     </Item>
     <Item>
       <Source>Fonts\menuFont.spritefont</Source>
@@ -195,8 +195,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Fonts\menuFont.xnb</Output>
-      <Time>2013-05-09T21:49:02.1461452-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Fonts\menuFont.xnb</Output>
+      <Time>2013-05-09T23:12:23.7626328-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\menumusic.mp3</Source>
@@ -204,9 +204,9 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\menumusic.xnb</Output>
-      <Extra>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\menumusic.wma</Extra>
-      <Time>2013-05-09T21:49:01.6876068-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\menumusic.xnb</Output>
+      <Extra>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\menumusic.wma</Extra>
+      <Time>2013-05-09T23:12:23.6226155-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\battlemusic.mp3</Source>
@@ -214,9 +214,9 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\battlemusic.xnb</Output>
-      <Extra>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\battlemusic.wma</Extra>
-      <Time>2013-05-09T21:49:01.5626812-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\battlemusic.xnb</Output>
+      <Extra>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\battlemusic.wma</Extra>
+      <Time>2013-05-09T23:12:23.4955992-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\theme.mp3</Source>
@@ -224,9 +224,9 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\theme.xnb</Output>
-      <Extra>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\theme.wma</Extra>
-      <Time>2013-05-09T21:49:02.0668103-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\theme.xnb</Output>
+      <Extra>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\theme.wma</Extra>
+      <Time>2013-05-09T23:12:23.746631-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\jump.wav</Source>
@@ -234,8 +234,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\jump.xnb</Output>
-      <Time>2013-05-09T21:49:01.5764656-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\jump.xnb</Output>
+      <Time>2013-05-09T23:12:23.572608-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\doublejump.wav</Source>
@@ -243,8 +243,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\doublejump.xnb</Output>
-      <Time>2013-05-09T21:49:01.5700401-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\doublejump.xnb</Output>
+      <Time>2013-05-09T23:12:23.5186043-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\select.wav</Source>
@@ -252,8 +252,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\select.xnb</Output>
-      <Time>2013-05-09T21:49:01.7568865-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\select.xnb</Output>
+      <Time>2013-05-09T23:12:23.6326172-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\ballopen.wav</Source>
@@ -261,8 +261,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\ballopen.xnb</Output>
-      <Time>2013-05-09T21:49:01.4236371-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\ballopen.xnb</Output>
+      <Time>2013-05-09T23:12:23.4295899-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\death.wav</Source>
@@ -270,8 +270,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\death.xnb</Output>
-      <Time>2013-05-09T21:49:01.567285-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\death.xnb</Output>
+      <Time>2013-05-09T23:12:23.5076039-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\menuback.wav</Source>
@@ -279,8 +279,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\menuback.xnb</Output>
-      <Time>2013-05-09T21:49:01.5774699-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\menuback.xnb</Output>
+      <Time>2013-05-09T23:12:23.5796118-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\homerun.wav</Source>
@@ -288,8 +288,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\homerun.xnb</Output>
-      <Time>2013-05-09T21:49:01.5740434-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\homerun.xnb</Output>
+      <Time>2013-05-09T23:12:23.5296048-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\attack.wav</Source>
@@ -297,8 +297,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\attack.xnb</Output>
-      <Time>2013-05-09T21:49:01.4169245-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\attack.xnb</Output>
+      <Time>2013-05-09T23:12:23.409589-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\smashattack.wav</Source>
@@ -306,8 +306,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\smashattack.xnb</Output>
-      <Time>2013-05-09T21:49:01.7757812-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\smashattack.xnb</Output>
+      <Time>2013-05-09T23:12:23.6516188-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\shock.wav</Source>
@@ -315,8 +315,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\shock.xnb</Output>
-      <Time>2013-05-09T21:49:01.7697739-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\shock.xnb</Output>
+      <Time>2013-05-09T23:12:23.6446194-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\smashhit.wav</Source>
@@ -324,8 +324,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\smashhit.xnb</Output>
-      <Time>2013-05-09T21:49:01.7827972-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\smashhit.xnb</Output>
+      <Time>2013-05-09T23:12:23.6576194-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\shield.wav</Source>
@@ -333,25 +333,25 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\shield.xnb</Output>
-      <Time>2013-05-09T21:49:01.7620912-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\shield.xnb</Output>
+      <Time>2013-05-09T23:12:23.6366187-07:00</Time>
     </Item>
     <Item>
       <Source>Models\spaceship.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\spaceship_0.xml</Output>
-      <Time>2013-05-09T21:49:02.2411755-07:00</Time>
+      <Time>2013-05-09T23:12:23.9306551-07:00</Time>
     </Item>
     <Item>
       <Source>Models\Pikachu.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Pikachu_0.xml</Output>
-      <Time>2013-05-09T21:49:02.1661479-07:00</Time>
+      <Time>2013-05-09T23:12:23.794635-07:00</Time>
     </Item>
     <Item>
-      <Source>obj\x86\Debug\FBX\A63C2686\Pikachu.fbm\PikachuMouthDh.tga</Source>
+      <Source>obj\x86\Debug\FBX\AD6C2915\Pikachu.fbm\PikachuMouthDh.tga</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -363,11 +363,11 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\A63C2686\Pikachu.fbm\PikachuMouthDh_0.xnb</Output>
-      <Time>2013-05-09T22:14:53.4795748-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\AD6C2915\Pikachu.fbm\PikachuMouthDh_0.xnb</Output>
+      <Time>2013-05-09T23:13:42.608654-07:00</Time>
     </Item>
     <Item>
-      <Source>obj\x86\Debug\FBX\A63C2686\Pikachu.fbm\PikachuDh.tga</Source>
+      <Source>obj\x86\Debug\FBX\AD6C2915\Pikachu.fbm\PikachuDh.tga</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -379,11 +379,11 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\A63C2686\Pikachu.fbm\PikachuDh_0.xnb</Output>
-      <Time>2013-05-09T22:14:53.4815758-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\AD6C2915\Pikachu.fbm\PikachuDh_0.xnb</Output>
+      <Time>2013-05-09T23:13:42.6146556-07:00</Time>
     </Item>
     <Item>
-      <Source>obj\x86\Debug\FBX\A63C2686\Pikachu.fbm\PikachuHohoDh.tga</Source>
+      <Source>obj\x86\Debug\FBX\AD6C2915\Pikachu.fbm\PikachuHohoDh.tga</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -395,11 +395,11 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\A63C2686\Pikachu.fbm\PikachuHohoDh_0.xnb</Output>
-      <Time>2013-05-09T22:14:53.4845754-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\AD6C2915\Pikachu.fbm\PikachuHohoDh_0.xnb</Output>
+      <Time>2013-05-09T23:13:42.6196564-07:00</Time>
     </Item>
     <Item>
-      <Source>obj\x86\Debug\FBX\A63C2686\Pikachu.fbm\PikachuEyeDh.tga</Source>
+      <Source>obj\x86\Debug\FBX\AD6C2915\Pikachu.fbm\PikachuEyeDh.tga</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -411,18 +411,18 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\A63C2686\Pikachu.fbm\PikachuEyeDh_0.xnb</Output>
-      <Time>2013-05-09T22:14:53.4875762-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\AD6C2915\Pikachu.fbm\PikachuEyeDh_0.xnb</Output>
+      <Time>2013-05-09T23:13:42.6266568-07:00</Time>
     </Item>
     <Item>
       <Source>Models\stage.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\stage_0.xml</Output>
-      <Time>2013-05-09T21:49:02.314167-07:00</Time>
+      <Time>2013-05-09T23:12:24.0456687-07:00</Time>
     </Item>
     <Item>
-      <Source>obj\x86\Debug\FBX\596825B5\stage.fbm\cf9b3053.dds</Source>
+      <Source>obj\x86\Debug\FBX\5B7A2844\stage.fbm\cf9b3053.dds</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -434,11 +434,11 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\596825B5\stage.fbm\cf9b3053_0.xnb</Output>
-      <Time>2013-05-09T22:14:54.2980513-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\5B7A2844\stage.fbm\cf9b3053_0.xnb</Output>
+      <Time>2013-05-09T23:13:43.9568264-07:00</Time>
     </Item>
     <Item>
-      <Source>obj\x86\Debug\FBX\596825B5\stage.fbm\7f50457c.dds</Source>
+      <Source>obj\x86\Debug\FBX\5B7A2844\stage.fbm\7f50457c.dds</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -450,18 +450,18 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\596825B5\stage.fbm\7f50457c_0.xnb</Output>
-      <Time>2013-05-09T22:14:54.3020526-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\5B7A2844\stage.fbm\7f50457c_0.xnb</Output>
+      <Time>2013-05-09T23:13:43.9678269-07:00</Time>
     </Item>
     <Item>
       <Source>Models\pikachu_final.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\pikachu_final_0.xml</Output>
-      <Time>2013-05-09T21:49:02.2321566-07:00</Time>
+      <Time>2013-05-09T23:12:23.9136501-07:00</Time>
     </Item>
     <Item>
-      <Source>obj\x86\Debug\FBX\96D328EF\pikachu_final.fbm\PikachuEyeDh.tga</Source>
+      <Source>obj\x86\Debug\FBX\AD5D2B7E\pikachu_final.fbm\PikachuEyeDh.tga</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -473,11 +473,11 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\96D328EF\pikachu_final.fbm\PikachuEyeDh_0.xnb</Output>
-      <Time>2013-05-09T22:14:55.4523426-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\AD5D2B7E\pikachu_final.fbm\PikachuEyeDh_0.xnb</Output>
+      <Time>2013-05-09T23:13:46.5671551-07:00</Time>
     </Item>
     <Item>
-      <Source>obj\x86\Debug\FBX\96D328EF\pikachu_final.fbm\PikachuDh.tga</Source>
+      <Source>obj\x86\Debug\FBX\AD5D2B7E\pikachu_final.fbm\PikachuDh.tga</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -489,11 +489,11 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\96D328EF\pikachu_final.fbm\PikachuDh_0.xnb</Output>
-      <Time>2013-05-09T22:14:55.4543428-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\AD5D2B7E\pikachu_final.fbm\PikachuDh_0.xnb</Output>
+      <Time>2013-05-09T23:13:46.5721559-07:00</Time>
     </Item>
     <Item>
-      <Source>obj\x86\Debug\FBX\96D328EF\pikachu_final.fbm\PikachuHohoDh.tga</Source>
+      <Source>obj\x86\Debug\FBX\AD5D2B7E\pikachu_final.fbm\PikachuHohoDh.tga</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -505,11 +505,11 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\96D328EF\pikachu_final.fbm\PikachuHohoDh_0.xnb</Output>
-      <Time>2013-05-09T22:14:55.4565298-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\AD5D2B7E\pikachu_final.fbm\PikachuHohoDh_0.xnb</Output>
+      <Time>2013-05-09T23:13:46.578157-07:00</Time>
     </Item>
     <Item>
-      <Source>obj\x86\Debug\FBX\96D328EF\pikachu_final.fbm\PikachuMouthDh.tga</Source>
+      <Source>obj\x86\Debug\FBX\AD5D2B7E\pikachu_final.fbm\PikachuMouthDh.tga</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -521,8 +521,28 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\96D328EF\pikachu_final.fbm\PikachuMouthDh_0.xnb</Output>
-      <Time>2013-05-09T22:14:55.4595302-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\AD5D2B7E\pikachu_final.fbm\PikachuMouthDh_0.xnb</Output>
+      <Time>2013-05-09T23:13:46.5861572-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\ammo.x</Source>
+      <Name>Models\ammo</Name>
+      <Importer>XImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\ammo.xnb</Output>
+      <Time>2013-05-09T23:23:48.0055966-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\ammo_0.xml</Key>
+        <Value>2013-05-09T23:23:57.1757615-07:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\ammo.x</Source>
+      <Importer>XImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\ammo_0.xml</Output>
+      <Time>2013-05-09T23:23:48.0055966-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -530,39 +550,39 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D GameContent\</RootDirectory>
-      <LoggerRootDirectory>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\</LoggerRootDirectory>
-      <IntermediateDirectory>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D GameContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D GameContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D GameContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>D:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>D:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>D:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>D:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>D:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>D:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2010-08-23T12:41:18-07:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>D:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2013-03-21T15:50:44.3380378-07:00</Value>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2013-03-01T07:40:09.0684886-08:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

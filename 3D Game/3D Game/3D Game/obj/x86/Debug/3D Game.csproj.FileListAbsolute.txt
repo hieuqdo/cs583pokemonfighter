@@ -205,3 +205,4 @@ D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x
 D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\96D328EF\pikachu_final.fbm\PikachuHohoDh_0.xnb
 D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\96D328EF\pikachu_final.fbm\PikachuMouthDh_0.xnb
 D:\Users\Hieu\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\theme.wma
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\ammo.xnb
