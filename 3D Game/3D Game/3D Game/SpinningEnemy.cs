@@ -23,6 +23,7 @@ namespace _3D_Game
         {
             world = Matrix.CreateTranslation(position);
             direction = Direction;
+            tint = Color.Blue;
         }
 
         public override void Update()

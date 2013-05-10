@@ -16,6 +16,11 @@ namespace _3D_Game
 
         public float scale { get; set; }
 
+        public void setWorld(Matrix matrix)
+        {
+            world = matrix;
+        }
+
         public ModelManager myModelManager;
 
         public BasicModel(Model m)

@@ -37,6 +37,7 @@ namespace _3D_Game
 
         public Game1()
         {
+            
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferHeight = 600;
             graphics.PreferredBackBufferWidth = 800;
@@ -127,6 +128,9 @@ namespace _3D_Game
                 soundManager.increaseVolume();
             MediaPlayer.Volume = soundManager.volume;
 
+            if (newState.IsKeyDown(Keys.F2) && oldState.IsKeyUp(Keys.F2))
+                toggleFullscreen();
+
             if (newState.IsKeyDown(Keys.Z) &&
                 newState.IsKeyDown(Keys.X) &&
                 newState.IsKeyDown(Keys.C) &&
@@ -176,6 +180,14 @@ namespace _3D_Game
             if (Components.Contains(debug))
                 Components.Remove(debug);
             else Components.Add(debug);
+        }
+
+        private void toggleFullscreen()
+        {
+            if (graphics.IsFullScreen)
+                graphics.IsFullScreen = false;
+            else graphics.IsFullScreen = true;
+            graphics.ApplyChanges();
         }
 
         public void ChangeGameState(GameState state)

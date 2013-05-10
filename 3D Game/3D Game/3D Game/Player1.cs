@@ -77,10 +77,8 @@ namespace _3D_Game
         float rollCooldown = 0;
         float smashCooldown = 0;
         float jumpCooldown = 0;
+        public float shieldScale = 5f;
         KeyboardState oldState, newState;
-        public Texture2D myShield;
-        public Vector2 shieldOrigin;
-        public Color shieldColor = Color.Green;
         public int flipModifier = 1;
 
         protected Keys upKey;
@@ -104,7 +102,7 @@ namespace _3D_Game
             rightKey = Keys.D;
             shieldKey = Keys.LeftShift;
             attackKey = Keys.Q;
-            secondAttackKey = Keys.OemPeriod;
+            secondAttackKey = Keys.E;
             tint = DEFAULT_TINT;
             oldState = Keyboard.GetState();
             
@@ -124,7 +122,6 @@ namespace _3D_Game
             UpdateRoll();
             UpdateSmash();
             updateRespawn(); //respawn char if deathTimer is ready
-            updateShield(); //draw and/or adjust shield
             CheckSprintLeft();
             CheckSprintRight();
             if (stunTimer <= 0)
@@ -313,6 +310,14 @@ namespace _3D_Game
         private void shield()
         {
             isShielding = true;
+            shieldScale -= TIME_COUNTDOWN * 3;
+            if (shieldScale <= 0)
+            {
+                stunTimer = 5;
+                shieldScale = 5f;
+                isShielding = false;
+            }
+            
         }
 
         private void ApplyGravity()
@@ -441,6 +446,8 @@ namespace _3D_Game
                 sprintCheckTimerRight -= TIME_COUNTDOWN;
             if (sprintCheckTimerRight2 > 0)
                 sprintCheckTimerRight2 -= TIME_COUNTDOWN;
+            if (shieldScale <= 5)
+                shieldScale += TIME_COUNTDOWN * 2;
             if (stunTimer > 0)
                 stunTimer -= TIME_COUNTDOWN;
             if (deathTimer - TIME_COUNTDOWN > 0)
@@ -485,13 +492,6 @@ namespace _3D_Game
         public void knockback(float momentum)
         {
             lateralMomentum = momentum;
-        }
-
-        public void updateShield()
-        {
-            shieldOrigin = new Vector2(
-                getPosition().X + 200, 
-                getPosition().Y + 200);
         }
 
         public void setPosition(float xdistance)

@@ -21,6 +21,7 @@ namespace _3D_Game
         List<BasicModel> shots = new List<BasicModel>();
         BasicModel p1, p2, stage;
         Player1 player1, player2;
+        BasicModel shield1, shield2;
         InteractionMediator mediator;
 
         SoundManager soundManager;
@@ -70,7 +71,12 @@ namespace _3D_Game
                 Game.Content.Load<Model>(@"models\pikachu_final"));
             ((Player1)p2).setPosition(25);
             models.Add(p2);
-            
+
+            shield1 = new BasicModel(
+                Game.Content.Load<Model>(@"models\pokeball"));
+            shield2 = new BasicModel(
+                Game.Content.Load<Model>(@"models\pokeball"));
+
             //Lives
             stock = Game.Content.Load<Texture2D>(@"textures\stock");
             mediator = new InteractionMediator((Player1)p1, (Player1)p2);
@@ -281,22 +287,24 @@ namespace _3D_Game
 
             if (((Player1)p1).isShielding == true)
             {
-                ((Player1)p1).myShield = CreateCircle(80);
-                spriteBatch.Draw(
-                    ((Player1)p1).myShield,
-                    new Vector2(30, 30),//((Player1)p1).shieldOrigin,
-                    ((Player1)p1).shieldColor);
-
+                shield1.scale = player1.shieldScale / 5f;
+                shield1.setWorld(player1.GetWorld());
+                if (!models.Contains(shield1))
+                    models.Add(shield1);
             }
+            else
+                if (models.Contains(shield1))
+                    models.Remove(shield1);
             if (((Player1)p2).isShielding == true)
             {
-                ((Player1)p2).myShield = CreateCircle(80);
-                spriteBatch.Draw(
-                    ((Player1)p2).myShield,
-                    ((Player1)p2).shieldOrigin,
-                    ((Player1)p2).shieldColor);
-
+                shield2.scale = player2.shieldScale / 5f;
+                shield2.setWorld(player2.GetWorld());
+                if (!models.Contains(shield2))
+                    models.Add(shield2);
             }
+            else
+                if (models.Contains(shield2))
+                    models.Remove(shield2);
 
             spriteBatch.End();
         }

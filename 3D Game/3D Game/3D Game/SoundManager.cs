@@ -30,7 +30,7 @@ namespace _3D_Game
         public Song battleMusic;
         public Song themeMusic;
 
-        public float volume = .6f;
+        public float volume = .2f;
 
         // Constructor
         public SoundManager()
