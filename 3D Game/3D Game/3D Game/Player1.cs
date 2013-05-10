@@ -15,7 +15,7 @@ namespace _3D_Game
         const int PLAYER_RUN_SPEED = 1;
         const int PLAYER_SPRINT_SPEED = 2;
         const float SPRINT_KEYPRESS_INTERVAL = 0.3f;
-        const float SMASH_KEYPRESS_INTERVAL = 0.3f;
+        const float SMASH_KEYPRESS_INTERVAL = 0.2f;
         const float TIME_COUNTDOWN = 0.01666666666f;
         const int NO_SPRINT_STATE = -1;
         const int FIRST_PRESS_STATE = 0;
@@ -33,12 +33,13 @@ namespace _3D_Game
         const float GRAVITY = 0.1f;
         const float JUMP_COOLDOWN = .1f;
         const float LATERAL_MOMENTUM = 1.2f;
+        const float JUMP_MINIMUM_MOMENTUM = -1.5f;
         // smashing
         const float SMASH_TIME = .2f;
-        const float SMASH_COOLDOWN = .1f;
+        const float SMASH_COOLDOWN = .25f;
         const float SMASH_SPEED = 1;
 
-        public Color DEFAULT_TINT = Color.MediumVioletRed;
+        public Color DEFAULT_TINT = Color.Tan;
         public InteractionMediator mediator;
 
         Matrix Ytranslation = Matrix.Identity;
@@ -77,7 +78,9 @@ namespace _3D_Game
         float rollCooldown = 0;
         float smashCooldown = 0;
         float jumpCooldown = 0;
-        public float shieldScale = 5f;
+        float smashTimerLeft = 0;
+        float smashTimerRight = 0;
+        public float shieldScale = 10f;
         KeyboardState oldState, newState;
         public int flipModifier = 1;
 
@@ -119,8 +122,7 @@ namespace _3D_Game
             TickCooldowns();
             ApplyGravity();
             ApplyFriction();
-            UpdateRoll();
-            UpdateSmash();
+            UpdateRoll();       
             updateRespawn(); //respawn char if deathTimer is ready
             CheckSprintLeft();
             CheckSprintRight();
@@ -128,6 +130,7 @@ namespace _3D_Game
             {
                 ReadKeyboardInput();
                 ReadAttackInput();
+                
                 tint = DEFAULT_TINT;
             }
             else
@@ -169,6 +172,8 @@ namespace _3D_Game
                     //Process left and right
                     if (newState.IsKeyDown(leftKey))
                     {
+                        if (oldState.IsKeyUp(leftKey))
+                            smashTimerLeft = SMASH_KEYPRESS_INTERVAL;
                         if (!rolling)
                             Move(left);
                     }
@@ -180,6 +185,8 @@ namespace _3D_Game
                     }
                     if (newState.IsKeyDown(rightKey))
                     {
+                        if (oldState.IsKeyUp(rightKey))
+                            smashTimerRight = SMASH_KEYPRESS_INTERVAL;
                         if (!rolling)
                             Move(right);
                     }
@@ -193,25 +200,16 @@ namespace _3D_Game
             }
         }
 
-        private void UpdateSmash()
+        private void Smash()
         {
-            if (smashing)
-            {
                 Xtranslation *= smashingTranslation;
-                smashTimer -= TIME_COUNTDOWN;
                 if (mediator.attack(this, InteractionMediator.attackType.SMASH))
                 {
                     myModelManager.playSound(ModelManager.sound.SMASHHIT);
                     myModelManager.playSound(ModelManager.sound.SHOCK);
                     smashHit = true;
+                    smashCooldown = SMASH_COOLDOWN;
                 }
-                if (smashTimer <= 0)
-                {
-                    smashing = false;
-                    smashHit = false;
-                    smashCooldown = SMASH_COOLDOWN;                    
-                }
-            }
         }
 
         public void ReadAttackInput()
@@ -221,30 +219,30 @@ namespace _3D_Game
             {
                 // If smash left
                 if (newState.IsKeyDown(attackKey) && newState.IsKeyDown(leftKey) &&
-                    (oldState.IsKeyUp(attackKey) && oldState.IsKeyUp(leftKey)) &&
+                    (smashTimerLeft > 0) &&
                     !smashing)
                 {
                     myModelManager.playSound(ModelManager.sound.SMASH);
                     Vector3 direction = new Vector3(-1, 0, 0);
                     if (!smashing && smashCooldown <= 0)
                     {
-                        smashing = true;
                         smashingTranslation = Matrix.CreateTranslation(direction * SMASH_SPEED);
                         smashTimer = SMASH_TIME;
+                        Smash();
                     }
                 }
                 // If smash right
                 else if (newState.IsKeyDown(attackKey) && newState.IsKeyDown(rightKey) &&
-                    (oldState.IsKeyUp(attackKey) && oldState.IsKeyUp(rightKey)) &&
+                    (smashTimerRight > 0) &&
                     !smashing)
                 {
                     myModelManager.playSound(ModelManager.sound.SMASH);
                     Vector3 direction = new Vector3(1, 0, 0);
                     if (!smashing && smashCooldown <= 0)
                     {
-                        smashing = true;
                         smashingTranslation = Matrix.CreateTranslation(direction * SMASH_SPEED);
                         smashTimer = SMASH_TIME;
+                        Smash();
                     }
                 }
                 // If normal attack
@@ -333,6 +331,9 @@ namespace _3D_Game
                     //speed = PLAYER_SPEED;
                     Ytranslation = Matrix.Identity;
                 }
+                else
+                    if (jumpMomentum <= JUMP_MINIMUM_MOMENTUM)
+                        jumpMomentum = JUMP_MINIMUM_MOMENTUM;
             }
             Ytranslation *= Matrix.CreateTranslation(new Vector3(0, jumpMomentum, 0));
         }
@@ -438,6 +439,10 @@ namespace _3D_Game
                 rollCooldown -= TIME_COUNTDOWN;
             if (smashCooldown > 0)
                 smashCooldown -= TIME_COUNTDOWN;
+            if (smashTimerLeft > 0)
+                smashTimerLeft -= TIME_COUNTDOWN;
+            if (smashTimerRight > 0)
+                smashTimerRight -= TIME_COUNTDOWN;
             if (sprintCheckTimerLeft > 0)
                 sprintCheckTimerLeft -= TIME_COUNTDOWN;
             if (sprintCheckTimerLeft2 > 0)
@@ -486,7 +491,7 @@ namespace _3D_Game
                 isAlive = true;
             }
             else if (deathTimer == 0)
-                myModelManager.endGame(DEFAULT_TINT);
+                myModelManager.reportDeath(this);
         }
 
         public void knockback(float momentum)

@@ -27,7 +27,6 @@ namespace _3D_Game
         public int writeFrequency = 0;
         private KeyboardState newState, oldState;
 
-
         public enum GameState { MENU, PLAYING, INSTRUCTIONS, P1WIN, P2WIN }
         public GameState currentGameState = GameState.MENU;
 
@@ -36,8 +35,7 @@ namespace _3D_Game
         Texture2D bg;
 
         public Game1()
-        {
-            
+        {           
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferHeight = 600;
             graphics.PreferredBackBufferWidth = 800;
@@ -207,22 +205,7 @@ namespace _3D_Game
                     MediaPlayer.IsRepeating = true;
                     break;
 
-                case GameState.MENU:
-                    modelManager.Enabled = false;
-                    modelManager.Visible = false;
-                    splashScreen.Enabled = true;
-                    splashScreen.Visible = true;          
-                    break;
-
-                case GameState.INSTRUCTIONS:
-                    modelManager.Enabled = false;
-                    modelManager.Visible = false;
-                    splashScreen.Enabled = true;
-                    splashScreen.Visible = true;                  
-                    break;
-
-                case GameState.P1WIN:
-                case GameState.P2WIN:
+                default:
                     modelManager.Enabled = false;
                     modelManager.Visible = false;
                     splashScreen.Enabled = true;

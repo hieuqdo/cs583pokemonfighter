@@ -65,7 +65,7 @@ namespace _3D_Game
                 switch (attackType)
                 {
                     case attackType.BASIC:
-                        damageModifier = 1;
+                        damageModifier = 2;
                         knockbackModifier = 40f;
                         attackKnockbackCap = 1;
 
@@ -75,8 +75,6 @@ namespace _3D_Game
                         damageModifier = 5;
                         knockbackModifier = 20f;
                         attackKnockbackCap = -1;
-
-                        attacker.smashing = false;
                         break;
 
                 }
@@ -128,9 +126,11 @@ namespace _3D_Game
             return false;
         }
 
+        // Plays sound & reduces player shield
         public void shieldBlock(Player1 blocker)
         {
             blocker.myModelManager.playSound(ModelManager.sound.SHIELD);
+            blocker.shieldScale -= .1f;
         }
     }
 }

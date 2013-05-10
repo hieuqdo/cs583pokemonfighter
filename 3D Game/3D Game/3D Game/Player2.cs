@@ -21,7 +21,7 @@ namespace _3D_Game
             shieldKey = Keys.RightShift;
             attackKey = Keys.OemQuestion;
             secondAttackKey = Keys.OemPeriod;
-            DEFAULT_TINT = Color.DarkBlue;
+            DEFAULT_TINT = Color.Black;
             tint = DEFAULT_TINT;
             flipModifier = -1;
         }

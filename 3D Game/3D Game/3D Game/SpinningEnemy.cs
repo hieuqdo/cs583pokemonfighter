@@ -7,18 +7,18 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace _3D_Game
 {
-    class SpinningEnemy : BasicModel
+    class Bullet : BasicModel
     {
         Matrix rotation = Matrix.Identity;
         Matrix translation = Matrix.Identity;
         Vector3 direction;
 
-        public SpinningEnemy(Model m)
+        public Bullet(Model m)
             : base(m)
         {
         }
 
-        public SpinningEnemy(Model m, Vector3 position, Vector3 Direction)
+        public Bullet(Model m, Vector3 position, Vector3 Direction)
             : base(m)
         {
             world = Matrix.CreateTranslation(position);

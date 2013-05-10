@@ -85,7 +85,6 @@ namespace _3D_Game
             ((Player1)p1).mediator = mediator;
             ((Player1)p2).mediator = mediator;
 
-
             //Assign all the models this Model Manager
             foreach (BasicModel m in models)
                 m.setModelManager(this);
@@ -309,33 +308,6 @@ namespace _3D_Game
             spriteBatch.End();
         }
 
-        public Texture2D CreateCircle(int radius)
-        {
-            int outerRadius = radius * 2 + 2; // So circle doesn't go out of bounds
-            Texture2D texture = new Texture2D(GraphicsDevice, outerRadius, outerRadius);
-
-            Color[] data = new Color[outerRadius * outerRadius];
-
-            // Colour the entire texture transparent first.
-            for (int i = 0; i < data.Length; i++)
-                data[i] = Color.Transparent;
-
-            // Work out the minimum step necessary using trigonometry + sine approximation.
-            double angleStep = 1f / radius;
-
-            for (double angle = 0; angle < Math.PI * 2; angle += angleStep)
-            {
-                // Use the parametric definition of a circle: http://en.wikipedia.org/wiki/Circle#Cartesian_coordinates
-                int x = (int)Math.Round(radius + radius * Math.Cos(angle));
-                int y = (int)Math.Round(radius + radius * Math.Sin(angle));
-
-                data[y * outerRadius + x + 1] = Color.White;
-            }
-
-            texture.SetData(data);
-            return texture;
-        }
-
         public void drawPercentage(int percent, int offset)
         {
             string temp = "" + percent + "%";
@@ -368,17 +340,18 @@ namespace _3D_Game
             spriteBatch.End();
         }
 
-        public void endGame(Color losingColor)
+        public void reportDeath(Object player)
         {
-            if (losingColor == Color.MediumVioletRed)
+            if (player == player1)
                 ((Game1)Game).ChangeGameState(Game1.GameState.P2WIN);
             else ((Game1)Game).ChangeGameState(Game1.GameState.P1WIN);
             MediaPlayer.Play(soundManager.themeMusic);
             MediaPlayer.IsRepeating = true;
         }
+
         public void AddShot(Vector3 position, Vector3 direction)
         {
-            shots.Add(new SpinningEnemy(
+            shots.Add(new Bullet(
                 Game.Content.Load<Model>(@"models\ammo"),
                 position, direction * shotSpeed));
         }
@@ -389,7 +362,7 @@ namespace _3D_Game
             for (int i = 0; i < shots.Count; i++)
             {
                 //Update each shot
-                ((SpinningEnemy)shots[i]).Update();
+                ((Bullet)shots[i]).Update();
 
                 //If shot is out of bounds, remove it from game
                 /*if (shots[i].GetWorld().Translation.X < Game.GraphicsDevice.PresentationParameters.BackBufferWidth)
