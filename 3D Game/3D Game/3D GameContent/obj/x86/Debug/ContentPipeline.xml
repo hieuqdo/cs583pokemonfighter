@@ -497,6 +497,33 @@
       <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\stadium_bg.xnb</Output>
       <Time>2013-05-08T19:48:21.9565354-07:00</Time>
     </Item>
+    <Item>
+      <Source>Textures\GAMEOVER1.png</Source>
+      <Name>Textures\GAMEOVER1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\GAMEOVER1.xnb</Output>
+      <Time>2013-05-09T20:31:23.5028639-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\GAMEOVER2.png</Source>
+      <Name>Textures\GAMEOVER2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\GAMEOVER2.xnb</Output>
+      <Time>2013-05-09T20:31:23.5168676-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\SPLASHEND.png</Source>
+      <Name>Textures\SPLASHEND</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\SPLASHEND.xnb</Output>
+      <Time>2013-05-09T20:31:23.5258656-07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

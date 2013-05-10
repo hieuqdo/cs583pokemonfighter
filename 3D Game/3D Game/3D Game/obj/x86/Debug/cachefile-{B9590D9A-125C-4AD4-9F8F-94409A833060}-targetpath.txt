@@ -42,3 +42,6 @@ Content\Audio\smashhit.xnb
 Content\Audio\shock.xnb
 Content\Audio\shield.xnb
 Content\Textures\stadium_bg.xnb
+Content\Textures\GAMEOVER1.xnb
+Content\Textures\GAMEOVER2.xnb
+Content\Textures\SPLASHEND.xnb

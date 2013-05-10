@@ -189,7 +189,7 @@ namespace _3D_Game
             {
                 Xtranslation *= smashingTranslation;
                 smashTimer -= TIME_COUNTDOWN;
-                if (mediator.smashAttack(this))
+                if (mediator.attack(this, InteractionMediator.attackType.SMASH))
                 {
                     myModelManager.playSound(ModelManager.sound.SMASHHIT);
                     myModelManager.playSound(ModelManager.sound.SHOCK);
@@ -240,7 +240,7 @@ namespace _3D_Game
                 // If normal attack
                 else if (newState.IsKeyDown(attackKey) && oldState.IsKeyUp(attackKey))
                 {
-                    if (!smashing && mediator.attack(this) == true)
+                    if (!smashing && mediator.attack(this, InteractionMediator.attackType.BASIC) == true)
                         myModelManager.playSound(ModelManager.sound.ATTACK);
                 }
             }

@@ -50,6 +50,12 @@ namespace _3D_Game
 
         protected override void LoadContent()
         {
+            //Stage
+            stage = new Stage1(
+                Game.Content.Load<Model>(@"models\stage"));
+            models.Add(stage);
+
+            //Players
             p1 = new Player1(
                 Game.Content.Load<Model>(@"models\pikachu_final"));
             ((Player1)p1).setPosition(-25);
@@ -58,13 +64,15 @@ namespace _3D_Game
                 Game.Content.Load<Model>(@"models\pikachu_final"));
             ((Player1)p2).setPosition(25);
             models.Add(p2);
-            stage = new Stage1(
-                Game.Content.Load<Model>(@"models\stage"));
+            
+            //Lives
             stock = Game.Content.Load<Texture2D>(@"textures\stock");
             mediator = new InteractionMediator((Player1)p1, (Player1)p2);
+
+            //Assign Mediator
             ((Player1)p1).mediator = mediator;
             ((Player1)p2).mediator = mediator;
-            models.Add(stage);
+
 
             //Assign all the models this Model Manager
             foreach (BasicModel m in models)

@@ -45,10 +45,10 @@ namespace _3D_Game
 
         protected override void LoadContent()
         {
-            titleScreen = Game.Content.Load<Texture2D>(@"Textures\SplashScreen3rd");
+            titleScreen = Game.Content.Load<Texture2D>(@"Textures\SPLASHEND");
             instructions = Game.Content.Load<Texture2D>(@"Textures\SplashInstructions");
-            winScreenP1 = Game.Content.Load<Texture2D>(@"Textures\instructions");
-            winScreenP2 = Game.Content.Load<Texture2D>(@"Textures\instructions");
+            winScreenP1 = Game.Content.Load<Texture2D>(@"Textures\GAMEOVER1");
+            winScreenP2 = Game.Content.Load<Texture2D>(@"Textures\GAMEOVER2");
             font = Game.Content.Load<SpriteFont>(@"fonts\georgia");
 
             //Create sprite batch
@@ -127,26 +127,26 @@ namespace _3D_Game
                 spriteBatch.Draw(winScreenP1,
                     screenRectangle, Color.White);
 
-                spriteBatch.DrawString(
+                /*spriteBatch.DrawString(
                     font,
                     "Player 1 Wins!",
                     new Vector2(Game.Window.ClientBounds.Width / 2,
                         Game.Window.ClientBounds.Height) / 2,
                     Color.Red); 
-
+                */
             }
             else if (((Game1)Game).currentGameState == Game1.GameState.P2WIN)
             {
                 spriteBatch.Draw(winScreenP2,
                     screenRectangle, Color.White);
 
-                spriteBatch.DrawString(
+                /*spriteBatch.DrawString(
                     font,
                     "Player 2 Wins!",
                     new Vector2(Game.Window.ClientBounds.Width / 2,
                         Game.Window.ClientBounds.Height / 2),
                     Color.Red); 
-
+                */
             }
 
             spriteBatch.End();
