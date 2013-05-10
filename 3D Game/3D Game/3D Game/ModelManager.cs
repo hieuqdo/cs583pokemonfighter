@@ -19,6 +19,7 @@ namespace _3D_Game
     {
         List<BasicModel> models = new List<BasicModel>();
         BasicModel p1, p2, stage;
+        Player1 player1, player2;
         InteractionMediator mediator;
 
         SoundManager soundManager;
@@ -26,8 +27,11 @@ namespace _3D_Game
         SpriteBatch spriteBatch;
         SpriteFont percentFont;
 
-        public enum sound { JUMP, DOUBLEJUMP, ATTACK, SHIELD, ROLL,
-                            DEATHCRY, DEATHBLAST } 
+        public enum sound { JUMP, DOUBLEJUMP, ATTACK, SMASH, SMASHHIT, SHOCK,
+                            SHIELD, ROLL,
+                            RESPAWN, DEATHCRY, DEATHBLAST }
+
+        Texture2D stock;
 
         public ModelManager(Game game)
             : base(game)
@@ -48,13 +52,16 @@ namespace _3D_Game
         protected override void LoadContent()
         {
             p1 = new Player1(
-                Game.Content.Load<Model>(@"models\spaceship"));
+                Game.Content.Load<Model>(@"models\pikachu_final"));
+            ((Player1)p1).setPosition(-25);
             models.Add(p1);
             p2 = new Player2(
-                Game.Content.Load<Model>(@"models\spaceship"));
+                Game.Content.Load<Model>(@"models\pikachu_final"));
+            ((Player1)p2).setPosition(25);
             models.Add(p2);
             stage = new Stage1(
                 Game.Content.Load<Model>(@"models\stage"));
+            stock = Game.Content.Load<Texture2D>(@"textures\stock");
             mediator = new InteractionMediator((Player1)p1, (Player1)p2);
             ((Player1)p1).mediator = mediator;
             ((Player1)p2).mediator = mediator;
@@ -63,6 +70,9 @@ namespace _3D_Game
             //Assign all the models this Model Manager
             foreach (BasicModel m in models)
                 m.setModelManager(this);
+
+            player1 = ((Player1)p1);
+            player2 = ((Player1)p2);
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
             percentFont = Game.Content.Load<SpriteFont>(@"fonts\menuFont");
@@ -83,19 +93,28 @@ namespace _3D_Game
                 models[i].Update();
             }
 
-            if (getPosition1().Y > ((Stage1)stage).deathPlane_TOP ||
-                getPosition1().Y < ((Stage1)stage).deathPlane_BOT ||
-                getPosition1().X > ((Stage1)stage).deathPlane_LEFT ||
-                getPosition1().X < ((Stage1)stage).deathPlane_RIGHT)
-                ((Player1)p1).reset();
-
-            if (getPosition2().Y > ((Stage1)stage).deathPlane_TOP ||
-                getPosition2().Y < ((Stage1)stage).deathPlane_BOT ||
-                getPosition2().X > ((Stage1)stage).deathPlane_LEFT ||
-                getPosition2().X < ((Stage1)stage).deathPlane_RIGHT)
-                ((Player1)p2).reset();
+            updateDeaths();
+            updateFaceDirection();
 
             base.Update(gameTime);
+        }
+
+        private void updateFaceDirection()
+        {
+            if (getPosition1().X >= getPosition2().X)
+            {
+                if(!player1.moving)
+                    player1.flipModifier = -1;
+                if(!player2.moving)
+                    player2.flipModifier = 1;
+            }
+            else
+            {
+                if (!player1.moving)
+                    player1.flipModifier = 1;
+                if (!player2.moving)
+                    player2.flipModifier = -1;
+            }
         }
 
         public override void Draw(GameTime gameTime)
@@ -106,8 +125,15 @@ namespace _3D_Game
                 bm.Draw(((Game1)Game).camera);
             }
 
-            drawPercentage(((Player1)p1).currPercentage, 1);
-            drawPercentage(((Player1)p2).currPercentage, 2);
+            if (((Player1)p1).currStock > 0)
+               drawPercentage(((Player1)p1).currPercentage, 1);
+            if (((Player1)p2).currStock > 0)
+               drawPercentage(((Player1)p2).currPercentage, 2);
+
+            drawStock(((Player1)p1).currStock, 1);
+            drawStock(((Player1)p2).currStock, 2);
+
+            drawShields();
 
             base.Draw(gameTime);
         }
@@ -168,15 +194,31 @@ namespace _3D_Game
                     break;
 
                 case sound.ATTACK:
-                    soundManager.doubleJumpSound.Play();
+                    soundManager.attackSound.Play();
+                    break;
+
+                case sound.SMASH:
+                    soundManager.smashAttackSound.Play();
+                    break;
+
+                case sound.SMASHHIT:
+                    soundManager.smashHitSound.Play();
+                    break;
+
+                case sound.SHOCK:
+                    soundManager.shockSound.Play();
                     break;
 
                 case sound.SHIELD:
-                    soundManager.doubleJumpSound.Play();
+                    soundManager.shieldSound.Play();
                     break;
 
                 case sound.ROLL:
                     soundManager.doubleJumpSound.Play();
+                    break;
+
+                case sound.RESPAWN:
+                    soundManager.respawnSound.Play();
                     break;
 
                 case sound.DEATHCRY:
@@ -188,6 +230,76 @@ namespace _3D_Game
                     break;
 
             }
+        }
+
+        public void updateDeaths()
+        {
+            if ((getPosition1().Y > ((Stage1)stage).deathPlane_TOP ||
+                getPosition1().Y < ((Stage1)stage).deathPlane_BOT ||
+                getPosition1().X > ((Stage1)stage).deathPlane_LEFT ||
+                getPosition1().X < ((Stage1)stage).deathPlane_RIGHT)
+                && ((Player1)p1).isAlive == true)
+                ((Player1)p1).reset();
+
+            if ((getPosition2().Y > ((Stage1)stage).deathPlane_TOP ||
+                getPosition2().Y < ((Stage1)stage).deathPlane_BOT ||
+                getPosition2().X > ((Stage1)stage).deathPlane_LEFT ||
+                getPosition2().X < ((Stage1)stage).deathPlane_RIGHT)
+                && ((Player1)p2).isAlive == true)
+                ((Player1)p2).reset();
+        }
+
+        public void drawShields()
+        {
+            spriteBatch.Begin();
+
+            if (((Player1)p1).isShielding == true)
+            {
+                ((Player1)p1).myShield = CreateCircle(80);
+                spriteBatch.Draw(
+                    ((Player1)p1).myShield,
+                    new Vector2(30, 30),//((Player1)p1).shieldOrigin,
+                    ((Player1)p1).shieldColor);
+
+            }
+            if (((Player1)p2).isShielding == true)
+            {
+                ((Player1)p2).myShield = CreateCircle(80);
+                spriteBatch.Draw(
+                    ((Player1)p2).myShield,
+                    ((Player1)p2).shieldOrigin,
+                    ((Player1)p2).shieldColor);
+
+            }
+
+            spriteBatch.End();
+        }
+
+        public Texture2D CreateCircle(int radius)
+        {
+            int outerRadius = radius * 2 + 2; // So circle doesn't go out of bounds
+            Texture2D texture = new Texture2D(GraphicsDevice, outerRadius, outerRadius);
+
+            Color[] data = new Color[outerRadius * outerRadius];
+
+            // Colour the entire texture transparent first.
+            for (int i = 0; i < data.Length; i++)
+                data[i] = Color.Transparent;
+
+            // Work out the minimum step necessary using trigonometry + sine approximation.
+            double angleStep = 1f / radius;
+
+            for (double angle = 0; angle < Math.PI * 2; angle += angleStep)
+            {
+                // Use the parametric definition of a circle: http://en.wikipedia.org/wiki/Circle#Cartesian_coordinates
+                int x = (int)Math.Round(radius + radius * Math.Cos(angle));
+                int y = (int)Math.Round(radius + radius * Math.Sin(angle));
+
+                data[y * outerRadius + x + 1] = Color.White;
+            }
+
+            texture.SetData(data);
+            return texture;
         }
 
         public void drawPercentage(int percent, int offset)
@@ -203,6 +315,32 @@ namespace _3D_Game
                         Color.White);
 
             spriteBatch.End();
+        }
+
+        public void drawStock(int lives, int offset)
+        {
+            spriteBatch.Begin();
+
+            for (int i = 0; i < lives; i++)
+            {
+                spriteBatch.Draw(
+                    stock,
+                    new Vector2(
+                        (Game.Window.ClientBounds.Width / 7 * (offset * 2) + i*23),
+                        (Game.Window.ClientBounds.Height / 5 * 3) + 80),
+                        Color.Yellow);
+            }
+
+            spriteBatch.End();
+        }
+
+        public void endGame(Color losingColor)
+        {
+            if (losingColor == Color.MediumVioletRed)
+                ((Game1)Game).ChangeGameState(Game1.GameState.P2WIN);
+            else ((Game1)Game).ChangeGameState(Game1.GameState.P1WIN);
+            MediaPlayer.Play(soundManager.themeMusic);
+            MediaPlayer.IsRepeating = true;
         }
 
     }

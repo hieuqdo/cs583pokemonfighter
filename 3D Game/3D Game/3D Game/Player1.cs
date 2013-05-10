@@ -15,6 +15,7 @@ namespace _3D_Game
         const int PLAYER_RUN_SPEED = 1;
         const int PLAYER_SPRINT_SPEED = 2;
         const float SPRINT_KEYPRESS_INTERVAL = 0.3f;
+        const float SMASH_KEYPRESS_INTERVAL = 0.3f;
         const float TIME_COUNTDOWN = 0.01666666666f;
         const int NO_SPRINT_STATE = -1;
         const int FIRST_PRESS_STATE = 0;
@@ -31,14 +32,20 @@ namespace _3D_Game
         const float JUMP_SPEED = 0.4f;
         const float GRAVITY = 0.1f;
         const float JUMP_COOLDOWN = .1f;
+        const float LATERAL_MOMENTUM = 1.2f;
+        // smashing
+        const float SMASH_TIME = .2f;
+        const float SMASH_COOLDOWN = .1f;
+        const float SMASH_SPEED = 1;
 
-        protected Color DEFAULT_TINT = Color.MediumVioletRed;
+        public Color DEFAULT_TINT = Color.MediumVioletRed;
         public InteractionMediator mediator;
 
         Matrix Ytranslation = Matrix.Identity;
         Matrix Xtranslation = Matrix.Identity;
         Matrix rotation = Matrix.Identity;
         Matrix rollingTranslation;
+        Matrix smashingTranslation;
         Matrix rollingRotation;
         Vector3 left = new Vector3(-1,0,0);
         Vector3 right = new Vector3(1,0,0);
@@ -46,20 +53,35 @@ namespace _3D_Game
         //history
         bool doubleJumped = false;
         bool jumping = false;
-        bool rolling = false;
+        public bool rolling = false;
+        public bool smashing = false;
+        public bool moving = false;
+        bool smashHit = false;
         bool sprintingLeft = false;
         bool sprintingRight = false;
+        bool inAir = false; //detect for shielding, maybe aerials
+        public bool isAlive = true; //for determining death camera
+        public bool isShielding = false; //model manager will draw shield
         float jumpMomentum = 0;
+        float doubleJumpTimer = 0;
+        float lateralMomentum = 0;
         public float stunTimer = 0;
         float rollingTimer = 0;
+        float smashTimer = 0;
+        float deathTimer = -1;
         float sprintCheckTimerLeft = 0;
         float sprintCheckTimerLeft2 = 0;
         float sprintCheckTimerRight = 0;
         float sprintCheckTimerRight2 = 0;
         float speed = PLAYER_RUN_SPEED;
         float rollCooldown = 0;
+        float smashCooldown = 0;
         float jumpCooldown = 0;
         KeyboardState oldState, newState;
+        public Texture2D myShield;
+        public Vector2 shieldOrigin;
+        public Color shieldColor = Color.Green;
+        public int flipModifier = 1;
 
         protected Keys upKey;
         protected Keys downKey;
@@ -70,28 +92,37 @@ namespace _3D_Game
 
         public int currPercentage;
         public int maxPercentage = 999;
+        public int currStock;
 
         public Player1(Model m)
             : base(m)
         {
-            upKey = Keys.Up;
-            downKey = Keys.Down;
-            leftKey = Keys.Left;
-            rightKey = Keys.Right;
-            shieldKey = Keys.RightShift;
-            attackKey = Keys.OemQuestion;
+            upKey = Keys.W;
+            downKey = Keys.S;
+            leftKey = Keys.A;
+            rightKey = Keys.D;
+            shieldKey = Keys.LeftShift;
+            attackKey = Keys.Q;
             tint = DEFAULT_TINT;
             oldState = Keyboard.GetState();
             
             currPercentage = 0;
+            currStock = 2;
         }
 
         public override void Update()
         {
             newState = Keyboard.GetState();
+            if (getPosition().Y > 0)
+                inAir = true;
+            else inAir = false;
             TickCooldowns();
             ApplyGravity();
+            ApplyFriction();
             UpdateRoll();
+            UpdateSmash();
+            updateRespawn(); //respawn char if deathTimer is ready
+            updateShield(); //draw and/or adjust shield
             CheckSprintLeft();
             CheckSprintRight();
             if (stunTimer <= 0)
@@ -107,38 +138,128 @@ namespace _3D_Game
 
         private void ReadKeyboardInput()
         {
-            if (newState.IsKeyDown(upKey))
+            //Only read input if alive
+            if (isAlive)
             {
-                if (!jumping && oldState.IsKeyUp(upKey))
-                    Jump();
-                else if (oldState.IsKeyUp(upKey))
-                    DoubleJump();
+                // Process Shielding
+                if (newState.IsKeyDown(shieldKey))
+                {
+                    //if (!inAir)
+                    if (!rolling)
+                        shield();
+                    if (newState.IsKeyDown(leftKey) && oldState.IsKeyUp(leftKey))
+                        Roll(left);
+                    if (newState.IsKeyDown(rightKey) && oldState.IsKeyUp(rightKey))
+                        Roll(right);
+                    return;
+                }
+                else isShielding = false;
+
+                //Only read other input if not shielding
+                if (!isShielding)
+                {
+                    //Process Jumping
+                    if (newState.IsKeyDown(upKey))
+                    {
+                        if (!jumping && oldState.IsKeyUp(upKey))
+                            Jump();
+                        else if (oldState.IsKeyUp(upKey))
+                            DoubleJump();
+                    }
+
+                    //Process left and right
+                    if (newState.IsKeyDown(leftKey))
+                    {
+                        if (!rolling)
+                            Move(left);
+                    }
+                    else if (oldState.IsKeyDown(leftKey))
+                    {
+                        lateralMomentum = -speed * 1.2f;
+                        rotation = Matrix.Identity;
+                        moving = false;
+                    }
+                    if (newState.IsKeyDown(rightKey))
+                    {
+                        if (!rolling)
+                            Move(right);
+                    }
+                    else if (oldState.IsKeyDown(rightKey))
+                    {
+                        lateralMomentum = speed * 1.2f;
+                        rotation = Matrix.Identity;
+                        moving = false;
+                    }
+                }
             }
-            if (Keyboard.GetState().IsKeyDown(shieldKey))
+        }
+
+        private void UpdateSmash()
+        {
+            if (smashing)
             {
-                if (Keyboard.GetState().IsKeyDown(leftKey) && oldState.IsKeyUp(leftKey))
-                    Roll(left);
-                if (Keyboard.GetState().IsKeyDown(rightKey) && oldState.IsKeyUp(rightKey))
-                    Roll(right);
-                return;
+                Xtranslation *= smashingTranslation;
+                smashTimer -= TIME_COUNTDOWN;
+                if (mediator.smashAttack(this))
+                {
+                    myModelManager.playSound(ModelManager.sound.SMASHHIT);
+                    myModelManager.playSound(ModelManager.sound.SHOCK);
+                    smashHit = true;
+                }
+                if (smashTimer <= 0)
+                {
+                    smashing = false;
+                    smashHit = false;
+                    smashCooldown = SMASH_COOLDOWN;                    
+                }
             }
-            if (Keyboard.GetState().IsKeyDown(leftKey) && !rolling)
-                Move(left); 
-            if (Keyboard.GetState().IsKeyDown(rightKey) && !rolling)
-                Move(right);
         }
 
         public void ReadAttackInput()
         {
-            if (newState.IsKeyDown(attackKey))
+            //Only read input if not shielding
+            if (!isShielding)
             {
-                mediator.attack(this);
+                // If smash left
+                if (newState.IsKeyDown(attackKey) && newState.IsKeyDown(leftKey) &&
+                    (oldState.IsKeyUp(attackKey) && oldState.IsKeyUp(leftKey)) &&
+                    !smashing)
+                {
+                    myModelManager.playSound(ModelManager.sound.SMASH);
+                    Vector3 direction = new Vector3(-1, 0, 0);
+                    if (!smashing && smashCooldown <= 0)
+                    {
+                        smashing = true;
+                        smashingTranslation = Matrix.CreateTranslation(direction * SMASH_SPEED);
+                        smashTimer = SMASH_TIME;
+                    }
+                }
+                // If smash right
+                else if (newState.IsKeyDown(attackKey) && newState.IsKeyDown(rightKey) &&
+                    (oldState.IsKeyUp(attackKey) && oldState.IsKeyUp(rightKey)) &&
+                    !smashing)
+                {
+                    myModelManager.playSound(ModelManager.sound.SMASH);
+                    Vector3 direction = new Vector3(1, 0, 0);
+                    if (!smashing && smashCooldown <= 0)
+                    {
+                        smashing = true;
+                        smashingTranslation = Matrix.CreateTranslation(direction * SMASH_SPEED);
+                        smashTimer = SMASH_TIME;
+                    }
+                }
+                // If normal attack
+                else if (newState.IsKeyDown(attackKey) && oldState.IsKeyUp(attackKey))
+                {
+                    if (!smashing && mediator.attack(this) == true)
+                        myModelManager.playSound(ModelManager.sound.ATTACK);
+                }
             }
         }
           
         public override Matrix GetWorld()
         {
-            return world * rotation * Ytranslation * Xtranslation;
+            return Matrix.CreateScale(flipModifier,1,1) * world * rotation * Ytranslation * Xtranslation;
         }
 
         private void CheckSprintLeft()
@@ -183,7 +304,7 @@ namespace _3D_Game
 
         private void shield()
         {
-            
+            isShielding = true;
         }
 
         private void ApplyGravity()
@@ -201,6 +322,27 @@ namespace _3D_Game
                 }
             }
             Ytranslation *= Matrix.CreateTranslation(new Vector3(0, jumpMomentum, 0));
+        }
+
+        private void ApplyFriction()
+        {
+            if (lateralMomentum > 0)
+            {
+                lateralMomentum -= GRAVITY;
+                if (lateralMomentum < 0)
+                {
+                    lateralMomentum = 0;
+                }
+            }
+            if (lateralMomentum < 0)
+            {
+                lateralMomentum += GRAVITY;
+                if (lateralMomentum > 0)
+                {
+                    lateralMomentum = 0;
+                }
+            }
+            Xtranslation *= Matrix.CreateTranslation(new Vector3(lateralMomentum, 0, 0));
         }
 
         private bool ModelReachedGround()
@@ -230,7 +372,13 @@ namespace _3D_Game
 
         private void Move(Vector3 direction)
         {
+            flipModifier = (int)direction.X;
             Xtranslation *= Matrix.CreateTranslation(direction * speed);
+            float divider = 7f;
+            if (sprintingLeft || sprintingRight)
+                divider = 2.8f;
+            rotation = Matrix.CreateRotationZ(-flipModifier*(float)Math.PI / divider);
+            moving = true;
         }
 
         private void Jump()
@@ -252,6 +400,7 @@ namespace _3D_Game
                 jumpMomentum = DOUBLEJUMP_MOMENTUM;
                 doubleJumped = true;
                 myModelManager.playSound(ModelManager.sound.DOUBLEJUMP);
+                doubleJumpTimer = 2f;
             }
         }
 
@@ -260,6 +409,7 @@ namespace _3D_Game
             if (!rolling && rollCooldown <= 0)
             {
                 //TODO: make invulnerable for X frames..
+                isShielding = false;
                 rolling = true;
                 rollingTranslation = Matrix.CreateTranslation(direction * ROLL_SPEED);
                 rollingRotation = Matrix.CreateRotationZ(direction.X * -1 * MathHelper.Pi/15);
@@ -273,6 +423,8 @@ namespace _3D_Game
                 jumpCooldown -= TIME_COUNTDOWN;
             if (rollCooldown > 0)
                 rollCooldown -= TIME_COUNTDOWN;
+            if (smashCooldown > 0)
+                smashCooldown -= TIME_COUNTDOWN;
             if (sprintCheckTimerLeft > 0)
                 sprintCheckTimerLeft -= TIME_COUNTDOWN;
             if (sprintCheckTimerLeft2 > 0)
@@ -283,6 +435,10 @@ namespace _3D_Game
                 sprintCheckTimerRight2 -= TIME_COUNTDOWN;
             if (stunTimer > 0)
                 stunTimer -= TIME_COUNTDOWN;
+            if (deathTimer - TIME_COUNTDOWN > 0)
+                deathTimer -= TIME_COUNTDOWN;
+            else if (deathTimer > 0)
+                deathTimer = 0;
         }
 
         public float getSpeed()
@@ -292,11 +448,49 @@ namespace _3D_Game
 
         public void reset()
         {
-            currPercentage = 0;
             myModelManager.playSound(ModelManager.sound.DEATHCRY);
             myModelManager.playSound(ModelManager.sound.DEATHBLAST);
+            isAlive = false;
+            tint = Color.Black;
 
-            Xtranslation = Matrix.Identity;
+            if (currStock > 0)
+            {
+                --currStock;                      
+                currPercentage = 0;
+                lateralMomentum = 0;
+                deathTimer = 2;               
+            }
+        }
+
+        public void updateRespawn()
+        {
+            if (deathTimer == 0 && currStock > 0)
+            {
+                deathTimer = -1;
+                Xtranslation = Matrix.Identity;
+                myModelManager.playSound(ModelManager.sound.RESPAWN);
+                isAlive = true;
+                tint = DEFAULT_TINT;
+            }
+            else if (deathTimer == 0)
+                myModelManager.endGame(DEFAULT_TINT);
+        }
+
+        public void knockback(float momentum)
+        {
+            lateralMomentum = momentum;
+        }
+
+        public void updateShield()
+        {
+            shieldOrigin = new Vector2(
+                getPosition().X + 200, 
+                getPosition().Y + 200);
+        }
+
+        public void setPosition(float xdistance)
+        {
+            Xtranslation *= Matrix.CreateTranslation(new Vector3(xdistance, 0, 0));
         }
     }
 }

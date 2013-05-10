@@ -17,20 +17,15 @@ namespace _3D_Game
     /// </summary>
     public class SplashScreen : Microsoft.Xna.Framework.DrawableGameComponent
     {
-        string textToDraw = "Start Game";
-        string secondaryTextToDraw = "How to Play";
-        SpriteFont font;
-        SpriteFont menuFont;
-        SpriteBatch spriteBatch;        
-
-        public enum MenuOption { START, INSTRUCTIONS, NULL }
-        public MenuOption currentOption = MenuOption.START;
-
-
+        SpriteBatch spriteBatch;
+        Rectangle screenRectangle;
         Texture2D titleScreen;
         Texture2D instructions;
+        Texture2D winScreenP1, winScreenP2;
 
         SoundManager soundManager;
+
+        SpriteFont font;
 
         public SplashScreen(Game game)
             : base(game)
@@ -45,20 +40,25 @@ namespace _3D_Game
         public override void Initialize()
         {
             // TODO: Add your initialization code here
-
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
-            //Load fonts
-            font = Game.Content.Load<SpriteFont>(@"fonts\georgia");
-            menuFont = Game.Content.Load<SpriteFont>(@"fonts\menuFont");
             titleScreen = Game.Content.Load<Texture2D>(@"Textures\SplashScreen3rd");
             instructions = Game.Content.Load<Texture2D>(@"Textures\SplashInstructions");
+            winScreenP1 = Game.Content.Load<Texture2D>(@"Textures\instructions");
+            winScreenP2 = Game.Content.Load<Texture2D>(@"Textures\instructions");
+            font = Game.Content.Load<SpriteFont>(@"fonts\georgia");
 
             //Create sprite batch
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
+
+            int screenWidth;
+            int screenHeight;
+            screenWidth = Game.GraphicsDevice.PresentationParameters.BackBufferWidth;
+            screenHeight = Game.GraphicsDevice.PresentationParameters.BackBufferHeight;
+            screenRectangle = new Rectangle(0, 0, screenWidth, screenHeight);
 
             base.LoadContent();
         }
@@ -70,50 +70,39 @@ namespace _3D_Game
         public override void Update(GameTime gameTime)
         {
             // TODO: Add your update code here
-              
-            //Up assigns to start, Down assigns to instructions
-            if (Keyboard.GetState().IsKeyDown(Keys.Up))
-            {
-                if (((Game1)Game).currentGameState == Game1.GameState.MENU)
-                    currentOption = MenuOption.START;
-            }
-            else if (Keyboard.GetState().IsKeyDown(Keys.Down))
-            {
-                if (((Game1)Game).currentGameState == Game1.GameState.MENU)
-                    currentOption = MenuOption.INSTRUCTIONS;
-            }
-            else if (Keyboard.GetState().IsKeyDown(Keys.Back))
+            if (Keyboard.GetState().IsKeyDown(Keys.Back))
             {
                 if (((Game1)Game).currentGameState == Game1.GameState.INSTRUCTIONS)
                 {
                     ((Game1)Game).ChangeGameState(Game1.GameState.MENU);
                     soundManager.backSelectSound.Play();
+                    //MediaPlayer.Play(soundManager.menuMusic);
+                    //MediaPlayer.IsRepeating = true;
+                }
+                else if (((Game1)Game).currentGameState == Game1.GameState.P1WIN ||
+                    ((Game1)Game).currentGameState == Game1.GameState.P2WIN)
+                {
+                    ((Game1)Game).ChangeGameState(Game1.GameState.MENU);
+                    soundManager.selectSound.Play();
+                    MediaPlayer.Play(soundManager.menuMusic);
+                    MediaPlayer.IsRepeating = true;
                 }
             }
 
+            if (Keyboard.GetState().IsKeyDown(Keys.F1) && ((Game1)Game).currentGameState == Game1.GameState.MENU)
+            {
+                ((Game1)Game).ChangeGameState(Game1.GameState.INSTRUCTIONS);
+                soundManager.selectSound.Play();
+            }
 
 
             if (Keyboard.GetState().IsKeyDown(Keys.Enter))
-            {                
-                switch (currentOption)
+            {
+                if (((Game1)Game).currentGameState == Game1.GameState.MENU)
                 {
-                    case MenuOption.START:
-                        ((Game1)Game).ChangeGameState(Game1.GameState.PLAYING);
-                        currentOption = MenuOption.NULL;
-                        soundManager.selectSound.Play();
-                        break;
-
-                    case MenuOption.INSTRUCTIONS:
-                        ((Game1)Game).ChangeGameState(Game1.GameState.INSTRUCTIONS);
-                        currentOption = MenuOption.NULL;
-                        soundManager.selectSound.Play();
-                        break;
-
-                    /*case MenuOption.NULL:
-                        if (((Game1)Game).currentGameState == Game1.GameState.INSTRUCTIONS)
-                            ((Game1)Game).ChangeGameState(Game1.GameState.MENU);
-                        break;*/
-                }
+                    ((Game1)Game).ChangeGameState(Game1.GameState.PLAYING);
+                    soundManager.selectSound.Play();
+                }         
             }                               
 
             base.Update(gameTime);
@@ -125,62 +114,40 @@ namespace _3D_Game
 
             if (((Game1)Game).currentGameState == Game1.GameState.INSTRUCTIONS)
             {
-                //Draw bg
                 spriteBatch.Draw(instructions,
-                    new Vector2(Game.Window.ClientBounds.Width / 2
-                        - instructions.Width / 2, Game.Window.ClientBounds.Height / 2
-                        - instructions.Height / 2), Color.White);
+                    screenRectangle, Color.White);
             }
             else if (((Game1)Game).currentGameState == Game1.GameState.MENU)
             {
-                //Draw bg
                 spriteBatch.Draw(titleScreen,
-                    new Vector2(Game.Window.ClientBounds.Width / 2
-                        - titleScreen.Width / 2, Game.Window.ClientBounds.Height / 2
-                        - titleScreen.Height / 2), Color.White);
+                    screenRectangle, Color.White);
             }
-
-            //Get size of string
-            Vector2 TextSize = menuFont.MeasureString(textToDraw);
-
-            //Assign color
-            Color red = Color.Red;
-            Color white = Color.White;
-
-            if (currentOption == MenuOption.START)
+            else if (((Game1)Game).currentGameState == Game1.GameState.P1WIN)
             {
-                //Draw text
-                spriteBatch.DrawString(menuFont, textToDraw,
-                    new Vector2(Game.Window.ClientBounds.Width / 2
-                        - TextSize.X / 2,
-                        Game.Window.ClientBounds.Height / 2),
-                        Color.Red);
+                spriteBatch.Draw(winScreenP1,
+                    screenRectangle, Color.White);
 
-                //Draw subtext
-                spriteBatch.DrawString(menuFont, secondaryTextToDraw,
-                    new Vector2(Game.Window.ClientBounds.Width / 2
-                        - menuFont.MeasureString(secondaryTextToDraw).X / 2,
-                        Game.Window.ClientBounds.Height / 2 +
-                        TextSize.Y + 10),
-                        Color.White);
+                spriteBatch.DrawString(
+                    font,
+                    "Player 1 Wins!",
+                    new Vector2(Game.Window.ClientBounds.Width / 2,
+                        Game.Window.ClientBounds.Height) / 2,
+                    Color.Red); 
+
             }
-            else if (currentOption == MenuOption.INSTRUCTIONS)
-            {                
-                //Draw text
-                spriteBatch.DrawString(menuFont, textToDraw,
-                    new Vector2(Game.Window.ClientBounds.Width / 2
-                        - TextSize.X / 2,
-                        Game.Window.ClientBounds.Height / 2),
-                        Color.White);
+            else if (((Game1)Game).currentGameState == Game1.GameState.P2WIN)
+            {
+                spriteBatch.Draw(winScreenP2,
+                    screenRectangle, Color.White);
 
-                //Draw subtext
-                spriteBatch.DrawString(menuFont, secondaryTextToDraw,
-                    new Vector2(Game.Window.ClientBounds.Width / 2
-                        - menuFont.MeasureString(secondaryTextToDraw).X / 2,
-                        Game.Window.ClientBounds.Height / 2 +
-                        TextSize.Y + 10),
-                        Color.Red);
-            }            
+                spriteBatch.DrawString(
+                    font,
+                    "Player 2 Wins!",
+                    new Vector2(Game.Window.ClientBounds.Width / 2,
+                        Game.Window.ClientBounds.Height / 2),
+                    Color.Red); 
+
+            }
 
             spriteBatch.End();
 

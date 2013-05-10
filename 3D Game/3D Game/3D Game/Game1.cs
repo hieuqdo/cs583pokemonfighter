@@ -28,10 +28,12 @@ namespace _3D_Game
         private KeyboardState newState, oldState;
 
 
-        public enum GameState { MENU, PLAYING, INSTRUCTIONS, GAMEOVER }
+        public enum GameState { MENU, PLAYING, INSTRUCTIONS, P1WIN, P2WIN }
         public GameState currentGameState = GameState.MENU;
 
         public SplashScreen splashScreen;
+
+        Texture2D bg;
 
         public Game1()
         {
@@ -86,10 +88,12 @@ namespace _3D_Game
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            bg = Content.Load<Texture2D>(@"textures\stadium_bg");
     
             soundManager.LoadContent(Content);
             MediaPlayer.Play(soundManager.menuMusic);
-            MediaPlayer.IsRepeating = true;
+            MediaPlayer.IsRepeating = true;            
+            
         }
 
         /// <summary>
@@ -117,10 +121,16 @@ namespace _3D_Game
             if (newState.IsKeyDown(Keys.OemTilde) && oldState.IsKeyUp(Keys.OemTilde) && currentGameState == Game1.GameState.PLAYING)
                 toggleDebug();
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Z) &&
-                Keyboard.GetState().IsKeyDown(Keys.X) &&
-                Keyboard.GetState().IsKeyDown(Keys.C) &&
-                Keyboard.GetState().IsKeyDown(Keys.V))
+            if (newState.IsKeyDown(Keys.OemMinus) && oldState.IsKeyUp(Keys.OemMinus))
+                soundManager.decreaseVolume();
+            if (newState.IsKeyDown(Keys.OemPlus) && oldState.IsKeyUp(Keys.OemPlus))
+                soundManager.increaseVolume();
+            MediaPlayer.Volume = soundManager.volume;
+
+            if (newState.IsKeyDown(Keys.Z) &&
+                newState.IsKeyDown(Keys.X) &&
+                newState.IsKeyDown(Keys.C) &&
+                newState.IsKeyDown(Keys.V))
                 if (currentGameState == Game1.GameState.PLAYING)
                 {
                     ChangeGameState(Game1.GameState.MENU);
@@ -142,6 +152,17 @@ namespace _3D_Game
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            if (currentGameState == GameState.PLAYING)
+            {
+                spriteBatch.Begin();
+                spriteBatch.Draw(
+                    bg,
+                    new Rectangle(0, 0, 
+                        GraphicsDevice.PresentationParameters.BackBufferWidth,
+                        GraphicsDevice.PresentationParameters.BackBufferHeight), 
+                    Color.White);
+                spriteBatch.End();
+            }
 
             base.Draw(gameTime);
         }
@@ -178,20 +199,23 @@ namespace _3D_Game
                     modelManager.Enabled = false;
                     modelManager.Visible = false;
                     splashScreen.Enabled = true;
-                    splashScreen.Visible = true;
-                    splashScreen.currentOption = SplashScreen.MenuOption.START;
-                 
+                    splashScreen.Visible = true;          
                     break;
 
                 case GameState.INSTRUCTIONS:
                     modelManager.Enabled = false;
                     modelManager.Visible = false;
                     splashScreen.Enabled = true;
-                    splashScreen.Visible = true;
-                    
+                    splashScreen.Visible = true;                  
                     break;
 
-
+                case GameState.P1WIN:
+                case GameState.P2WIN:
+                    modelManager.Enabled = false;
+                    modelManager.Visible = false;
+                    splashScreen.Enabled = true;
+                    splashScreen.Visible = true;                  
+                    break;
             }        
         }
     }
