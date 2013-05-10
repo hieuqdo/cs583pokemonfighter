@@ -14,14 +14,15 @@ namespace _3D_Game
         public Player2(Model m)
             : base(m)
         {
-            upKey = Keys.W;
-            downKey = Keys.S;
-            leftKey = Keys.A;
-            rightKey = Keys.D;
-            shieldKey = Keys.LeftShift;
-            attackKey = Keys.Q;
+            upKey = Keys.Up;
+            downKey = Keys.Down;
+            leftKey = Keys.Left;
+            rightKey = Keys.Right;
+            shieldKey = Keys.RightShift;
+            attackKey = Keys.OemQuestion;
             DEFAULT_TINT = Color.DarkBlue;
             tint = DEFAULT_TINT;
+            flipModifier = -1;
         }
 
     }

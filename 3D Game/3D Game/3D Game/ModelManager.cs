@@ -19,6 +19,7 @@ namespace _3D_Game
     {
         List<BasicModel> models = new List<BasicModel>();
         BasicModel p1, p2, stage;
+        Player1 player1, player2;
         InteractionMediator mediator;
 
         SoundManager soundManager;
@@ -78,6 +79,9 @@ namespace _3D_Game
             foreach (BasicModel m in models)
                 m.setModelManager(this);
 
+            player1 = ((Player1)p1);
+            player2 = ((Player1)p2);
+
             spriteBatch = new SpriteBatch(GraphicsDevice);
             percentFont = Game.Content.Load<SpriteFont>(@"fonts\menuFont");
 
@@ -97,9 +101,28 @@ namespace _3D_Game
                 models[i].Update();
             }
 
-            updateDeaths();            
+            updateDeaths();
+            updateFaceDirection();
 
             base.Update(gameTime);
+        }
+
+        private void updateFaceDirection()
+        {
+            if (getPosition1().X >= getPosition2().X)
+            {
+                if(!player1.moving)
+                    player1.flipModifier = -1;
+                if(!player2.moving)
+                    player2.flipModifier = 1;
+            }
+            else
+            {
+                if (!player1.moving)
+                    player1.flipModifier = 1;
+                if (!player2.moving)
+                    player2.flipModifier = -1;
+            }
         }
 
         public override void Draw(GameTime gameTime)

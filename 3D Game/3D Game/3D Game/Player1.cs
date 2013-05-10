@@ -55,6 +55,7 @@ namespace _3D_Game
         bool jumping = false;
         public bool rolling = false;
         public bool smashing = false;
+        public bool moving = false;
         bool smashHit = false;
         bool sprintingLeft = false;
         bool sprintingRight = false;
@@ -62,6 +63,7 @@ namespace _3D_Game
         public bool isAlive = true; //for determining death camera
         public bool isShielding = false; //model manager will draw shield
         float jumpMomentum = 0;
+        float doubleJumpTimer = 0;
         float lateralMomentum = 0;
         public float stunTimer = 0;
         float rollingTimer = 0;
@@ -79,6 +81,7 @@ namespace _3D_Game
         public Texture2D myShield;
         public Vector2 shieldOrigin;
         public Color shieldColor = Color.Green;
+        public int flipModifier = 1;
 
         protected Keys upKey;
         protected Keys downKey;
@@ -94,12 +97,12 @@ namespace _3D_Game
         public Player1(Model m)
             : base(m)
         {
-            upKey = Keys.Up;
-            downKey = Keys.Down;
-            leftKey = Keys.Left;
-            rightKey = Keys.Right;
-            shieldKey = Keys.RightShift;
-            attackKey = Keys.OemQuestion;
+            upKey = Keys.W;
+            downKey = Keys.S;
+            leftKey = Keys.A;
+            rightKey = Keys.D;
+            shieldKey = Keys.LeftShift;
+            attackKey = Keys.Q;
             tint = DEFAULT_TINT;
             oldState = Keyboard.GetState();
             
@@ -171,14 +174,22 @@ namespace _3D_Game
                             Move(left);
                     }
                     else if (oldState.IsKeyDown(leftKey))
+                    {
                         lateralMomentum = -speed * 1.2f;
+                        rotation = Matrix.Identity;
+                        moving = false;
+                    }
                     if (newState.IsKeyDown(rightKey))
                     {
                         if (!rolling)
                             Move(right);
                     }
                     else if (oldState.IsKeyDown(rightKey))
+                    {
                         lateralMomentum = speed * 1.2f;
+                        rotation = Matrix.Identity;
+                        moving = false;
+                    }
                 }
             }
         }
@@ -248,7 +259,7 @@ namespace _3D_Game
           
         public override Matrix GetWorld()
         {
-            return world * rotation * Ytranslation * Xtranslation;
+            return Matrix.CreateScale(flipModifier,1,1) * world * rotation * Ytranslation * Xtranslation;
         }
 
         private void CheckSprintLeft()
@@ -361,7 +372,13 @@ namespace _3D_Game
 
         private void Move(Vector3 direction)
         {
+            flipModifier = (int)direction.X;
             Xtranslation *= Matrix.CreateTranslation(direction * speed);
+            float divider = 7f;
+            if (sprintingLeft || sprintingRight)
+                divider = 2.8f;
+            rotation = Matrix.CreateRotationZ(-flipModifier*(float)Math.PI / divider);
+            moving = true;
         }
 
         private void Jump()
@@ -383,6 +400,7 @@ namespace _3D_Game
                 jumpMomentum = DOUBLEJUMP_MOMENTUM;
                 doubleJumped = true;
                 myModelManager.playSound(ModelManager.sound.DOUBLEJUMP);
+                doubleJumpTimer = 2f;
             }
         }
 
@@ -433,7 +451,7 @@ namespace _3D_Game
             myModelManager.playSound(ModelManager.sound.DEATHCRY);
             myModelManager.playSound(ModelManager.sound.DEATHBLAST);
             isAlive = false;
-
+            rotation = Matrix.Identity;
             if (currStock > 0)
             {
                 --currStock;                      
