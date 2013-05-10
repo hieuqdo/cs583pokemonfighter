@@ -433,7 +433,6 @@ namespace _3D_Game
             myModelManager.playSound(ModelManager.sound.DEATHCRY);
             myModelManager.playSound(ModelManager.sound.DEATHBLAST);
             isAlive = false;
-            tint = Color.Black;
 
             if (currStock > 0)
             {
@@ -452,7 +451,6 @@ namespace _3D_Game
                 Xtranslation = Matrix.Identity;
                 myModelManager.playSound(ModelManager.sound.RESPAWN);
                 isAlive = true;
-                tint = DEFAULT_TINT;
             }
             else if (deathTimer == 0)
                 myModelManager.endGame(DEFAULT_TINT);
@@ -473,6 +471,12 @@ namespace _3D_Game
         public void setPosition(float xdistance)
         {
             Xtranslation *= Matrix.CreateTranslation(new Vector3(xdistance, 0, 0));
+        }
+
+        public override void Draw(Camera camera)
+        {
+            if (isAlive)
+                base.Draw(camera);
         }
     }
 }

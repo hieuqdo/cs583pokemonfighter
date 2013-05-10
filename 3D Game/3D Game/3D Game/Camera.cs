@@ -34,6 +34,11 @@ namespace _3D_Game
 
         float minDist = 60;
 
+        //bool isRumbling = false;
+        //bool shook = false;
+        float rumbleCooldownTimer = 0;
+        float rumbleCooldown = 3000;
+
         public Camera(Game game, Vector3 pos, Vector3 target, Vector3 up)
             : base(game)
         {
@@ -68,9 +73,7 @@ namespace _3D_Game
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
-        {
-            // TODO: Add your update code here
-
+        {           
             //Register farLeft, farRight
             posP1 = modelMan.getPosition1();
             posP2 = modelMan.getPosition2();
@@ -81,15 +84,46 @@ namespace _3D_Game
                 farRight = posP1.X;
             else  farRight = posP2.X;
 
+            /*
+            //If rumbling, rumble
+            if (rumbleCooldownTimer > 0)
+            {
+                isRumbling = true;
 
-            //Adjust camera position
-            if (Math.Abs(posP1.X - posP2.X) / .5f > minDist) 
-                cameraPosition = new Vector3((posP1.X + posP2.X)/2, (posP1.Y + posP2.Y)/2, Math.Abs(posP1.X - posP2.X) / .5f);
-            else cameraPosition = new Vector3((posP1.X + posP2.X) / 2, (posP1.Y + posP2.Y) / 2, minDist);
-            //Console.Out.WriteLine("Camera Zoom (Z) = " + Math.Abs(posP1.X - posP2.X) / .5f);
+                if (shook)
+                {
+                    cameraPosition = new Vector3(cameraPosition.X - 50,
+                                       cameraPosition.Y - 50,
+                                       cameraPosition.Z);
+                    shook = false;
+                }
+                else
+                {
+                    cameraPosition = new Vector3(cameraPosition.X + 50,
+                                       cameraPosition.Y + 50,
+                                       cameraPosition.Z);
+                    shook = true;
+                }
 
-            //Recreate the camera view matrix
-            CreateLookAt();
+
+                CreateLookAt();
+
+                //Tick Cooldown Timer
+                rumbleCooldownTimer -= gameTime.ElapsedGameTime.Milliseconds;
+            }
+            else //do normal camera
+            {*/
+                //isRumbling = false;
+
+                //Adjust camera position
+                if (Math.Abs(posP1.X - posP2.X) / .5f > minDist)
+                    cameraPosition = new Vector3((posP1.X + posP2.X) / 2, (posP1.Y + posP2.Y) / 2, Math.Abs(posP1.X - posP2.X) / .5f);
+                else cameraPosition = new Vector3((posP1.X + posP2.X) / 2, (posP1.Y + posP2.Y) / 2, minDist);
+                //Console.Out.WriteLine("Camera Zoom (Z) = " + Math.Abs(posP1.X - posP2.X) / .5f);
+
+                //Recreate the camera view matrix
+                CreateLookAt();
+            /*}*/
 
             base.Update(gameTime);
         }
@@ -103,6 +137,11 @@ namespace _3D_Game
         public void addModelManager(ModelManager mm)
         {
             modelMan = mm;
+        }
+
+        public void rumble()
+        {
+            rumbleCooldownTimer = rumbleCooldown;
         }
     }
 }

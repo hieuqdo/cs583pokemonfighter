@@ -216,14 +216,20 @@ namespace _3D_Game
                 getPosition1().X > ((Stage1)stage).deathPlane_LEFT ||
                 getPosition1().X < ((Stage1)stage).deathPlane_RIGHT)
                 && ((Player1)p1).isAlive == true)
+            {
                 ((Player1)p1).reset();
+                ((Game1)Game).camera.rumble();
+            }
 
             if ((getPosition2().Y > ((Stage1)stage).deathPlane_TOP ||
                 getPosition2().Y < ((Stage1)stage).deathPlane_BOT ||
                 getPosition2().X > ((Stage1)stage).deathPlane_LEFT ||
                 getPosition2().X < ((Stage1)stage).deathPlane_RIGHT)
                 && ((Player1)p2).isAlive == true)
+            {
                 ((Player1)p2).reset();
+                ((Game1)Game).camera.rumble();
+            }
         }
 
         public void drawShields()

@@ -28,7 +28,7 @@ namespace _3D_Game
         {
         }
 
-        public void Draw(Camera camera)
+        public virtual void Draw(Camera camera)
         {
             Matrix[] transforms = new Matrix[model.Bones.Count];
             model.CopyAbsoluteBoneTransformsTo(transforms);
