@@ -70,6 +70,15 @@ namespace _3D_Game
         public override void Update(GameTime gameTime)
         {
             // TODO: Add your update code here
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+                if (((Game1)Game).currentGameState == Game1.GameState.P1WIN ||
+                    ((Game1)Game).currentGameState == Game1.GameState.P2WIN)
+                {
+                    ((Game1)Game).ChangeGameState(Game1.GameState.DANCING);
+                    soundManager.selectSound.Play();
+                    MediaPlayer.Play(soundManager.menuMusic);
+                    MediaPlayer.IsRepeating = true;
+                }
             if (Keyboard.GetState().IsKeyDown(Keys.Back))
             {
                 if (((Game1)Game).currentGameState == Game1.GameState.INSTRUCTIONS)

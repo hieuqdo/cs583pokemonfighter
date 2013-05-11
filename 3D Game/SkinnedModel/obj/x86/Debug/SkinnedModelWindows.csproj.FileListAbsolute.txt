@@ -1,0 +1,12 @@
+D:\Users\Hieu\Documents\Visual Studio 2010\Projects\SkinningSample\SkinnedModel\bin\x86\Debug\SkinnedModel.dll
+D:\Users\Hieu\Documents\Visual Studio 2010\Projects\SkinningSample\SkinnedModel\bin\x86\Debug\SkinnedModel.pdb
+D:\Users\Hieu\Documents\Visual Studio 2010\Projects\SkinningSample\SkinnedModel\obj\x86\Debug\SkinnedModelWindows.csprojResolveAssemblyReference.cache
+D:\Users\Hieu\Documents\Visual Studio 2010\Projects\SkinningSample\SkinnedModel\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Users\Hieu\Documents\Visual Studio 2010\Projects\SkinningSample\SkinnedModel\obj\x86\Debug\SkinnedModel.dll
+D:\Users\Hieu\Documents\Visual Studio 2010\Projects\SkinningSample\SkinnedModel\obj\x86\Debug\SkinnedModel.pdb
+D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\SkinnedModel\bin\x86\Debug\SkinnedModel.dll
+D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\SkinnedModel\bin\x86\Debug\SkinnedModel.pdb
+D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\SkinnedModel\obj\x86\Debug\SkinnedModelWindows.csprojResolveAssemblyReference.cache
+D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\SkinnedModel\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\SkinnedModel\obj\x86\Debug\SkinnedModel.dll
+D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\SkinnedModel\obj\x86\Debug\SkinnedModel.pdb

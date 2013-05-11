@@ -1,0 +1,7 @@
+D:\Users\Hieu\Documents\Visual Studio 2010\Projects\SkinningSample\SkinnedModelPipeline\bin\x86\Debug\SkinnedModelPipeline.dll
+D:\Users\Hieu\Documents\Visual Studio 2010\Projects\SkinningSample\SkinnedModelPipeline\bin\x86\Debug\SkinnedModelPipeline.pdb
+D:\Users\Hieu\Documents\Visual Studio 2010\Projects\SkinningSample\SkinnedModelPipeline\bin\x86\Debug\SkinnedModel.dll
+D:\Users\Hieu\Documents\Visual Studio 2010\Projects\SkinningSample\SkinnedModelPipeline\bin\x86\Debug\SkinnedModel.pdb
+D:\Users\Hieu\Documents\Visual Studio 2010\Projects\SkinningSample\SkinnedModelPipeline\obj\x86\Debug\SkinnedModelPipeline.csprojResolveAssemblyReference.cache
+D:\Users\Hieu\Documents\Visual Studio 2010\Projects\SkinningSample\SkinnedModelPipeline\obj\x86\Debug\SkinnedModelPipeline.dll
+D:\Users\Hieu\Documents\Visual Studio 2010\Projects\SkinningSample\SkinnedModelPipeline\obj\x86\Debug\SkinnedModelPipeline.pdb

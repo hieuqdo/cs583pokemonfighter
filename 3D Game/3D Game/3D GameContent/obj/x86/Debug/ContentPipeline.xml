@@ -11,7 +11,7 @@
       <Time>2013-05-10T00:08:09.1648923-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\spaceship_0.xml</Key>
-        <Value>2013-05-10T00:10:48.8464678-07:00</Value>
+        <Value>2013-05-10T20:40:14.7712258-07:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -24,7 +24,7 @@
       <Time>2013-05-10T00:08:09.0843578-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\ammo_0.xml</Key>
-        <Value>2013-05-10T00:10:50.2275172-07:00</Value>
+        <Value>2013-05-10T20:40:15.324573-07:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -34,7 +34,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuDh.xnb</Output>
-      <Time>2013-05-10T00:08:08.9785079-07:00</Time>
+      <Time>2013-05-05T21:12:53-07:00</Time>
     </Item>
     <Item>
       <Source>Models\PikachuEyeDh.tga</Source>
@@ -43,7 +43,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuEyeDh.xnb</Output>
-      <Time>2013-05-10T00:08:08.9876992-07:00</Time>
+      <Time>2013-05-05T21:12:53-07:00</Time>
     </Item>
     <Item>
       <Source>Models\PikachuHohoDh.tga</Source>
@@ -52,7 +52,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuHohoDh.xnb</Output>
-      <Time>2013-05-10T00:08:09.0052443-07:00</Time>
+      <Time>2013-05-05T21:12:53-07:00</Time>
     </Item>
     <Item>
       <Source>Models\PikachuMouthDh.tga</Source>
@@ -61,7 +61,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuMouthDh.xnb</Output>
-      <Time>2013-05-10T00:08:09.0112458-07:00</Time>
+      <Time>2013-05-05T21:12:53-07:00</Time>
     </Item>
     <Item>
       <Source>Textures\instructions.png</Source>
@@ -70,7 +70,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\instructions.xnb</Output>
-      <Time>2013-05-10T00:08:09-07:00</Time>
+      <Time>2013-05-05T21:12:53-07:00</Time>
     </Item>
     <Item>
       <Source>Textures\titleScreen.jpg</Source>
@@ -79,7 +79,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\titleScreen.xnb</Output>
-      <Time>2013-05-10T00:08:09-07:00</Time>
+      <Time>2013-05-05T21:12:53-07:00</Time>
     </Item>
     <Item>
       <Source>Textures\SplashInstructions.png</Source>
@@ -88,7 +88,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\SplashInstructions.xnb</Output>
-      <Time>2013-05-10T00:08:09-07:00</Time>
+      <Time>2013-05-05T21:12:53-07:00</Time>
     </Item>
     <Item>
       <Source>Textures\SplashScreen3rd.png</Source>
@@ -97,7 +97,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\SplashScreen3rd.xnb</Output>
-      <Time>2013-05-10T00:08:09-07:00</Time>
+      <Time>2013-05-05T21:12:53-07:00</Time>
     </Item>
     <Item>
       <Source>Textures\stock.png</Source>
@@ -106,7 +106,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\stock.xnb</Output>
-      <Time>2013-05-10T00:08:09-07:00</Time>
+      <Time>2013-05-10T01:58:43-07:00</Time>
     </Item>
     <Item>
       <Source>Textures\stadium_bg.jpg</Source>
@@ -115,7 +115,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\stadium_bg.xnb</Output>
-      <Time>2013-05-10T00:08:09-07:00</Time>
+      <Time>2013-05-10T01:58:43-07:00</Time>
     </Item>
     <Item>
       <Source>Textures\GAMEOVER1.png</Source>
@@ -124,7 +124,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\GAMEOVER1.xnb</Output>
-      <Time>2013-05-10T00:08:09-07:00</Time>
+      <Time>2013-05-10T01:58:43-07:00</Time>
     </Item>
     <Item>
       <Source>Textures\GAMEOVER2.png</Source>
@@ -133,7 +133,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\GAMEOVER2.xnb</Output>
-      <Time>2013-05-10T00:08:09-07:00</Time>
+      <Time>2013-05-10T01:58:43-07:00</Time>
     </Item>
     <Item>
       <Source>Textures\SPLASHEND.png</Source>
@@ -142,7 +142,16 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\SPLASHEND.xnb</Output>
-      <Time>2013-05-10T00:08:09-07:00</Time>
+      <Time>2013-05-10T01:58:43-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\pokeball.png</Source>
+      <Name>Textures\pokeball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\pokeball.xnb</Output>
+      <Time>2013-05-10T01:58:43-07:00</Time>
     </Item>
     <Item>
       <Source>Models\Pikachu.FBX</Source>
@@ -154,7 +163,7 @@
       <Time>2013-05-10T00:08:08.9685066-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Pikachu_0.xml</Key>
-        <Value>2013-05-10T00:10:53.350588-07:00</Value>
+        <Value>2013-05-10T20:40:20.058145-07:00</Value>
       </Dependency>
       <Request>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\15D11F30\Pikachu.fbm\PikachuMouthDh_0.xnb</Request>
       <Request>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\15D11F30\Pikachu.fbm\PikachuDh_0.xnb</Request>
@@ -171,7 +180,7 @@
       <Time>2013-05-10T00:08:09.2569036-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\stage_0.xml</Key>
-        <Value>2013-05-10T00:10:55.8031811-07:00</Value>
+        <Value>2013-05-10T20:40:22.142081-07:00</Value>
       </Dependency>
       <Request>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\D79A1E5F\stage.fbm\cf9b3053_0.xnb</Request>
       <Request>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\D79A1E5F\stage.fbm\7f50457c_0.xnb</Request>
@@ -183,15 +192,29 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\pikachu_final.xnb</Output>
-      <Time>2013-05-10T00:08:09.1263364-07:00</Time>
+      <Time>2013-05-10T01:58:43-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\pikachu_final_0.xml</Key>
-        <Value>2013-05-10T00:10:57.7907614-07:00</Value>
+        <Value>2013-05-10T20:40:24.1451087-07:00</Value>
       </Dependency>
       <Request>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\DA552199\pikachu_final.fbm\PikachuEyeDh_0.xnb</Request>
       <Request>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\DA552199\pikachu_final.fbm\PikachuDh_0.xnb</Request>
       <Request>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\DA552199\pikachu_final.fbm\PikachuHohoDh_0.xnb</Request>
       <Request>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\DA552199\pikachu_final.fbm\PikachuMouthDh_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\pokeball.FBX</Source>
+      <Name>Models\pokeball</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\pokeball.xnb</Output>
+      <Time>2013-05-10T01:58:43-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\pokeball_0.xml</Key>
+        <Value>2013-05-10T20:40:27.1329373-07:00</Value>
+      </Dependency>
+      <Request>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\35A61F95\pokeball.fbm\pokeball_0.xnb</Request>
     </Item>
     <Item>
       <Source>Fonts\georgia.spritefont</Source>
@@ -200,7 +223,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Fonts\georgia.xnb</Output>
-      <Time>2013-05-10T00:08:08.9494663-07:00</Time>
+      <Time>2013-05-05T21:12:53-07:00</Time>
     </Item>
     <Item>
       <Source>Fonts\menuFont.spritefont</Source>
@@ -209,7 +232,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Fonts\menuFont.xnb</Output>
-      <Time>2013-05-10T00:08:08.9514662-07:00</Time>
+      <Time>2013-05-05T21:12:53-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\menumusic.mp3</Source>
@@ -219,7 +242,7 @@
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\menumusic.xnb</Output>
       <Extra>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\menumusic.wma</Extra>
-      <Time>2013-05-10T00:08:08.0617609-07:00</Time>
+      <Time>2013-05-05T21:12:53-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\battlemusic.mp3</Source>
@@ -229,7 +252,7 @@
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\battlemusic.xnb</Output>
       <Extra>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\battlemusic.wma</Extra>
-      <Time>2013-05-10T00:08:07.743353-07:00</Time>
+      <Time>2013-05-05T21:12:53-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\theme.mp3</Source>
@@ -257,7 +280,7 @@
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\doublejump.xnb</Output>
-      <Time>2013-05-10T00:08:07.7542309-07:00</Time>
+      <Time>2013-05-05T21:12:53-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\select.wav</Source>
@@ -320,7 +343,7 @@
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\smashattack.xnb</Output>
-      <Time>2013-05-10T00:08:08.1218389-07:00</Time>
+      <Time>2013-05-10T01:58:43-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\shock.wav</Source>
@@ -384,7 +407,7 @@
       </Parameters>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\15D11F30\Pikachu.fbm\PikachuMouthDh_0.xnb</Output>
-      <Time>2013-05-10T00:10:52.8029678-07:00</Time>
+      <Time>2013-05-10T20:40:19.9161274-07:00</Time>
     </Item>
     <Item>
       <Source>obj\x86\Debug\FBX\15D11F30\Pikachu.fbm\PikachuDh.tga</Source>
@@ -400,7 +423,7 @@
       </Parameters>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\15D11F30\Pikachu.fbm\PikachuDh_0.xnb</Output>
-      <Time>2013-05-10T00:10:52.8069684-07:00</Time>
+      <Time>2013-05-10T20:40:19.9311286-07:00</Time>
     </Item>
     <Item>
       <Source>obj\x86\Debug\FBX\15D11F30\Pikachu.fbm\PikachuHohoDh.tga</Source>
@@ -416,7 +439,7 @@
       </Parameters>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\15D11F30\Pikachu.fbm\PikachuHohoDh_0.xnb</Output>
-      <Time>2013-05-10T00:10:52.8079681-07:00</Time>
+      <Time>2013-05-10T20:40:19.9331297-07:00</Time>
     </Item>
     <Item>
       <Source>obj\x86\Debug\FBX\15D11F30\Pikachu.fbm\PikachuEyeDh.tga</Source>
@@ -432,7 +455,7 @@
       </Parameters>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\15D11F30\Pikachu.fbm\PikachuEyeDh_0.xnb</Output>
-      <Time>2013-05-10T00:10:52.8229701-07:00</Time>
+      <Time>2013-05-10T20:40:19.9491318-07:00</Time>
     </Item>
     <Item>
       <Source>Models\stage.FBX</Source>
@@ -455,7 +478,7 @@
       </Parameters>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\D79A1E5F\stage.fbm\cf9b3053_0.xnb</Output>
-      <Time>2013-05-10T00:10:54.790236-07:00</Time>
+      <Time>2013-05-10T20:40:20.9819229-07:00</Time>
     </Item>
     <Item>
       <Source>obj\x86\Debug\FBX\D79A1E5F\stage.fbm\7f50457c.dds</Source>
@@ -471,14 +494,14 @@
       </Parameters>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\D79A1E5F\stage.fbm\7f50457c_0.xnb</Output>
-      <Time>2013-05-10T00:10:54.8292403-07:00</Time>
+      <Time>2013-05-10T20:40:21.0139267-07:00</Time>
     </Item>
     <Item>
       <Source>Models\pikachu_final.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\pikachu_final_0.xml</Output>
-      <Time>2013-05-10T00:08:09.1263364-07:00</Time>
+      <Time>2013-05-10T01:58:43-07:00</Time>
     </Item>
     <Item>
       <Source>obj\x86\Debug\FBX\DA552199\pikachu_final.fbm\PikachuEyeDh.tga</Source>
@@ -494,7 +517,7 @@
       </Parameters>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\DA552199\pikachu_final.fbm\PikachuEyeDh_0.xnb</Output>
-      <Time>2013-05-10T00:10:56.6554561-07:00</Time>
+      <Time>2013-05-10T20:40:22.9893284-07:00</Time>
     </Item>
     <Item>
       <Source>obj\x86\Debug\FBX\DA552199\pikachu_final.fbm\PikachuDh.tga</Source>
@@ -510,7 +533,7 @@
       </Parameters>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\DA552199\pikachu_final.fbm\PikachuDh_0.xnb</Output>
-      <Time>2013-05-10T00:10:56.6674554-07:00</Time>
+      <Time>2013-05-10T20:40:23.0043303-07:00</Time>
     </Item>
     <Item>
       <Source>obj\x86\Debug\FBX\DA552199\pikachu_final.fbm\PikachuHohoDh.tga</Source>
@@ -526,7 +549,7 @@
       </Parameters>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\DA552199\pikachu_final.fbm\PikachuHohoDh_0.xnb</Output>
-      <Time>2013-05-10T00:10:56.6874576-07:00</Time>
+      <Time>2013-05-10T20:40:23.0093314-07:00</Time>
     </Item>
     <Item>
       <Source>obj\x86\Debug\FBX\DA552199\pikachu_final.fbm\PikachuMouthDh.tga</Source>
@@ -542,37 +565,14 @@
       </Parameters>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\DA552199\pikachu_final.fbm\PikachuMouthDh_0.xnb</Output>
-      <Time>2013-05-10T00:10:56.7130006-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\pokeball.png</Source>
-      <Name>Textures\pokeball</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\pokeball.xnb</Output>
-      <Time>2013-05-10T00:25:58-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\pokeball.FBX</Source>
-      <Name>Models\pokeball</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\pokeball.xnb</Output>
-      <Time>2013-05-10T00:25:58.3000456-07:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\pokeball_0.xml</Key>
-        <Value>2013-05-10T00:38:51.4070431-07:00</Value>
-      </Dependency>
-      <Request>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\35A61F95\pokeball.fbm\pokeball_0.xnb</Request>
+      <Time>2013-05-10T20:40:23.0717784-07:00</Time>
     </Item>
     <Item>
       <Source>Models\pokeball.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\pokeball_0.xml</Output>
-      <Time>2013-05-10T00:25:58.3000456-07:00</Time>
+      <Time>2013-05-10T01:58:43-07:00</Time>
     </Item>
     <Item>
       <Source>obj\x86\Debug\FBX\35A61F95\pokeball.fbm\pokeball.png</Source>
@@ -588,7 +588,95 @@
       </Parameters>
       <Options>None</Options>
       <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\35A61F95\pokeball.fbm\pokeball_0.xnb</Output>
-      <Time>2013-05-10T00:38:49-07:00</Time>
+      <Time>2013-05-10T20:40:25.5245385-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Dude\dude.fbx</Source>
+      <Name>Models\Dude\dude</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>SkinnedModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\Dude\dude.xnb</Output>
+      <Time>2013-05-10T19:48:43.7577614-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Dude\dude_0.xml</Key>
+        <Value>2013-05-10T20:57:37.2816082-07:00</Value>
+      </Dependency>
+      <Request>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\Dude\head_0.xnb</Request>
+      <Request>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\Dude\jacket_0.xnb</Request>
+      <Request>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\Dude\pants_0.xnb</Request>
+      <Request>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\Dude\upBodyC_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Dude\dude.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Dude\dude_0.xml</Output>
+      <Time>2013-05-10T19:48:43.7577614-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Dude\head.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\Dude\head_0.xnb</Output>
+      <Time>2013-05-10T20:57:09.7946984-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Dude\jacket.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\Dude\jacket_0.xnb</Output>
+      <Time>2013-05-10T20:57:09.8807278-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Dude\pants.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\Dude\pants_0.xnb</Output>
+      <Time>2013-05-10T20:57:09.9550663-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Dude\upBodyC.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\Dude\upBodyC_0.xnb</Output>
+      <Time>2013-05-10T20:57:10.0114167-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -602,6 +690,10 @@
       <OutputDirectory>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
+      <Assembly>
+        <Key>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\SkinnedModelPipeline\bin\x86\Debug\SkinnedModelPipeline.dll</Key>
+        <Value>2013-05-10T19:49:28.9670873-07:00</Value>
+      </Assembly>
       <Assembly>
         <Key>D:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
         <Value>2010-08-23T12:41:18-07:00</Value>
