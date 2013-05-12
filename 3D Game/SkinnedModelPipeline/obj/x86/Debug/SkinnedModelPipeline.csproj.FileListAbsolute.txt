@@ -5,3 +5,10 @@ D:\Users\Hieu\Documents\Visual Studio 2010\Projects\SkinningSample\SkinnedModelP
 D:\Users\Hieu\Documents\Visual Studio 2010\Projects\SkinningSample\SkinnedModelPipeline\obj\x86\Debug\SkinnedModelPipeline.csprojResolveAssemblyReference.cache
 D:\Users\Hieu\Documents\Visual Studio 2010\Projects\SkinningSample\SkinnedModelPipeline\obj\x86\Debug\SkinnedModelPipeline.dll
 D:\Users\Hieu\Documents\Visual Studio 2010\Projects\SkinningSample\SkinnedModelPipeline\obj\x86\Debug\SkinnedModelPipeline.pdb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\SkinnedModelPipeline\bin\x86\Debug\SkinnedModelPipeline.dll
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\SkinnedModelPipeline\bin\x86\Debug\SkinnedModelPipeline.pdb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\SkinnedModelPipeline\bin\x86\Debug\SkinnedModel.dll
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\SkinnedModelPipeline\bin\x86\Debug\SkinnedModel.pdb
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\SkinnedModelPipeline\obj\x86\Debug\SkinnedModelPipeline.csprojResolveAssemblyReference.cache
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\SkinnedModelPipeline\obj\x86\Debug\SkinnedModelPipeline.dll
+C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\SkinnedModelPipeline\obj\x86\Debug\SkinnedModelPipeline.pdb

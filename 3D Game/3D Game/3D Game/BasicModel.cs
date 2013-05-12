@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace _3D_Game
 {
-    class BasicModel
+    public class BasicModel
     {
         public Model model { get; protected set; }
         protected Matrix world = Matrix.Identity;

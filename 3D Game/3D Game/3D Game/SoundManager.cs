@@ -13,10 +13,15 @@ namespace _3D_Game
 {
     public class SoundManager
     {
+        //Attacks
         public SoundEffect attackSound;
         public SoundEffect smashAttackSound;
         public SoundEffect smashHitSound;
         public SoundEffect shockSound;
+        public SoundEffect bulletSound;
+        public SoundEffect smashBulletSound;
+
+        //Other
         public SoundEffect jumpSound;
         public SoundEffect doubleJumpSound;
         public SoundEffect shieldSound;
@@ -29,6 +34,7 @@ namespace _3D_Game
         public Song menuMusic;
         public Song battleMusic;
         public Song themeMusic;
+        public Song danceMusic;
 
         public float volume = .2f;
 
@@ -41,22 +47,28 @@ namespace _3D_Game
         // Load Content
         public void LoadContent(ContentManager Content)
         {
+            //Attacks
             attackSound = Content.Load<SoundEffect>(@"audio\attack");
             smashAttackSound = Content.Load<SoundEffect>(@"audio\smashattack");
             smashHitSound = Content.Load<SoundEffect>(@"audio\smashhit");
             shockSound = Content.Load<SoundEffect>(@"audio\shock");
+            bulletSound = Content.Load<SoundEffect>(@"audio\bulletplus");
+            smashBulletSound = Content.Load<SoundEffect>(@"audio\smashbulletplus");
+
+            //Other
             jumpSound = Content.Load<SoundEffect>(@"audio\jump");
             doubleJumpSound = Content.Load<SoundEffect>(@"audio\doublejump");
-            shieldSound = Content.Load<SoundEffect>(@"audio\shield");
+            shieldSound = Content.Load<SoundEffect>(@"audio\shieldplus");
             //rollSound = Content.Load<SoundEffect>(@"audio\roll");
             selectSound = Content.Load <SoundEffect>(@"audio\select");
             backSelectSound = Content.Load<SoundEffect>(@"audio\menuback");
             respawnSound = Content.Load<SoundEffect>(@"audio\ballopen");
-            deathCrySound = Content.Load<SoundEffect>(@"audio\death");
+            deathCrySound = Content.Load<SoundEffect>(@"audio\deathplus");
             deathExplosionSound = Content.Load<SoundEffect>(@"audio\homerun");
             menuMusic = Content.Load<Song>(@"audio\menumusic");
-            battleMusic = Content.Load<Song>(@"audio\battlemusic");
+            battleMusic = Content.Load<Song>(@"audio\battlemusicfixed");
             themeMusic = Content.Load<Song>(@"audio\theme");
+            danceMusic = Content.Load<Song>(@"audio\Gangnam Style");
         }
 
         public void increaseVolume()

@@ -3,7 +3,7 @@
   <Asset Type="Graphics:NodeContent">
     <Name>RootNode</Name>
     <Identity>
-      <SourceFilename>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D GameContent\Models\pokeball.FBX</SourceFilename>
+      <SourceFilename>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D GameContent\Models\pokeball.FBX</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
@@ -25305,7 +25305,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>Material #26</Name>
       <Identity>
-        <SourceFilename>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D GameContent\Models\pokeball.FBX</SourceFilename>
+        <SourceFilename>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D GameContent\Models\pokeball.FBX</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -25326,6 +25326,6 @@
     </Resource>
   </Resources>
   <ExternalReferences>
-    <ExternalReference ID="#External1" TargetType="Graphics:TextureContent">..\FBX\35A61F95\pokeball.fbm\pokeball.png</ExternalReference>
+    <ExternalReference ID="#External1" TargetType="Graphics:TextureContent">..\FBX\D726297A\pokeball.fbm\pokeball.png</ExternalReference>
   </ExternalReferences>
 </XnaContent>

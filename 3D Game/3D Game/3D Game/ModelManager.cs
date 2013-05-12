@@ -29,11 +29,8 @@ namespace _3D_Game
         SpriteBatch spriteBatch;
         SpriteFont percentFont;
 
-        float shotSpeed = .5f;
-        int shotDelay = 300;
-        int shotCountdown = 0;
-
         public enum sound { JUMP, DOUBLEJUMP, ATTACK, SMASH, SMASHHIT, SHOCK,
+                            BULLET, SMASHBULLET,
                             SHIELD, ROLL,
                             RESPAWN, DEATHCRY, DEATHBLAST }
 
@@ -59,8 +56,7 @@ namespace _3D_Game
         {
             //Stage
             stage = new Stage1(
-                Game.Content.Load<Model>(@"models\stage"));
-            models.Add(stage);
+                Game.Content.Load<Model>(@"models\stage"));            
 
             //Players
             p1 = new Player1(
@@ -110,6 +106,7 @@ namespace _3D_Game
             {
                 models[i].Update();
             }
+            stage.Update();
 
             UpdateShots();
             updateDeaths();
@@ -139,6 +136,7 @@ namespace _3D_Game
         public override void Draw(GameTime gameTime)
         {
             //Loop through and draw each model
+            stage.Draw(((Game1)Game).camera);
             foreach (BasicModel bm in models)
             {
                 bm.Draw(((Game1)Game).camera);
@@ -232,6 +230,14 @@ namespace _3D_Game
 
                 case sound.SHOCK:
                     soundManager.shockSound.Play();
+                    break;
+
+                case sound.BULLET:
+                    soundManager.bulletSound.Play();
+                    break;
+
+                case sound.SMASHBULLET:
+                    soundManager.smashBulletSound.Play();
                     break;
 
                 case sound.SHIELD:
@@ -349,11 +355,18 @@ namespace _3D_Game
             MediaPlayer.IsRepeating = true;
         }
 
-        public void AddShot(Vector3 position, Vector3 direction)
+        public void AddShot(Vector3 position, Vector3 direction, 
+                            Object owner, InteractionMediator.attackType attackType)
         {
+            //Determine owner
+            Player1 temp;
+            if (owner == player1)
+                temp = player1;
+            else temp = player2;
+
             shots.Add(new Bullet(
                 Game.Content.Load<Model>(@"models\ammo"),
-                position, direction * shotSpeed));
+                position, direction, temp, attackType));            
         }
 
         public void UpdateShots()
@@ -365,11 +378,34 @@ namespace _3D_Game
                 ((Bullet)shots[i]).Update();
 
                 //If shot is out of bounds, remove it from game
-                /*if (shots[i].GetWorld().Translation.X < Game.GraphicsDevice.PresentationParameters.BackBufferWidth)
+                if (shots[i].GetWorld().Translation.X > ((Stage1)stage).deathPlane_LEFT ||
+                    shots[i].GetWorld().Translation.X < ((Stage1)stage).deathPlane_RIGHT)
                 {
                     shots.RemoveAt(i);
                     --i;
-                }*/
+                }
+                else
+                {
+                    //If shot is still in play, check for collisions
+                    for (int j = 0; j < models.Count; ++j)
+                    {
+                        if (models[j] != ((Bullet)shots[i]).getOwner() &&
+                            shots[i].CollidesWith(models[j].model, models[j].GetWorld()))
+                        {
+                            //If attack succeeded, remove
+                            if (mediator.processRangedAttack(
+                                ((Bullet)shots[i]).getOwner(),
+                                ((Player1)models[j]),
+                                ((Bullet)shots[i]).getType()))
+                            {
+                                shots.RemoveAt(i);
+                                --i;
+                            }
+                            break;
+                        }                        
+                    }
+
+                }
             }
         }
     }

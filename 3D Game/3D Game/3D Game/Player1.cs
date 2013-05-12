@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace _3D_Game
 {
-    class Player1 : BasicModel
+    public class Player1 : BasicModel
     {
         // CONSTANTS
         // general
@@ -57,7 +57,6 @@ namespace _3D_Game
         public bool rolling = false;
         public bool smashing = false;
         public bool moving = false;
-        bool smashHit = false;
         bool sprintingLeft = false;
         bool sprintingRight = false;
         bool inAir = false; //detect for shielding, maybe aerials
@@ -68,7 +67,6 @@ namespace _3D_Game
         float lateralMomentum = 0;
         public float stunTimer = 0;
         float rollingTimer = 0;
-        float smashTimer = 0;
         float deathTimer = -1;
         float sprintCheckTimerLeft = 0;
         float sprintCheckTimerLeft2 = 0;
@@ -84,6 +82,10 @@ namespace _3D_Game
         KeyboardState oldState, newState;
         public int flipModifier = 1;
 
+        //Controls
+        GamePadState oldGamepadState, newGamepadState;
+        protected PlayerIndex myPlayerIndex;
+        //Keyboard
         protected Keys upKey;
         protected Keys downKey;
         protected Keys leftKey;
@@ -91,6 +93,15 @@ namespace _3D_Game
         protected Keys shieldKey;
         protected Keys attackKey;
         protected Keys secondAttackKey;
+        //Gamepad
+        protected Buttons upButton;
+        protected Buttons downButton;
+        protected Buttons leftButton;
+        protected Buttons rightButton;
+        protected Buttons shieldButton1;
+        protected Buttons shieldButton2;
+        protected Buttons attackButton;
+        protected Buttons secondAttackButton;
 
         public int currPercentage;
         public int maxPercentage = 999;
@@ -99,6 +110,8 @@ namespace _3D_Game
         public Player1(Model m)
             : base(m)
         {
+            //Player specific
+            //Keyboard
             upKey = Keys.W;
             downKey = Keys.S;
             leftKey = Keys.A;
@@ -106,9 +119,21 @@ namespace _3D_Game
             shieldKey = Keys.LeftShift;
             attackKey = Keys.Q;
             secondAttackKey = Keys.E;
+            //Gamepad
+            upButton = Buttons.LeftThumbstickUp;
+            downButton = Buttons.LeftThumbstickDown;
+            leftButton = Buttons.LeftThumbstickLeft;
+            rightButton = Buttons.LeftThumbstickRight;
+            shieldButton1 = Buttons.LeftTrigger;
+            shieldButton2 = Buttons.RightTrigger;
+            attackButton = Buttons.A;
+            secondAttackButton = Buttons.B;
+
             tint = DEFAULT_TINT;
-            oldState = Keyboard.GetState();
+            myPlayerIndex = PlayerIndex.One;
             
+            //Adjustable
+            oldState = Keyboard.GetState();
             currPercentage = 0;
             currStock = 2;
         }
@@ -116,6 +141,7 @@ namespace _3D_Game
         public override void Update()
         {
             newState = Keyboard.GetState();
+            newGamepadState = GamePad.GetState(myPlayerIndex);
             if (getPosition().Y > 0)
                 inAir = true;
             else inAir = false;
@@ -128,14 +154,18 @@ namespace _3D_Game
             CheckSprintRight();
             if (stunTimer <= 0)
             {
-                ReadKeyboardInput();
-                ReadAttackInput();
+                if (smashCooldown <= 0)
+                {
+                    ReadKeyboardInput();
+                    ReadAttackInput();
+                }
                 
                 tint = DEFAULT_TINT;
             }
             else
                 tint = Color.Red;
             oldState = newState;
+            oldGamepadState = newGamepadState;
         }
 
         private void ReadKeyboardInput()
@@ -144,14 +174,18 @@ namespace _3D_Game
             if (isAlive)
             {
                 // Process Shielding
-                if (newState.IsKeyDown(shieldKey))
+                if (newState.IsKeyDown(shieldKey) ||//Read Keyboard
+                    newGamepadState.IsButtonDown(shieldButton1) ||//Read gamepad
+                    newGamepadState.IsButtonDown(shieldButton2))
                 {
                     //if (!inAir)
                     if (!rolling)
                         shield();
-                    if (newState.IsKeyDown(leftKey) && oldState.IsKeyUp(leftKey))
+                    if ((newState.IsKeyDown(leftKey) && oldState.IsKeyUp(leftKey)) ||
+                        (newGamepadState.IsButtonDown(leftButton) && oldGamepadState.IsButtonUp(leftButton)))
                         Roll(left);
-                    if (newState.IsKeyDown(rightKey) && oldState.IsKeyUp(rightKey))
+                    if ((newState.IsKeyDown(rightKey) && oldState.IsKeyUp(rightKey)) ||
+                        (newGamepadState.IsButtonDown(rightButton) && oldGamepadState.IsButtonUp(rightButton)))
                         Roll(right);
                     return;
                 }
@@ -161,16 +195,28 @@ namespace _3D_Game
                 if (!isShielding)
                 {
                     //Process Jumping
-                    if (newState.IsKeyDown(upKey))
+                    if (newState.IsKeyDown(upKey) ||//Read Keyboard
+                        newGamepadState.IsButtonDown(upButton))//Read Gamepad
                     {
-                        if (!jumping && oldState.IsKeyUp(upKey))
-                            Jump();
-                        else if (oldState.IsKeyUp(upKey))
-                            DoubleJump();
+                        //if (!newGamepadState.IsConnected)
+                        //{
+                            if (!jumping && oldState.IsKeyUp(upKey))
+                                Jump();
+                            else if (oldState.IsKeyUp(upKey))
+                                DoubleJump();
+                        //}
+                        /*else
+                        {
+                            if (!jumping && oldGamepadState.IsButtonUp(Buttons.LeftThumbstickUp))
+                                Jump();
+                            else if (oldGamepadState.IsButtonUp(Buttons.LeftThumbstickUp))
+                                DoubleJump();
+                        }*/
                     }
 
                     //Process left and right
-                    if (newState.IsKeyDown(leftKey))
+                    if (newState.IsKeyDown(leftKey) ||//Read Keyboard
+                        newGamepadState.IsButtonDown(leftButton))//Read Gamepad
                     {
                         if (oldState.IsKeyUp(leftKey))
                             smashTimerLeft = SMASH_KEYPRESS_INTERVAL;
@@ -183,7 +229,8 @@ namespace _3D_Game
                         rotation = Matrix.Identity;
                         moving = false;
                     }
-                    if (newState.IsKeyDown(rightKey))
+                    if (newState.IsKeyDown(rightKey) ||//Read Keybaord
+                        newGamepadState.IsButtonDown(rightButton))//Read Gamepad
                     {
                         if (oldState.IsKeyUp(rightKey))
                             smashTimerRight = SMASH_KEYPRESS_INTERVAL;
@@ -207,9 +254,9 @@ namespace _3D_Game
                 {
                     myModelManager.playSound(ModelManager.sound.SMASHHIT);
                     myModelManager.playSound(ModelManager.sound.SHOCK);
-                    smashHit = true;
-                    smashCooldown = SMASH_COOLDOWN;
+                    
                 }
+                smashCooldown = SMASH_COOLDOWN;
         }
 
         public void ReadAttackInput()
@@ -218,7 +265,9 @@ namespace _3D_Game
             if (!isShielding)
             {
                 // If smash left
-                if (newState.IsKeyDown(attackKey) && newState.IsKeyDown(leftKey) &&
+                if (((newState.IsKeyDown(attackKey) && newState.IsKeyDown(leftKey)) ||
+                    (newGamepadState.IsButtonDown(attackButton) && newGamepadState.IsButtonDown(leftButton)))
+                    &&
                     (smashTimerLeft > 0) &&
                     !smashing)
                 {
@@ -227,12 +276,13 @@ namespace _3D_Game
                     if (!smashing && smashCooldown <= 0)
                     {
                         smashingTranslation = Matrix.CreateTranslation(direction * SMASH_SPEED);
-                        smashTimer = SMASH_TIME;
                         Smash();
                     }
                 }
                 // If smash right
-                else if (newState.IsKeyDown(attackKey) && newState.IsKeyDown(rightKey) &&
+                else if (((newState.IsKeyDown(attackKey) && newState.IsKeyDown(rightKey)) ||
+                    (newGamepadState.IsButtonDown(attackButton) && newGamepadState.IsButtonDown(rightButton)))
+                    &&
                     (smashTimerRight > 0) &&
                     !smashing)
                 {
@@ -241,21 +291,52 @@ namespace _3D_Game
                     if (!smashing && smashCooldown <= 0)
                     {
                         smashingTranslation = Matrix.CreateTranslation(direction * SMASH_SPEED);
-                        smashTimer = SMASH_TIME;
                         Smash();
                     }
                 }
-                // If normal attack
-                else if (newState.IsKeyDown(attackKey) && oldState.IsKeyUp(attackKey))
+                // If smash bullet left
+                if (((newState.IsKeyDown(secondAttackKey) && newState.IsKeyDown(leftKey)) ||
+                    (newGamepadState.IsButtonDown(secondAttackButton) && newGamepadState.IsButtonDown(leftButton)))
+                    &&
+                    (smashTimerLeft > 0) &&
+                    !smashing)
+                {
+                    myModelManager.playSound(ModelManager.sound.SMASHBULLET);
+                    Vector3 direction = new Vector3(-1, 0, 0);
+                    if (!smashing && smashCooldown <= 0)
+                    {
+                        mediator.rangedAttack(this, InteractionMediator.attackType.SMASHBULLET);
+                        smashCooldown = SMASH_COOLDOWN;
+                    }
+                }
+                // If smash bullet right
+                else if (((newState.IsKeyDown(secondAttackKey) && newState.IsKeyDown(rightKey)) ||
+                    (newGamepadState.IsButtonDown(secondAttackButton) && newGamepadState.IsButtonDown(rightButton)))
+                    &&
+                    (smashTimerRight > 0) &&
+                    !smashing)
+                {
+                    myModelManager.playSound(ModelManager.sound.SMASHBULLET);
+                    Vector3 direction = new Vector3(1, 0, 0);
+                    if (!smashing && smashCooldown <= 0)
+                    {
+                        mediator.rangedAttack(this, InteractionMediator.attackType.SMASHBULLET);
+                        smashCooldown = SMASH_COOLDOWN;
+                    }
+                }
+                // If basic attack
+                else if ((newState.IsKeyDown(attackKey) && oldState.IsKeyUp(attackKey)) ||
+                    (newGamepadState.IsButtonDown(attackButton) && oldGamepadState.IsButtonUp(attackButton)))
                 {
                     if (!smashing && mediator.attack(this, InteractionMediator.attackType.BASIC) == true)
                         myModelManager.playSound(ModelManager.sound.ATTACK);
                 }
-                // If ranged attack
-                else if (newState.IsKeyDown(secondAttackKey) && oldState.IsKeyUp(secondAttackKey))
+                // If bullet attack
+                else if ((newState.IsKeyDown(secondAttackKey) && oldState.IsKeyUp(secondAttackKey)) ||
+                     (newGamepadState.IsButtonDown(secondAttackButton) && oldGamepadState.IsButtonUp(secondAttackButton)))
                 {
-                    if (!smashing && mediator.attack(this, InteractionMediator.attackType.RANGE) == true)
-                        myModelManager.playSound(ModelManager.sound.ATTACK);
+                    if (!smashing && mediator.rangedAttack(this, InteractionMediator.attackType.BULLET) == true)
+                        myModelManager.playSound(ModelManager.sound.BULLET);
                 }
             }
         }

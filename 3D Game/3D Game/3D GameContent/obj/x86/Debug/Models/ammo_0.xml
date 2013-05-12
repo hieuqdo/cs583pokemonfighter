@@ -3,7 +3,7 @@
   <Asset Type="Graphics:NodeContent">
     <Name>Frame_World</Name>
     <Identity>
-      <SourceFilename>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D GameContent\Models\ammo.x</SourceFilename>
+      <SourceFilename>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D GameContent\Models\ammo.x</SourceFilename>
       <SourceTool>XImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 -1 0 0 0 0 1</Transform>
@@ -43,7 +43,7 @@
   <Resources>
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Identity>
-        <SourceFilename>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D GameContent\Models\ammo.x</SourceFilename>
+        <SourceFilename>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D GameContent\Models\ammo.x</SourceFilename>
         <SourceTool>XImporter</SourceTool>
       </Identity>
       <OpaqueData>

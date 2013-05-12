@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 namespace _3D_Game
 {
-    class InteractionMediator
+    public class InteractionMediator
     {
         Player1 p1, p2;
 
@@ -25,7 +25,10 @@ namespace _3D_Game
         float knockbackDirection;
         int direction;
 
-        public enum attackType { BASIC, SMASH, RANGE }
+        float stunValue;
+
+        public enum attackType { BASIC, SMASH, RANGE,
+                                    BULLET, SMASHBULLET}
 
         public InteractionMediator(Player1 player1, Player1 player2)
         {
@@ -33,6 +36,7 @@ namespace _3D_Game
             p2 = player2;
         }
 
+        //Does melee attacks and reads ranged attack inputs
         public bool attack(Player1 attacker, attackType attackType)
         {
             if (p1.isAlive == false || p2.isAlive == false)
@@ -44,31 +48,29 @@ namespace _3D_Game
                 target = p1;
 
             //Blocked by shielding
-            if (target.isShielding)
+            if (target.isShielding && attackType != InteractionMediator.attackType.RANGE)
             {
                 shieldBlock(target);
                 return false;
             }
 
             //Dodged by rolling
-            if (target.rolling)
+            if (target.rolling && attackType != InteractionMediator.attackType.RANGE)
             {
                 return false;
             }
 
             //Do melee attacks
-            if (attackType != InteractionMediator.attackType.RANGE && //Not ranged attacking
-                attacker.CollidesWith(target.model, target.GetWorld()))//If colliding
+            if (attacker.CollidesWith(target.model, target.GetWorld()))//If colliding
             {
                 target.stunTimer = 0.2f;
 
                 switch (attackType)
                 {
                     case attackType.BASIC:
-                        damageModifier = 2;
+                        damageModifier = 3;
                         knockbackModifier = 40f;
                         attackKnockbackCap = 1;
-
                         break;
 
                     case attackType.SMASH:
@@ -76,7 +78,6 @@ namespace _3D_Game
                         knockbackModifier = 20f;
                         attackKnockbackCap = -1;
                         break;
-
                 }
 
                 //Recognize the values from the switch
@@ -109,21 +110,93 @@ namespace _3D_Game
                     target.knockback(attackKnockbackCap * direction);
                 else target.knockback(knockbackDistance);
 
-                target.knockback(knockbackDistance);
-
                 return true;
             }
-            else if (attackType == InteractionMediator.attackType.RANGE)
-            {
-                knockbackDirection = (target.getPosition().X - attacker.getPosition().X);
-                //Assess whether facing left or right
-                if (knockbackDirection > 0)
-                    direction = 1;
-                else direction = -1;
 
-                attacker.myModelManager.AddShot(attacker.getPosition(), new Vector3(direction, 0, 0));
-            }
             return false;
+        }
+
+        public bool rangedAttack(Player1 attacker, attackType attackType)
+        {
+            //Aim in the direction player is facing
+            direction = attacker.flipModifier;
+
+            //Fire shot type
+            attacker.myModelManager.AddShot(attacker.getPosition(), new Vector3(direction, 0, 0), attacker, attackType);
+            return true;
+        }
+
+        //processRangedAttack is only called by modelManager when targets collide
+        //returns true if the bullet collided and should disappear
+        public bool processRangedAttack(Player1 attacker, Player1 target, attackType attackType)
+        {
+            if (target.isAlive == false)
+                return false;
+
+            //Blocked by shielding
+            if (target.isShielding)
+            {
+                shieldBlock(target);
+                return true;
+            }
+
+            //Dodged by rolling
+            if (target.rolling)
+            {
+                return false;
+            }
+
+            //Do ranged attack
+            switch (attackType)
+            {
+                case attackType.BULLET:
+                    damageModifier = 1;
+                    knockbackModifier = 0;
+                    attackKnockbackCap = 0;
+                    stunValue = 0;
+                    break;
+
+                case attackType.SMASHBULLET:
+                    damageModifier = 10;
+                    knockbackModifier = 40f;
+                    attackKnockbackCap = -1;
+                    stunValue = .5f;
+                    break;
+            }            
+
+            //Recognize the values from the switch
+            damageTotal = damageDealt * damageModifier;
+            knockbackTotal = knockbackDealt * knockbackModifier;
+
+            //Stun target
+            target.stunTimer = stunValue;
+
+            //Calculate and set damage
+            if (target.currPercentage + damageTotal > target.maxPercentage)
+                target.currPercentage = target.maxPercentage;
+            else
+                target.currPercentage += damageTotal;
+
+            //Calculate and set knockback
+            //
+            knockbackDirection = (target.getPosition().X - attacker.getPosition().X);
+            //Assess whether facing left or right
+            if (knockbackDirection > 0)
+                direction = 1;
+            else direction = -1;
+
+            //Calculate Distance
+            knockbackDirection = knockbackDirection / Math.Abs(knockbackDirection);
+            knockbackDistance = target.currPercentage / knockbackTotal * knockbackDirection;          
+
+            //Cap knockback and knockback as appropriate
+            if (attackKnockbackCap > 0 &&
+                Math.Abs(knockbackDistance) > Math.Abs(attackKnockbackCap))
+                target.knockback(attackKnockbackCap * direction);
+            else if (knockbackTotal != 0 && knockbackDirection != 0)
+                target.knockback(knockbackDistance);
+
+            return true;
         }
 
         // Plays sound & reduces player shield

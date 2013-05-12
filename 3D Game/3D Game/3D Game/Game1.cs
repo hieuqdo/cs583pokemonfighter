@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-using SkinnedModel;
+
 
 namespace _3D_Game
 {
@@ -17,7 +17,7 @@ namespace _3D_Game
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-        GraphicsDeviceManager graphics;
+        public GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
         public Camera camera { get; protected set; }
@@ -25,19 +25,12 @@ namespace _3D_Game
         public SoundManager soundManager;
         public Developer_Debug_Menu debug;
 
-        // ANIMATIONS
-        Model animatedModel;
-        AnimationPlayer animationPlayer;
-        AnimationClip animationClip;
-        float cameraArc = 0;
-        float cameraRotation = 0;
-        float cameraDistance = 100;
-
         public int writeFrequency = 0;
         private KeyboardState newState, oldState;
+        private GamePadState newGamepadState, oldGamepadState;
 
-        public enum GameState { MENU, PLAYING, INSTRUCTIONS, P1WIN, P2WIN, DANCING }
-        public GameState currentGameState = GameState.MENU;
+        public enum GameState { MENU, PLAYING, INSTRUCTIONS, P1WIN, P2WIN, DANCING, INTRO }
+        public GameState currentGameState = GameState.INTRO;
 
         public SplashScreen splashScreen;
 
@@ -74,6 +67,7 @@ namespace _3D_Game
             debug = new Developer_Debug_Menu(this);
 
             oldState = Keyboard.GetState();
+            oldGamepadState = GamePad.GetState(PlayerIndex.One);
 
             modelManager.Enabled = false;
             modelManager.Visible = false;
@@ -95,20 +89,12 @@ namespace _3D_Game
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            //ANIMATION
-            animatedModel = Content.Load<Model>(@"models\dude\dude");
-            SkinningData skinningData = animatedModel.Tag as SkinningData;
-            if (skinningData == null)
-                throw new InvalidOperationException("This model does not contain a SkinningData tag.");
-            animationPlayer = new AnimationPlayer(skinningData);
-            animationClip = skinningData.AnimationClips["Take 001"];
-
             // TODO: use this.Content to load your game content here
             bg = Content.Load<Texture2D>(@"textures\stadium_bg");
     
             soundManager.LoadContent(Content);
-            MediaPlayer.Play(soundManager.menuMusic);
-            MediaPlayer.IsRepeating = true;            
+            //MediaPlayer.Play(soundManager.menuMusic);
+            //MediaPlayer.IsRepeating = true;            
             
         }
 
@@ -127,38 +113,38 @@ namespace _3D_Game
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
-        {
-             newState = Keyboard.GetState();
-
-            if (currentGameState == GameState.DANCING)
-            {
-                //ANIMATION
-                animationPlayer.Update(gameTime.ElapsedGameTime, true, Matrix.Identity);
-                if(newState.IsKeyDown(Keys.Back))
-                    ChangeGameState(GameState.MENU);
-            }
+        {            
             // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape) == true ||
+                GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
             // TODO: Add your update logic here
-           
+            newState = Keyboard.GetState();
+            newGamepadState = GamePad.GetState(PlayerIndex.One);
             if (newState.IsKeyDown(Keys.OemTilde) && oldState.IsKeyUp(Keys.OemTilde) && currentGameState == Game1.GameState.PLAYING)
                 toggleDebug();
 
-            if (newState.IsKeyDown(Keys.OemMinus) && oldState.IsKeyUp(Keys.OemMinus))
+            if (newState.IsKeyDown(Keys.OemMinus) && oldState.IsKeyUp(Keys.OemMinus) ||
+                newGamepadState.IsButtonDown(Buttons.Y))
                 soundManager.decreaseVolume();
-            if (newState.IsKeyDown(Keys.OemPlus) && oldState.IsKeyUp(Keys.OemPlus))
+            if (newState.IsKeyDown(Keys.OemPlus) && oldState.IsKeyUp(Keys.OemPlus) ||
+                newGamepadState.IsButtonDown(Buttons.X))
                 soundManager.increaseVolume();
             MediaPlayer.Volume = soundManager.volume;
 
-            if (newState.IsKeyDown(Keys.F2) && oldState.IsKeyUp(Keys.F2))
+            if (newState.IsKeyDown(Keys.F2) && oldState.IsKeyUp(Keys.F2) ||
+                newGamepadState.IsButtonDown(Buttons.RightShoulder))
                 toggleFullscreen();
 
-            if (newState.IsKeyDown(Keys.Z) &&
+            if ((newState.IsKeyDown(Keys.Z) &&
                 newState.IsKeyDown(Keys.X) &&
                 newState.IsKeyDown(Keys.C) &&
-                newState.IsKeyDown(Keys.V))
+                newState.IsKeyDown(Keys.V)) ||
+                (newGamepadState.IsButtonDown(Buttons.LeftTrigger) &&
+                newGamepadState.IsButtonDown(Buttons.RightTrigger) &&
+                newGamepadState.IsButtonDown(Buttons.Y) &&
+                newGamepadState.IsButtonDown(Buttons.B)))
                 if (currentGameState == Game1.GameState.PLAYING)
                 {
                     ChangeGameState(Game1.GameState.MENU);
@@ -167,6 +153,7 @@ namespace _3D_Game
                 }
 
             oldState = newState;
+            oldGamepadState = newGamepadState;
 
             base.Update(gameTime);
         }
@@ -177,45 +164,6 @@ namespace _3D_Game
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            if (currentGameState == GameState.DANCING)
-            {
-                GraphicsDevice device = graphics.GraphicsDevice;
-
-                device.Clear(Color.CornflowerBlue);
-
-                Matrix[] bones = animationPlayer.GetSkinTransforms();
-
-                // Compute camera matrices.
-                Matrix view = Matrix.CreateTranslation(0, -40, 0) *
-                              Matrix.CreateRotationY(MathHelper.ToRadians(cameraRotation)) *
-                              Matrix.CreateRotationX(MathHelper.ToRadians(cameraArc)) *
-                              Matrix.CreateLookAt(new Vector3(0, 0, -cameraDistance),
-                                                  new Vector3(0, 0, 0), Vector3.Up);
-
-                Matrix projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4,
-                                                                        device.Viewport.AspectRatio,
-                                                                        1,
-                                                                        10000);
-
-                // Render the skinned mesh.
-                foreach (ModelMesh mesh in animatedModel.Meshes)
-                {
-                    foreach (SkinnedEffect effect in mesh.Effects)
-                    {
-                        effect.SetBoneTransforms(bones);
-
-                        effect.View = view;
-                        effect.Projection = projection;
-
-                        effect.EnableDefaultLighting();
-
-                        effect.SpecularColor = new Vector3(0.25f);
-                        effect.SpecularPower = 16;
-                    }
-
-                    mesh.Draw();
-                }
-            }      
 
             // TODO: Add your drawing code here
             if (currentGameState == GameState.PLAYING)
@@ -231,6 +179,8 @@ namespace _3D_Game
                     Color.White);
                 spriteBatch.End();
             }
+            else if (currentGameState == GameState.INTRO)
+                GraphicsDevice.Clear(Color.White);
 
             base.Draw(gameTime);
         }
@@ -273,9 +223,15 @@ namespace _3D_Game
                 case GameState.DANCING:
                     modelManager.Enabled = false;
                     modelManager.Visible = false;
-                    splashScreen.Enabled = false;
-                    splashScreen.Visible = false;
-                    animationPlayer.StartClip(animationClip);
+                    splashScreen.Enabled = true;
+                    splashScreen.Visible = true;
+                    splashScreen.startClip();
+                    break;
+                case GameState.INTRO:
+                    modelManager.Enabled = false;
+                    modelManager.Visible = false;
+                    splashScreen.Enabled = true;
+                    splashScreen.Visible = true;
                     break;
                 default:
                     modelManager.Enabled = false;

@@ -14,6 +14,7 @@ namespace _3D_Game
         public Player2(Model m)
             : base(m)
         {
+            //Player Specific
             upKey = Keys.Up;
             downKey = Keys.Down;
             leftKey = Keys.Left;
@@ -23,6 +24,7 @@ namespace _3D_Game
             secondAttackKey = Keys.OemPeriod;
             DEFAULT_TINT = Color.Black;
             tint = DEFAULT_TINT;
+            myPlayerIndex = PlayerIndex.Two;
             flipModifier = -1;
         }
 

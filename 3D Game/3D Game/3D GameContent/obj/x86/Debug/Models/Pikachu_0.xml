@@ -3,7 +3,7 @@
   <Asset Type="Graphics:NodeContent">
     <Name>RootNode</Name>
     <Identity>
-      <SourceFilename>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D GameContent\Models\Pikachu.FBX</SourceFilename>
+      <SourceFilename>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D GameContent\Models\Pikachu.FBX</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
@@ -119,7 +119,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>Material #29</Name>
       <Identity>
-        <SourceFilename>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D GameContent\Models\Pikachu.FBX</SourceFilename>
+        <SourceFilename>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D GameContent\Models\Pikachu.FBX</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -141,7 +141,7 @@
     <Resource ID="#Resource2" Type="Graphics:BasicMaterialContent">
       <Name>Material #25</Name>
       <Identity>
-        <SourceFilename>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D GameContent\Models\Pikachu.FBX</SourceFilename>
+        <SourceFilename>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D GameContent\Models\Pikachu.FBX</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -163,7 +163,7 @@
     <Resource ID="#Resource3" Type="Graphics:BasicMaterialContent">
       <Name>Material #28</Name>
       <Identity>
-        <SourceFilename>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D GameContent\Models\Pikachu.FBX</SourceFilename>
+        <SourceFilename>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D GameContent\Models\Pikachu.FBX</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -185,7 +185,7 @@
     <Resource ID="#Resource4" Type="Graphics:BasicMaterialContent">
       <Name>Material #27</Name>
       <Identity>
-        <SourceFilename>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D GameContent\Models\Pikachu.FBX</SourceFilename>
+        <SourceFilename>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D GameContent\Models\Pikachu.FBX</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -207,7 +207,7 @@
     <Resource ID="#Resource5" Type="Graphics:BasicMaterialContent">
       <Name>Material #26</Name>
       <Identity>
-        <SourceFilename>D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D GameContent\Models\Pikachu.FBX</SourceFilename>
+        <SourceFilename>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D GameContent\Models\Pikachu.FBX</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -228,9 +228,9 @@
     </Resource>
   </Resources>
   <ExternalReferences>
-    <ExternalReference ID="#External1" TargetType="Graphics:TextureContent">..\FBX\15D11F30\Pikachu.fbm\PikachuMouthDh.tga</ExternalReference>
-    <ExternalReference ID="#External2" TargetType="Graphics:TextureContent">..\FBX\15D11F30\Pikachu.fbm\PikachuDh.tga</ExternalReference>
-    <ExternalReference ID="#External3" TargetType="Graphics:TextureContent">..\FBX\15D11F30\Pikachu.fbm\PikachuHohoDh.tga</ExternalReference>
-    <ExternalReference ID="#External4" TargetType="Graphics:TextureContent">..\FBX\15D11F30\Pikachu.fbm\PikachuEyeDh.tga</ExternalReference>
+    <ExternalReference ID="#External1" TargetType="Graphics:TextureContent">..\FBX\AD6C2915\Pikachu.fbm\PikachuMouthDh.tga</ExternalReference>
+    <ExternalReference ID="#External2" TargetType="Graphics:TextureContent">..\FBX\AD6C2915\Pikachu.fbm\PikachuDh.tga</ExternalReference>
+    <ExternalReference ID="#External3" TargetType="Graphics:TextureContent">..\FBX\AD6C2915\Pikachu.fbm\PikachuHohoDh.tga</ExternalReference>
+    <ExternalReference ID="#External4" TargetType="Graphics:TextureContent">..\FBX\AD6C2915\Pikachu.fbm\PikachuEyeDh.tga</ExternalReference>
   </ExternalReferences>
 </XnaContent>
