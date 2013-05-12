@@ -64,15 +64,6 @@
       <Time>2013-05-10T23:58:56.0300728-07:00</Time>
     </Item>
     <Item>
-      <Source>Textures\instructions.png</Source>
-      <Name>Textures\instructions</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\instructions.xnb</Output>
-      <Time>2013-05-10T23:58:56.8361759-07:00</Time>
-    </Item>
-    <Item>
       <Source>Textures\titleScreen.jpg</Source>
       <Name>Textures\titleScreen</Name>
       <Importer>TextureImporter</Importer>
@@ -262,16 +253,6 @@
       <Time>2013-05-10T23:58:54.5768866-07:00</Time>
     </Item>
     <Item>
-      <Source>Audio\battlemusic.mp3</Source>
-      <Name>Audio\battlemusic</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\battlemusic.xnb</Output>
-      <Extra>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\battlemusic.wma</Extra>
-      <Time>2013-05-10T23:58:54.4238707-07:00</Time>
-    </Item>
-    <Item>
       <Source>Audio\theme.mp3</Source>
       <Name>Audio\theme</Name>
       <Importer>Mp3Importer</Importer>
@@ -316,15 +297,6 @@
       <Options>None</Options>
       <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\ballopen.xnb</Output>
       <Time>2013-05-10T23:58:54.3688604-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\death.wav</Source>
-      <Name>Audio\death</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\death.xnb</Output>
-      <Time>2013-05-10T23:58:54.4348692-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\menuback.wav</Source>
@@ -379,15 +351,6 @@
       <Options>None</Options>
       <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\smashhit.xnb</Output>
       <Time>2013-05-10T23:58:54.6088912-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\shield.wav</Source>
-      <Name>Audio\shield</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\shield.xnb</Output>
-      <Time>2013-05-10T23:58:54.5878885-07:00</Time>
     </Item>
     <Item>
       <Source>Models\spaceship.x</Source>
@@ -744,13 +707,31 @@
       <Time>2013-05-11T23:15:05.2452038-07:00</Time>
     </Item>
     <Item>
-      <Source>Textures\CatCreature.png</Source>
-      <Name>Textures\CatCreature</Name>
+      <Source>Audio\shocksmashhit.wav</Source>
+      <Name>Audio\shocksmashhit</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\shocksmashhit.xnb</Output>
+      <Time>2013-05-12T14:10:42.9197872-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\shockhit.wav</Source>
+      <Name>Audio\shockhit</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\shockhit.xnb</Output>
+      <Time>2013-05-12T14:11:53.093706-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\FUNK.png</Source>
+      <Name>Textures\FUNK</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\CatCreature.xnb</Output>
-      <Time>2013-05-11T23:37:40.2284147-07:00</Time>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\FUNK.xnb</Output>
+      <Time>2013-05-12T14:43:12.6005816-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

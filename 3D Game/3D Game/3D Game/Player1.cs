@@ -13,7 +13,7 @@ namespace _3D_Game
         // CONSTANTS
         // general
         const int PLAYER_RUN_SPEED = 1;
-        const int PLAYER_SPRINT_SPEED = 2;
+        const float PLAYER_SPRINT_SPEED = 1.75f;
         const float SPRINT_KEYPRESS_INTERVAL = 0.3f;
         const float SMASH_KEYPRESS_INTERVAL = 0.2f;
         const float TIME_COUNTDOWN = 0.01666666666f;
@@ -59,7 +59,6 @@ namespace _3D_Game
         public bool moving = false;
         bool sprintingLeft = false;
         bool sprintingRight = false;
-        bool inAir = false; //detect for shielding, maybe aerials
         public bool isAlive = true; //for determining death camera
         public bool isShielding = false; //model manager will draw shield
         float jumpMomentum = 0;
@@ -102,6 +101,8 @@ namespace _3D_Game
         protected Buttons shieldButton2;
         protected Buttons attackButton;
         protected Buttons secondAttackButton;
+        protected Buttons smashLeft;
+        protected Buttons smashRight;
 
         public int currPercentage;
         public int maxPercentage = 999;
@@ -127,7 +128,9 @@ namespace _3D_Game
             shieldButton1 = Buttons.LeftTrigger;
             shieldButton2 = Buttons.RightTrigger;
             attackButton = Buttons.A;
-            secondAttackButton = Buttons.B;
+            secondAttackButton = Buttons.X;
+            smashLeft = Buttons.RightThumbstickLeft;
+            smashRight = Buttons.RightThumbstickRight;
 
             tint = DEFAULT_TINT;
             myPlayerIndex = PlayerIndex.One;
@@ -135,16 +138,13 @@ namespace _3D_Game
             //Adjustable
             oldState = Keyboard.GetState();
             currPercentage = 0;
-            currStock = 2;
+            currStock = 3;
         }
 
         public override void Update()
         {
             newState = Keyboard.GetState();
             newGamepadState = GamePad.GetState(myPlayerIndex);
-            if (getPosition().Y > 0)
-                inAir = true;
-            else inAir = false;
             TickCooldowns();
             ApplyGravity();
             ApplyFriction();
@@ -194,50 +194,53 @@ namespace _3D_Game
                 //Only read other input if not shielding
                 if (!isShielding)
                 {
-                    //Process Jumping
-                    if (newState.IsKeyDown(upKey) ||//Read Keyboard
-                        newGamepadState.IsButtonDown(upButton))//Read Gamepad
+                    //Process Jumping for Keyboard
+                    if (newState.IsKeyDown(upKey))
                     {
-                        //if (!newGamepadState.IsConnected)
-                        //{
-                            if (!jumping && oldState.IsKeyUp(upKey))
-                                Jump();
-                            else if (oldState.IsKeyUp(upKey))
-                                DoubleJump();
-                        //}
-                        /*else
-                        {
-                            if (!jumping && oldGamepadState.IsButtonUp(Buttons.LeftThumbstickUp))
-                                Jump();
-                            else if (oldGamepadState.IsButtonUp(Buttons.LeftThumbstickUp))
-                                DoubleJump();
-                        }*/
+                        if (!jumping && oldState.IsKeyUp(upKey))
+                            Jump();
+                        else if (oldState.IsKeyUp(upKey))
+                            DoubleJump();
+                    }
+                    //Process Jumping for GamePad
+                    if (newGamepadState.IsButtonDown(upButton) ||
+                        newGamepadState.IsButtonDown(Buttons.Y) ||
+                        newGamepadState.IsButtonDown(Buttons.B))
+                    {
+                        if (!jumping && oldGamepadState.IsButtonUp(upButton) &&
+                            oldGamepadState.IsButtonUp(Buttons.Y) &&
+                            oldGamepadState.IsButtonUp(Buttons.B))
+                            Jump();
+                        else if (oldGamepadState.IsButtonUp(upButton) &&
+                            oldGamepadState.IsButtonUp(Buttons.Y) &&
+                            oldGamepadState.IsButtonUp(Buttons.B))
+                            DoubleJump();
                     }
 
                     //Process left and right
                     if (newState.IsKeyDown(leftKey) ||//Read Keyboard
-                        newGamepadState.IsButtonDown(leftButton))//Read Gamepad
+                        (newGamepadState.ThumbSticks.Left.X < 0))//Read Gamepad
                     {
                         if (oldState.IsKeyUp(leftKey))
                             smashTimerLeft = SMASH_KEYPRESS_INTERVAL;
                         if (!rolling)
                             Move(left);
                     }
-                    else if (oldState.IsKeyDown(leftKey))
+                    else if (oldState.IsKeyDown(leftKey) || newGamepadState.ThumbSticks.Left.X == -1)
                     {
                         lateralMomentum = -speed * 1.2f;
                         rotation = Matrix.Identity;
                         moving = false;
                     }
-                    if (newState.IsKeyDown(rightKey) ||//Read Keybaord
-                        newGamepadState.IsButtonDown(rightButton))//Read Gamepad
+                    if (newState.IsKeyDown(rightKey) ||//Read Keyboard
+                        (newGamepadState.ThumbSticks.Left.X > 0))//Read Gamepad
                     {
                         if (oldState.IsKeyUp(rightKey))
                             smashTimerRight = SMASH_KEYPRESS_INTERVAL;
                         if (!rolling)
                             Move(right);
                     }
-                    else if (oldState.IsKeyDown(rightKey))
+                    else if (oldState.IsKeyDown(rightKey) || newGamepadState.ThumbSticks.Left.X == 1)
                     {
                         lateralMomentum = speed * 1.2f;
                         rotation = Matrix.Identity;
@@ -265,11 +268,11 @@ namespace _3D_Game
             if (!isShielding)
             {
                 // If smash left
-                if (((newState.IsKeyDown(attackKey) && newState.IsKeyDown(leftKey)) ||
+                if ((((newState.IsKeyDown(attackKey) && newState.IsKeyDown(leftKey)) ||
                     (newGamepadState.IsButtonDown(attackButton) && newGamepadState.IsButtonDown(leftButton)))
                     &&
                     (smashTimerLeft > 0) &&
-                    !smashing)
+                    !smashing) || (newGamepadState.IsButtonDown(smashLeft) && oldGamepadState.IsButtonUp(smashLeft) && !smashing))
                 {
                     myModelManager.playSound(ModelManager.sound.SMASH);
                     Vector3 direction = new Vector3(-1, 0, 0);
@@ -280,11 +283,11 @@ namespace _3D_Game
                     }
                 }
                 // If smash right
-                else if (((newState.IsKeyDown(attackKey) && newState.IsKeyDown(rightKey)) ||
+                else if ((((newState.IsKeyDown(attackKey) && newState.IsKeyDown(rightKey)) ||
                     (newGamepadState.IsButtonDown(attackButton) && newGamepadState.IsButtonDown(rightButton)))
                     &&
                     (smashTimerRight > 0) &&
-                    !smashing)
+                    !smashing) || (newGamepadState.IsButtonDown(smashRight) && oldGamepadState.IsButtonUp(smashRight) && !smashing))
                 {
                     myModelManager.playSound(ModelManager.sound.SMASH);
                     Vector3 direction = new Vector3(1, 0, 0);
@@ -350,7 +353,7 @@ namespace _3D_Game
         {
             if (sprintingLeft)
             {
-                if (newState.IsKeyUp(leftKey))
+                if (newState.IsKeyUp(leftKey) && newGamepadState.ThumbSticks.Left.X > -1)
                     sprintingLeft = false;
             }
             else
@@ -359,16 +362,18 @@ namespace _3D_Game
                     sprintCheckTimerLeft = SPRINT_KEYPRESS_INTERVAL;
                 else if (newState.IsKeyUp(leftKey) && sprintCheckTimerLeft > 0)
                     sprintCheckTimerLeft2 = SPRINT_KEYPRESS_INTERVAL;
-                if (newState.IsKeyDown(leftKey) && sprintCheckTimerLeft2 > 0)
-                    sprintingLeft = true;
+                if (newState.IsKeyDown(leftKey) && sprintCheckTimerLeft2 > 0 ||
+                    (newGamepadState.ThumbSticks.Left.X == -1 &&
+                     (oldGamepadState.ThumbSticks.Left.X > -.25f)))
+                    sprintingLeft = true;                
             }
         }
 
         private void CheckSprintRight()
         {
             if (sprintingRight)
-            {
-                if (newState.IsKeyUp(rightKey))
+            {             
+                if (newState.IsKeyUp(rightKey) && newGamepadState.ThumbSticks.Left.X < 1)
                     sprintingRight = false;
             }
             else
@@ -377,7 +382,9 @@ namespace _3D_Game
                     sprintCheckTimerRight = SPRINT_KEYPRESS_INTERVAL;
                 else if (newState.IsKeyUp(rightKey) && sprintCheckTimerRight > 0)
                     sprintCheckTimerRight2 = SPRINT_KEYPRESS_INTERVAL;
-                if (newState.IsKeyDown(rightKey) && sprintCheckTimerRight2 > 0)
+                if (newState.IsKeyDown(rightKey) && sprintCheckTimerRight2 > 0 ||
+                    (newGamepadState.ThumbSticks.Left.X == 1 &&
+                     (oldGamepadState.ThumbSticks.Left.X < .25f)))
                     sprintingRight = true;
             }
             if (sprintingRight || sprintingLeft)
@@ -468,11 +475,11 @@ namespace _3D_Game
         private void Move(Vector3 direction)
         {
             flipModifier = (int)direction.X;
-            Xtranslation *= Matrix.CreateTranslation(direction * speed);
             float divider = 7f;
             if (sprintingLeft || sprintingRight)
                 divider = 2.8f;
-            rotation = Matrix.CreateRotationZ(-flipModifier*(float)Math.PI / divider);
+            rotation = Matrix.CreateRotationZ(-flipModifier * (float)Math.PI / divider);
+            Xtranslation *= Matrix.CreateTranslation(direction * speed);            
             moving = true;
         }
 

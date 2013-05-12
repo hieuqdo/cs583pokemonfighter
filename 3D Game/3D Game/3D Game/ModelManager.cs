@@ -29,7 +29,8 @@ namespace _3D_Game
         SpriteBatch spriteBatch;
         SpriteFont percentFont;
 
-        public enum sound { JUMP, DOUBLEJUMP, ATTACK, SMASH, SMASHHIT, SHOCK,
+        public enum sound { JUMP, DOUBLEJUMP, ATTACK, SMASH, SMASHHIT, 
+                            SHOCK, SHOCKHIT, SHOCKSMASHHIT,
                             BULLET, SMASHBULLET,
                             SHIELD, ROLL,
                             RESPAWN, DEATHCRY, DEATHBLAST }
@@ -232,6 +233,14 @@ namespace _3D_Game
                     soundManager.shockSound.Play();
                     break;
 
+                case sound.SHOCKHIT:
+                    soundManager.shockHitSound.Play();
+                    break;
+
+                case sound.SHOCKSMASHHIT:
+                    soundManager.shockSmashHitSound.Play();
+                    break;
+
                 case sound.BULLET:
                     soundManager.bulletSound.Play();
                     break;
@@ -242,10 +251,6 @@ namespace _3D_Game
 
                 case sound.SHIELD:
                     soundManager.shieldSound.Play();
-                    break;
-
-                case sound.ROLL:
-                    soundManager.doubleJumpSound.Play();
                     break;
 
                 case sound.RESPAWN:
@@ -392,12 +397,12 @@ namespace _3D_Game
                         if (models[j] != ((Bullet)shots[i]).getOwner() &&
                             shots[i].CollidesWith(models[j].model, models[j].GetWorld()))
                         {
-                            //If attack succeeded, remove
+                            //If attack collided, remove
                             if (mediator.processRangedAttack(
-                                ((Bullet)shots[i]).getOwner(),
+                                ((Bullet)shots[i]),
                                 ((Player1)models[j]),
                                 ((Bullet)shots[i]).getType()))
-                            {
+                            {                                
                                 shots.RemoveAt(i);
                                 --i;
                             }

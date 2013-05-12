@@ -18,6 +18,8 @@ namespace _3D_Game
         public SoundEffect smashAttackSound;
         public SoundEffect smashHitSound;
         public SoundEffect shockSound;
+        public SoundEffect shockHitSound;
+        public SoundEffect shockSmashHitSound;
         public SoundEffect bulletSound;
         public SoundEffect smashBulletSound;
 
@@ -52,6 +54,8 @@ namespace _3D_Game
             smashAttackSound = Content.Load<SoundEffect>(@"audio\smashattack");
             smashHitSound = Content.Load<SoundEffect>(@"audio\smashhit");
             shockSound = Content.Load<SoundEffect>(@"audio\shock");
+            shockHitSound = Content.Load<SoundEffect>(@"audio\shockhit");
+            shockSmashHitSound = Content.Load<SoundEffect>(@"audio\shocksmashhit");
             bulletSound = Content.Load<SoundEffect>(@"audio\bulletplus");
             smashBulletSound = Content.Load<SoundEffect>(@"audio\smashbulletplus");
 

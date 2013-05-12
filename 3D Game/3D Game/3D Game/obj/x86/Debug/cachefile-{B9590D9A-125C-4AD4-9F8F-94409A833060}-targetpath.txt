@@ -4,7 +4,6 @@ Content\Models\PikachuDh.xnb
 Content\Models\PikachuEyeDh.xnb
 Content\Models\PikachuHohoDh.xnb
 Content\Models\PikachuMouthDh.xnb
-Content\Textures\instructions.xnb
 Content\Textures\titleScreen.xnb
 Content\Textures\SplashInstructions.xnb
 Content\Textures\SplashScreen3rd.xnb
@@ -23,22 +22,18 @@ Content\Fonts\georgia.xnb
 Content\Fonts\menuFont.xnb
 Content\Audio\menumusic.xnb
 Content\Audio\menumusic.wma
-Content\Audio\battlemusic.xnb
-Content\Audio\battlemusic.wma
 Content\Audio\theme.xnb
 Content\Audio\theme.wma
 Content\Audio\jump.xnb
 Content\Audio\doublejump.xnb
 Content\Audio\select.xnb
 Content\Audio\ballopen.xnb
-Content\Audio\death.xnb
 Content\Audio\menuback.xnb
 Content\Audio\homerun.xnb
 Content\Audio\attack.xnb
 Content\Audio\smashattack.xnb
 Content\Audio\shock.xnb
 Content\Audio\smashhit.xnb
-Content\Audio\shield.xnb
 Content\FBX\AD6C2915\Pikachu.fbm\PikachuMouthDh_0.xnb
 Content\FBX\AD6C2915\Pikachu.fbm\PikachuDh_0.xnb
 Content\FBX\AD6C2915\Pikachu.fbm\PikachuHohoDh_0.xnb
@@ -63,4 +58,6 @@ Content\Audio\smashbulletplus.xnb
 Content\Audio\Gangnam Style.xnb
 Content\Audio\Gangnam Style.wma
 Content\Textures\team.xnb
-Content\Textures\CatCreature.xnb
+Content\Audio\shocksmashhit.xnb
+Content\Audio\shockhit.xnb
+Content\Textures\FUNK.xnb

@@ -34,7 +34,7 @@ namespace _3D_Game
 
         public SplashScreen splashScreen;
 
-        Texture2D bg;
+        Texture2D bg, dancebg;
 
         public Game1()
         {           
@@ -91,6 +91,7 @@ namespace _3D_Game
 
             // TODO: use this.Content to load your game content here
             bg = Content.Load<Texture2D>(@"textures\stadium_bg");
+            dancebg = Content.Load<Texture2D>(@"textures\FUNK");
     
             soundManager.LoadContent(Content);
             //MediaPlayer.Play(soundManager.menuMusic);
@@ -126,10 +127,10 @@ namespace _3D_Game
                 toggleDebug();
 
             if (newState.IsKeyDown(Keys.OemMinus) && oldState.IsKeyUp(Keys.OemMinus) ||
-                newGamepadState.IsButtonDown(Buttons.Y))
+                (newGamepadState.IsButtonDown(Buttons.DPadDown) && oldGamepadState.IsButtonUp(Buttons.DPadDown)))
                 soundManager.decreaseVolume();
             if (newState.IsKeyDown(Keys.OemPlus) && oldState.IsKeyUp(Keys.OemPlus) ||
-                newGamepadState.IsButtonDown(Buttons.X))
+                (newGamepadState.IsButtonDown(Buttons.DPadUp) && oldGamepadState.IsButtonUp(Buttons.DPadUp)))
                 soundManager.increaseVolume();
             MediaPlayer.Volume = soundManager.volume;
 
@@ -164,23 +165,36 @@ namespace _3D_Game
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            spriteBatch.Begin();
 
             // TODO: Add your drawing code here
             if (currentGameState == GameState.PLAYING)
             {
                 GraphicsDevice.Clear(Color.CornflowerBlue);
 
-                spriteBatch.Begin();
                 spriteBatch.Draw(
                     bg,
                     new Rectangle(0, 0, 
                         GraphicsDevice.PresentationParameters.BackBufferWidth,
                         GraphicsDevice.PresentationParameters.BackBufferHeight), 
-                    Color.White);
-                spriteBatch.End();
+                        Color.White);
+            }
+            else if (currentGameState == GameState.DANCING)
+            {
+                //Not Working...
+                GraphicsDevice.Clear(Color.White);
+
+                spriteBatch.Draw(
+                    dancebg,
+                    new Rectangle(0, 0,
+                        GraphicsDevice.PresentationParameters.BackBufferWidth,
+                        GraphicsDevice.PresentationParameters.BackBufferHeight),
+                        Color.White);
             }
             else if (currentGameState == GameState.INTRO)
                 GraphicsDevice.Clear(Color.White);
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }

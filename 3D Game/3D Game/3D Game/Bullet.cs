@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace _3D_Game
 {
-    class Bullet : BasicModel
+    public class Bullet : BasicModel
     {
         Matrix rotation = Matrix.Identity;
         Matrix translation = Matrix.Identity;
@@ -31,12 +31,12 @@ namespace _3D_Game
             if (type == InteractionMediator.attackType.BULLET)
             {
                 tint = Color.Blue;
-                mySpeed = .5f;
+                mySpeed = .9f;
             }
             else if (type == InteractionMediator.attackType.SMASHBULLET)
             {
                 tint = Color.Red;
-                mySpeed = .3f;
+                mySpeed = .5f;
             }
             direction = Direction * mySpeed;
         }

@@ -102,7 +102,7 @@ namespace _3D_Game
                     knockbackDirection = .000000001f;
                 knockbackDirection = knockbackDirection / Math.Abs(knockbackDirection);
 
-                knockbackDistance = target.currPercentage / knockbackTotal * knockbackDirection;
+                knockbackDistance = target.currPercentage / 1.2f / knockbackTotal * knockbackDirection;
 
                 //Cap knockback
                 if (attackKnockbackCap > 0 &&
@@ -128,7 +128,7 @@ namespace _3D_Game
 
         //processRangedAttack is only called by modelManager when targets collide
         //returns true if the bullet collided and should disappear
-        public bool processRangedAttack(Player1 attacker, Player1 target, attackType attackType)
+        public bool processRangedAttack(Bullet bullet, Player1 target, attackType attackType)
         {
             if (target.isAlive == false)
                 return false;
@@ -154,13 +154,15 @@ namespace _3D_Game
                     knockbackModifier = 0;
                     attackKnockbackCap = 0;
                     stunValue = 0;
+                    target.myModelManager.playSound(ModelManager.sound.SHOCKHIT);
                     break;
 
                 case attackType.SMASHBULLET:
                     damageModifier = 10;
                     knockbackModifier = 40f;
                     attackKnockbackCap = -1;
-                    stunValue = .5f;
+                    stunValue = .9f;
+                    target.myModelManager.playSound(ModelManager.sound.SHOCKSMASHHIT);
                     break;
             }            
 
@@ -179,7 +181,7 @@ namespace _3D_Game
 
             //Calculate and set knockback
             //
-            knockbackDirection = (target.getPosition().X - attacker.getPosition().X);
+            knockbackDirection = (target.getPosition().X - bullet.getPosition().X);
             //Assess whether facing left or right
             if (knockbackDirection > 0)
                 direction = 1;
