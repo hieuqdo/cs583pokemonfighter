@@ -221,7 +221,7 @@ namespace _3D_Game
                     if (newState.IsKeyDown(leftKey) ||//Read Keyboard
                         (newGamepadState.ThumbSticks.Left.X < 0))//Read Gamepad
                     {
-                        if (oldState.IsKeyUp(leftKey))
+                        if (oldState.IsKeyUp(leftKey) && oldGamepadState.IsButtonUp(leftButton))
                             smashTimerLeft = SMASH_KEYPRESS_INTERVAL;
                         if (!rolling)
                             Move(left);
@@ -235,7 +235,7 @@ namespace _3D_Game
                     if (newState.IsKeyDown(rightKey) ||//Read Keyboard
                         (newGamepadState.ThumbSticks.Left.X > 0))//Read Gamepad
                     {
-                        if (oldState.IsKeyUp(rightKey))
+                        if (oldState.IsKeyUp(rightKey) && oldGamepadState.IsButtonUp(rightButton))
                             smashTimerRight = SMASH_KEYPRESS_INTERVAL;
                         if (!rolling)
                             Move(right);
@@ -252,14 +252,14 @@ namespace _3D_Game
 
         private void Smash()
         {
-                Xtranslation *= smashingTranslation;
-                if (mediator.attack(this, InteractionMediator.attackType.SMASH))
-                {
-                    myModelManager.playSound(ModelManager.sound.SMASHHIT);
-                    myModelManager.playSound(ModelManager.sound.SHOCK);
+            Xtranslation *= smashingTranslation;
+            if (mediator.attack(this, InteractionMediator.attackType.SMASH))
+            {
+                myModelManager.playSound(ModelManager.sound.SMASHHIT);
+                myModelManager.playSound(ModelManager.sound.SHOCK);
                     
-                }
-                smashCooldown = SMASH_COOLDOWN;
+            }
+            smashCooldown = SMASH_COOLDOWN;
         }
 
         public void ReadAttackInput()
