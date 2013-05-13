@@ -29,7 +29,8 @@ namespace _3D_Game
         private KeyboardState newState, oldState;
         private GamePadState newGamepadState, oldGamepadState;
 
-        public enum GameState { MENU, PLAYING, INSTRUCTIONS, P1WIN, P2WIN, DANCING, INTRO }
+        public enum GameState { MENU, PLAYING, INSTRUCTIONS_KEY, INSTRUCTIONS_PAD,
+                                P1WIN, P2WIN, DANCING, INTRO }
         public GameState currentGameState = GameState.INTRO;
 
         public SplashScreen splashScreen;

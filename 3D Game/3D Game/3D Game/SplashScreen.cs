@@ -19,7 +19,7 @@ namespace _3D_Game
     {
         SpriteBatch spriteBatch;
         Rectangle screenRectangle;
-        Texture2D titleScreen, instructions, introLogo;
+        Texture2D titleScreen, instructions_key, instructions_pad, introLogo;
         Texture2D winScreenP1, winScreenP2;
 
         SoundManager soundManager;
@@ -69,8 +69,9 @@ namespace _3D_Game
             animationPlayer = new AnimationPlayer(skinningData);
             animationClip = skinningData.AnimationClips["Take 001"];
 
-            titleScreen = Game.Content.Load<Texture2D>(@"Textures\SPLASHEND");
-            instructions = Game.Content.Load<Texture2D>(@"Textures\SplashInstructions");
+            titleScreen = Game.Content.Load<Texture2D>(@"Textures\MENU");
+            instructions_key = Game.Content.Load<Texture2D>(@"Textures\INSTRUCTIONS_KEY");
+            instructions_pad = Game.Content.Load<Texture2D>(@"Textures\FUNK");
             introLogo = Game.Content.Load<Texture2D>(@"Textures\team");
             winScreenP1 = Game.Content.Load<Texture2D>(@"Textures\GAMEOVER1");
             winScreenP2 = Game.Content.Load<Texture2D>(@"Textures\GAMEOVER2");
@@ -114,7 +115,8 @@ namespace _3D_Game
                 switch (((Game1)Game).currentGameState)
                 {
                     //During Instructions, go back to Menu
-                    case Game1.GameState.INSTRUCTIONS:
+                    case Game1.GameState.INSTRUCTIONS_KEY:
+                    case Game1.GameState.INSTRUCTIONS_PAD:
                         ((Game1)Game).ChangeGameState(Game1.GameState.MENU); 
                         soundManager.backSelectSound.Play();
                         break;
@@ -137,18 +139,29 @@ namespace _3D_Game
                 }                           
             }
 
-            //If pressed F1 (or Left Shoulder)
-            if ((Keyboard.GetState().IsKeyDown(Keys.F1) || 
-                GamePad.GetState(PlayerIndex.One).IsButtonDown(Buttons.LeftShoulder)))
+            //If pressed F1
+            if ((Keyboard.GetState().IsKeyDown(Keys.F1)))
             {              
                 switch (((Game1)Game).currentGameState)
                 {
                     //During Menu, go into Instructions
                     case Game1.GameState.MENU:
-                        ((Game1)Game).ChangeGameState(Game1.GameState.INSTRUCTIONS);
+                        ((Game1)Game).ChangeGameState(Game1.GameState.INSTRUCTIONS_KEY);
                         soundManager.selectSound.Play();
                         break;
                 }        
+            }
+            //If pressed Left Shoulder
+            if (GamePad.GetState(PlayerIndex.One).IsButtonDown(Buttons.LeftShoulder))
+            {
+                switch (((Game1)Game).currentGameState)
+                {
+                    //During Menu, go into Instructions
+                    case Game1.GameState.MENU:
+                        ((Game1)Game).ChangeGameState(Game1.GameState.INSTRUCTIONS_PAD);
+                        soundManager.selectSound.Play();
+                        break;
+                }
             }
 
             //If pressed Enter (or Start)
@@ -195,8 +208,12 @@ namespace _3D_Game
 
             switch (((Game1)Game).currentGameState)
             {
-                case Game1.GameState.INSTRUCTIONS:
-                    spriteBatch.Draw(instructions, screenRectangle, Color.White);
+                case Game1.GameState.INSTRUCTIONS_KEY:
+                    spriteBatch.Draw(instructions_key, screenRectangle, Color.White);
+                    break;
+
+                case Game1.GameState.INSTRUCTIONS_PAD:
+                    spriteBatch.Draw(instructions_pad, screenRectangle, Color.White);
                     break;
 
                 case Game1.GameState.MENU:

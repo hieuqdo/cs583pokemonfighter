@@ -32,7 +32,7 @@ namespace _3D_Game
         public enum sound { JUMP, DOUBLEJUMP, ATTACK, SMASH, SMASHHIT, 
                             SHOCK, SHOCKHIT, SHOCKSMASHHIT,
                             BULLET, SMASHBULLET,
-                            SHIELD, ROLL,
+                            SHIELD, SHIELDBREAK, PIKABREAK,
                             RESPAWN, DEATHCRY, DEATHBLAST }
 
         Texture2D stock;
@@ -251,6 +251,14 @@ namespace _3D_Game
 
                 case sound.SHIELD:
                     soundManager.shieldSound.Play();
+                    break;
+
+                case sound.SHIELDBREAK:
+                    soundManager.shieldBreakSound.Play();
+                    break;
+
+                case sound.PIKABREAK:
+                    soundManager.pikaBreakSound.Play();
                     break;
 
                 case sound.RESPAWN:

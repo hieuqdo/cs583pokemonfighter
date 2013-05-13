@@ -102,7 +102,7 @@ namespace _3D_Game
                     knockbackDirection = .000000001f;
                 knockbackDirection = knockbackDirection / Math.Abs(knockbackDirection);
 
-                knockbackDistance = target.currPercentage / 1.2f / knockbackTotal * knockbackDirection;
+                knockbackDistance = target.currPercentage / 1.5f / knockbackTotal * knockbackDirection;
 
                 //Cap knockback
                 if (attackKnockbackCap > 0 &&

@@ -4,14 +4,10 @@ Content\Models\PikachuDh.xnb
 Content\Models\PikachuEyeDh.xnb
 Content\Models\PikachuHohoDh.xnb
 Content\Models\PikachuMouthDh.xnb
-Content\Textures\titleScreen.xnb
-Content\Textures\SplashInstructions.xnb
-Content\Textures\SplashScreen3rd.xnb
 Content\Textures\stock.xnb
 Content\Textures\stadium_bg.xnb
 Content\Textures\GAMEOVER1.xnb
 Content\Textures\GAMEOVER2.xnb
-Content\Textures\SPLASHEND.xnb
 Content\Textures\pokeball.xnb
 Content\Models\Pikachu.xnb
 Content\Models\stage.xnb
@@ -47,17 +43,21 @@ Content\Models\Dude\head_0.xnb
 Content\Models\Dude\jacket_0.xnb
 Content\Models\Dude\pants_0.xnb
 Content\Models\Dude\upBodyC_0.xnb
-Content\Audio\battlemusicfixed.xnb
 Content\Audio\bulletplus.xnb
-Content\Audio\deathplus.xnb
-Content\Audio\shieldplus.xnb
-Content\Audio\smashbulletplus.xnb
 Content\Audio\Gangnam Style.xnb
 Content\Textures\team.xnb
 Content\Audio\shocksmashhit.xnb
 Content\Audio\shockhit.xnb
 Content\Textures\FUNK.xnb
+Content\Textures\INSTRUCTIONS_KEY.xnb
+Content\Textures\MENU.xnb
+Content\Audio\shieldbreak.xnb
+Content\Audio\pikabreak.xnb
+Content\Audio\battleMusic.xnb
+Content\Audio\deathCry.xnb
+Content\Audio\shield.xnb
+Content\Audio\smashbullet.xnb
 Content\Audio\menumusic.wma
 Content\Audio\theme.wma
-Content\Audio\battlemusicfixed.wma
 Content\Audio\Gangnam Style.wma
+Content\Audio\battleMusic.wma

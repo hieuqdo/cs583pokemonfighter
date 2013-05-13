@@ -2,19 +2,6 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Framework="Microsoft.Xna.Framework" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>Models\spaceship.x</Source>
-      <Name>Models\spaceship</Name>
-      <Importer>XImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\spaceship.xnb</Output>
-      <Time>2013-05-10T23:58:56.1910918-07:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\spaceship_0.xml</Key>
-        <Value>2013-05-11T00:00:41.2934495-07:00</Value>
-      </Dependency>
-    </Item>
-    <Item>
       <Source>Models\ammo.x</Source>
       <Name>Models\ammo</Name>
       <Importer>XImporter</Importer>
@@ -64,33 +51,6 @@
       <Time>2013-05-10T23:58:56.0300728-07:00</Time>
     </Item>
     <Item>
-      <Source>Textures\titleScreen.jpg</Source>
-      <Name>Textures\titleScreen</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\titleScreen.xnb</Output>
-      <Time>2013-05-10T23:58:56.9561893-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\SplashInstructions.png</Source>
-      <Name>Textures\SplashInstructions</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\SplashInstructions.xnb</Output>
-      <Time>2013-05-10T23:58:56.6711553-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\SplashScreen3rd.png</Source>
-      <Name>Textures\SplashScreen3rd</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\SplashScreen3rd.xnb</Output>
-      <Time>2013-05-10T23:58:56.6871567-07:00</Time>
-    </Item>
-    <Item>
       <Source>Textures\stock.png</Source>
       <Name>Textures\stock</Name>
       <Importer>TextureImporter</Importer>
@@ -125,15 +85,6 @@
       <Options>None</Options>
       <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\GAMEOVER2.xnb</Output>
       <Time>2013-05-10T23:58:56.6071451-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\SPLASHEND.png</Source>
-      <Name>Textures\SPLASHEND</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\SPLASHEND.xnb</Output>
-      <Time>2013-05-10T23:58:56.6601519-07:00</Time>
     </Item>
     <Item>
       <Source>Textures\pokeball.png</Source>
@@ -351,13 +302,6 @@
       <Options>None</Options>
       <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\smashhit.xnb</Output>
       <Time>2013-05-10T23:58:54.6088912-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\spaceship.x</Source>
-      <Importer>XImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\spaceship_0.xml</Output>
-      <Time>2013-05-10T23:58:56.1910918-07:00</Time>
     </Item>
     <Item>
       <Source>Models\ammo.x</Source>
@@ -642,16 +586,6 @@
       <Time>2013-05-10T23:58:55.5980147-07:00</Time>
     </Item>
     <Item>
-      <Source>Audio\battlemusicfixed.mp3</Source>
-      <Name>Audio\battlemusicfixed</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\battlemusicfixed.xnb</Output>
-      <Extra>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\battlemusicfixed.wma</Extra>
-      <Time>2013-05-10T22:37:46.0331201-07:00</Time>
-    </Item>
-    <Item>
       <Source>Audio\bulletplus.wav</Source>
       <Name>Audio\bulletplus</Name>
       <Importer>WavImporter</Importer>
@@ -659,33 +593,6 @@
       <Options>None</Options>
       <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\bulletplus.xnb</Output>
       <Time>2013-05-10T22:19:45.5918014-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\deathplus.wav</Source>
-      <Name>Audio\deathplus</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\deathplus.xnb</Output>
-      <Time>2013-05-10T22:37:35.3697672-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\shieldplus.wav</Source>
-      <Name>Audio\shieldplus</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\shieldplus.xnb</Output>
-      <Time>2013-05-10T22:37:22.4581235-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\smashbulletplus.wav</Source>
-      <Name>Audio\smashbulletplus</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\smashbulletplus.xnb</Output>
-      <Time>2013-05-10T22:19:52.5656879-07:00</Time>
     </Item>
     <Item>
       <Source>Audio\Gangnam Style.mp3</Source>
@@ -732,6 +639,79 @@
       <Options>None</Options>
       <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\FUNK.xnb</Output>
       <Time>2013-05-12T14:43:12.6005816-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\INSTRUCTIONS_KEY.png</Source>
+      <Name>Textures\INSTRUCTIONS_KEY</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\INSTRUCTIONS_KEY.xnb</Output>
+      <Time>2013-05-12T21:12:59.9755867-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\MENU.png</Source>
+      <Name>Textures\MENU</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\MENU.xnb</Output>
+      <Time>2013-05-12T21:12:59.9911881-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\shieldbreak.wav</Source>
+      <Name>Audio\shieldbreak</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\shieldbreak.xnb</Output>
+      <Time>2013-05-12T21:23:32.1808161-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\pikabreak.wav</Source>
+      <Name>Audio\pikabreak</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\pikabreak.xnb</Output>
+      <Time>2013-05-12T21:26:43.6728703-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\battleMusic.mp3</Source>
+      <Name>Audio\battleMusic</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\battleMusic.xnb</Output>
+      <Extra>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\battleMusic.wma</Extra>
+      <Time>2013-05-10T22:37:46.0331201-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\deathCry.wav</Source>
+      <Name>Audio\deathCry</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\deathCry.xnb</Output>
+      <Time>2013-05-10T22:37:35.3697672-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\shield.wav</Source>
+      <Name>Audio\shield</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\shield.xnb</Output>
+      <Time>2013-05-10T22:37:22.4581235-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\smashbullet.wav</Source>
+      <Name>Audio\smashbullet</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\smashbullet.xnb</Output>
+      <Time>2013-05-10T22:19:52.5656879-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

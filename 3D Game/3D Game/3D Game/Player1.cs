@@ -36,7 +36,7 @@ namespace _3D_Game
         const float JUMP_MINIMUM_MOMENTUM = -1.5f;
         // smashing
         const float SMASH_TIME = .2f;
-        const float SMASH_COOLDOWN = .25f;
+        const float SMASH_COOLDOWN = .4f;
         const float SMASH_SPEED = 1;
 
         public Color DEFAULT_TINT = Color.Tan;
@@ -54,8 +54,7 @@ namespace _3D_Game
         //history
         bool doubleJumped = false;
         bool jumping = false;
-        public bool rolling = false;
-        public bool smashing = false;
+        public bool rolling = false;        
         public bool moving = false;
         bool sprintingLeft = false;
         bool sprintingRight = false;
@@ -271,12 +270,12 @@ namespace _3D_Game
                 if ((((newState.IsKeyDown(attackKey) && newState.IsKeyDown(leftKey)) ||
                     (newGamepadState.IsButtonDown(attackButton) && newGamepadState.IsButtonDown(leftButton)))
                     &&
-                    (smashTimerLeft > 0) &&
-                    !smashing) || (newGamepadState.IsButtonDown(smashLeft) && oldGamepadState.IsButtonUp(smashLeft) && !smashing))
+                    (smashTimerLeft > 0)) || 
+                    (newGamepadState.IsButtonDown(smashLeft) && oldGamepadState.IsButtonUp(smashLeft)))
                 {
                     myModelManager.playSound(ModelManager.sound.SMASH);
                     Vector3 direction = new Vector3(-1, 0, 0);
-                    if (!smashing && smashCooldown <= 0)
+                    if (smashCooldown <= 0)
                     {
                         smashingTranslation = Matrix.CreateTranslation(direction * SMASH_SPEED);
                         Smash();
@@ -286,12 +285,11 @@ namespace _3D_Game
                 else if ((((newState.IsKeyDown(attackKey) && newState.IsKeyDown(rightKey)) ||
                     (newGamepadState.IsButtonDown(attackButton) && newGamepadState.IsButtonDown(rightButton)))
                     &&
-                    (smashTimerRight > 0) &&
-                    !smashing) || (newGamepadState.IsButtonDown(smashRight) && oldGamepadState.IsButtonUp(smashRight) && !smashing))
+                    (smashTimerRight > 0)) || (newGamepadState.IsButtonDown(smashRight) && oldGamepadState.IsButtonUp(smashRight)))
                 {
                     myModelManager.playSound(ModelManager.sound.SMASH);
                     Vector3 direction = new Vector3(1, 0, 0);
-                    if (!smashing && smashCooldown <= 0)
+                    if (smashCooldown <= 0)
                     {
                         smashingTranslation = Matrix.CreateTranslation(direction * SMASH_SPEED);
                         Smash();
@@ -301,12 +299,11 @@ namespace _3D_Game
                 if (((newState.IsKeyDown(secondAttackKey) && newState.IsKeyDown(leftKey)) ||
                     (newGamepadState.IsButtonDown(secondAttackButton) && newGamepadState.IsButtonDown(leftButton)))
                     &&
-                    (smashTimerLeft > 0) &&
-                    !smashing)
+                    (smashTimerLeft > 0))
                 {
                     myModelManager.playSound(ModelManager.sound.SMASHBULLET);
                     Vector3 direction = new Vector3(-1, 0, 0);
-                    if (!smashing && smashCooldown <= 0)
+                    if (smashCooldown <= 0)
                     {
                         mediator.rangedAttack(this, InteractionMediator.attackType.SMASHBULLET);
                         smashCooldown = SMASH_COOLDOWN;
@@ -316,29 +313,28 @@ namespace _3D_Game
                 else if (((newState.IsKeyDown(secondAttackKey) && newState.IsKeyDown(rightKey)) ||
                     (newGamepadState.IsButtonDown(secondAttackButton) && newGamepadState.IsButtonDown(rightButton)))
                     &&
-                    (smashTimerRight > 0) &&
-                    !smashing)
+                    (smashTimerRight > 0))
                 {
                     myModelManager.playSound(ModelManager.sound.SMASHBULLET);
                     Vector3 direction = new Vector3(1, 0, 0);
-                    if (!smashing && smashCooldown <= 0)
+                    if (smashCooldown <= 0)
                     {
                         mediator.rangedAttack(this, InteractionMediator.attackType.SMASHBULLET);
                         smashCooldown = SMASH_COOLDOWN;
                     }
                 }
                 // If basic attack
-                else if ((newState.IsKeyDown(attackKey) && oldState.IsKeyUp(attackKey)) ||
-                    (newGamepadState.IsButtonDown(attackButton) && oldGamepadState.IsButtonUp(attackButton)))
+                else if ((newState.IsKeyDown(attackKey) && oldState.IsKeyUp(attackKey) && oldState.IsKeyUp(leftKey) && oldState.IsKeyUp(rightKey)) ||
+                    (newGamepadState.IsButtonDown(attackButton) && oldGamepadState.IsButtonUp(attackButton) && oldGamepadState.IsButtonUp(leftButton)  && oldGamepadState.IsButtonUp(rightButton)))
                 {
-                    if (!smashing && mediator.attack(this, InteractionMediator.attackType.BASIC) == true)
+                    if (mediator.attack(this, InteractionMediator.attackType.BASIC) == true)
                         myModelManager.playSound(ModelManager.sound.ATTACK);
                 }
                 // If bullet attack
                 else if ((newState.IsKeyDown(secondAttackKey) && oldState.IsKeyUp(secondAttackKey)) ||
                      (newGamepadState.IsButtonDown(secondAttackButton) && oldGamepadState.IsButtonUp(secondAttackButton)))
                 {
-                    if (!smashing && mediator.rangedAttack(this, InteractionMediator.attackType.BULLET) == true)
+                    if (mediator.rangedAttack(this, InteractionMediator.attackType.BULLET) == true)
                         myModelManager.playSound(ModelManager.sound.BULLET);
                 }
             }
@@ -399,6 +395,8 @@ namespace _3D_Game
             shieldScale -= TIME_COUNTDOWN * 3;
             if (shieldScale <= 0)
             {
+                myModelManager.playSound(ModelManager.sound.SHIELDBREAK);
+                myModelManager.playSound(ModelManager.sound.PIKABREAK);
                 stunTimer = 5;
                 shieldScale = 5f;
                 isShielding = false;
@@ -584,7 +582,7 @@ namespace _3D_Game
 
         public void knockback(float momentum)
         {
-            lateralMomentum = momentum;
+            lateralMomentum += momentum;
         }
 
         public void setPosition(float xdistance)

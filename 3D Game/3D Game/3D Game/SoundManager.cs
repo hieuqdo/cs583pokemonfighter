@@ -24,19 +24,13 @@ namespace _3D_Game
         public SoundEffect smashBulletSound;
 
         //Other
-        public SoundEffect jumpSound;
-        public SoundEffect doubleJumpSound;
-        public SoundEffect shieldSound;
+        public SoundEffect jumpSound, doubleJumpSound;
+        public SoundEffect shieldSound, shieldBreakSound, pikaBreakSound;
         public SoundEffect rollSound;
-        public SoundEffect selectSound;
-        public SoundEffect backSelectSound;
+        public SoundEffect selectSound, backSelectSound;
         public SoundEffect respawnSound;
-        public SoundEffect deathCrySound;
-        public SoundEffect deathExplosionSound;
-        public Song menuMusic;
-        public Song battleMusic;
-        public Song themeMusic;
-        public Song danceMusic;
+        public SoundEffect deathCrySound, deathExplosionSound;
+        public Song menuMusic, battleMusic, themeMusic, danceMusic;
 
         public float volume = .2f;
 
@@ -57,20 +51,21 @@ namespace _3D_Game
             shockHitSound = Content.Load<SoundEffect>(@"audio\shockhit");
             shockSmashHitSound = Content.Load<SoundEffect>(@"audio\shocksmashhit");
             bulletSound = Content.Load<SoundEffect>(@"audio\bulletplus");
-            smashBulletSound = Content.Load<SoundEffect>(@"audio\smashbulletplus");
+            smashBulletSound = Content.Load<SoundEffect>(@"audio\smashbullet");
 
             //Other
             jumpSound = Content.Load<SoundEffect>(@"audio\jump");
             doubleJumpSound = Content.Load<SoundEffect>(@"audio\doublejump");
-            shieldSound = Content.Load<SoundEffect>(@"audio\shieldplus");
-            //rollSound = Content.Load<SoundEffect>(@"audio\roll");
+            shieldSound = Content.Load<SoundEffect>(@"audio\shield");
+            shieldBreakSound = Content.Load<SoundEffect>(@"audio\shieldbreak");
+            pikaBreakSound = Content.Load<SoundEffect>(@"audio\pikabreak");
             selectSound = Content.Load <SoundEffect>(@"audio\select");
             backSelectSound = Content.Load<SoundEffect>(@"audio\menuback");
             respawnSound = Content.Load<SoundEffect>(@"audio\ballopen");
-            deathCrySound = Content.Load<SoundEffect>(@"audio\deathplus");
+            deathCrySound = Content.Load<SoundEffect>(@"audio\deathCry");
             deathExplosionSound = Content.Load<SoundEffect>(@"audio\homerun");
             menuMusic = Content.Load<Song>(@"audio\menumusic");
-            battleMusic = Content.Load<Song>(@"audio\battlemusicfixed");
+            battleMusic = Content.Load<Song>(@"audio\battleMusic");
             themeMusic = Content.Load<Song>(@"audio\theme");
             danceMusic = Content.Load<Song>(@"audio\Gangnam Style");
         }
