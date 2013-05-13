@@ -19,7 +19,7 @@ namespace _3D_Game
         {
             scale = .7f;
 
-            deathPlane_TOP = 100;
+            deathPlane_TOP = 150;
             deathPlane_BOT = -100;
             deathPlane_LEFT = 250;
             deathPlane_RIGHT = -250;
@@ -27,9 +27,7 @@ namespace _3D_Game
 
         public override Matrix GetWorld()
         {
-            // Matrix.CreateTranslation(new Vector3(735, -650, -1000))
-            // Matrix.CreateTranslation(new Vector3(0, -685, 230))
-            return world * Matrix.CreateTranslation(new Vector3(735, -650, -1000)) * Matrix.CreateScale(.1f);
+            return world * Matrix.CreateTranslation(new Vector3(300, -700, -270)) * Matrix.CreateScale(.3f);
         }
     }
 }

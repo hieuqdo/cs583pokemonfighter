@@ -19,7 +19,7 @@ namespace _3D_Game
     {
         SpriteBatch spriteBatch;
         Rectangle screenRectangle;
-        Texture2D titleScreen, instructions_key, instructions_pad, introLogo;
+        Texture2D titleScreen, instructions_key, instructions_pad, introLogo, FUNK1, FUNK2;
         Texture2D winScreenP1, winScreenP2;
 
         SoundManager soundManager;
@@ -34,8 +34,8 @@ namespace _3D_Game
         AnimationPlayer animationPlayer;
         AnimationClip animationClip;
         float cameraArc = 0;
-        float cameraRotation = 0;
-        float cameraDistance = 100;
+        float cameraRotation = 90;
+        float cameraDistance = 150;
 
         //FADE INTRO
         float mCurrentAlpha = 1.0f;
@@ -62,7 +62,7 @@ namespace _3D_Game
         protected override void LoadContent()
         {
             //ANIMATION
-            animatedModel = Game.Content.Load<Model>(@"models\dude\dude");
+            animatedModel = Game.Content.Load<Model>(@"models\PikachuDancing");
             SkinningData skinningData = animatedModel.Tag as SkinningData;
             if (skinningData == null)
                 throw new InvalidOperationException("This model does not contain a SkinningData tag.");
@@ -71,7 +71,9 @@ namespace _3D_Game
 
             titleScreen = Game.Content.Load<Texture2D>(@"Textures\MENU");
             instructions_key = Game.Content.Load<Texture2D>(@"Textures\INSTRUCTIONS_KEY");
-            instructions_pad = Game.Content.Load<Texture2D>(@"Textures\FUNK");
+            instructions_pad = Game.Content.Load<Texture2D>(@"Textures\INSTRUCTIONS_PAD");
+            FUNK1 = Game.Content.Load<Texture2D>(@"Textures\FUNK");
+            FUNK2 = Game.Content.Load<Texture2D>(@"Textures\blackfunk");
             introLogo = Game.Content.Load<Texture2D>(@"Textures\team");
             winScreenP1 = Game.Content.Load<Texture2D>(@"Textures\GAMEOVER1");
             winScreenP2 = Game.Content.Load<Texture2D>(@"Textures\GAMEOVER2");
@@ -229,7 +231,7 @@ namespace _3D_Game
                     break;
 
                 case Game1.GameState.DANCING:
-                    drawDance();
+                    drawDance(gameTime);
                     break;
 
                 case Game1.GameState.INTRO:
@@ -252,16 +254,24 @@ namespace _3D_Game
             animationPlayer.StartClip(animationClip);
         }
 
-        public void drawDance()
+        public void drawDance(GameTime gameTime)
         {
             GraphicsDevice device = ((Game1)Game).graphics.GraphicsDevice;
 
-            device.Clear(Color.CornflowerBlue);
+            device.Clear(Color.Black);
+            if(gameTime.TotalGameTime.Milliseconds % 800 < 400)
+                spriteBatch.Draw(FUNK2, screenRectangle,
+                    Color.Lerp(Color.White, Color.White, mCurrentAlpha));
+            else
+                spriteBatch.Draw(FUNK1, screenRectangle,
+                    Color.Lerp(Color.White, Color.White, mCurrentAlpha));
+            spriteBatch.End();
+            spriteBatch.Begin();
 
             Matrix[] bones = animationPlayer.GetSkinTransforms();
 
             // Compute camera matrices.
-            Matrix view = Matrix.CreateTranslation(0, -40, 0) *
+            Matrix view = Matrix.CreateTranslation(130, 0, 0) *
                           Matrix.CreateRotationY(MathHelper.ToRadians(cameraRotation)) *
                           Matrix.CreateRotationX(MathHelper.ToRadians(cameraArc)) *
                           Matrix.CreateLookAt(new Vector3(0, 0, -cameraDistance),

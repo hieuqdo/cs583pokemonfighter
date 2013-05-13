@@ -33,7 +33,7 @@ namespace _3D_Game
         const float GRAVITY = 0.1f;
         const float JUMP_COOLDOWN = .1f;
         const float LATERAL_MOMENTUM = 1.2f;
-        const float JUMP_MINIMUM_MOMENTUM = -1.5f;
+        const float JUMP_MINIMUM_MOMENTUM = -2f;
         // smashing
         const float SMASH_TIME = .2f;
         const float SMASH_COOLDOWN = .4f;
@@ -53,15 +53,14 @@ namespace _3D_Game
 
         //history
         bool doubleJumped = false;
-        bool jumping = false;
+        public bool jumping = false;
         public bool rolling = false;        
         public bool moving = false;
         bool sprintingLeft = false;
         bool sprintingRight = false;
         public bool isAlive = true; //for determining death camera
         public bool isShielding = false; //model manager will draw shield
-        float jumpMomentum = 0;
-        float doubleJumpTimer = 0;
+        public float jumpMomentum = 0;
         float lateralMomentum = 0;
         public float stunTimer = 0;
         float rollingTimer = 0;
@@ -82,9 +81,9 @@ namespace _3D_Game
 
         //Controls
         GamePadState oldGamepadState, newGamepadState;
-        protected PlayerIndex myPlayerIndex;
+        public PlayerIndex myPlayerIndex;
         //Keyboard
-        protected Keys upKey;
+        public Keys upKey;
         protected Keys downKey;
         protected Keys leftKey;
         protected Keys rightKey;
@@ -92,7 +91,7 @@ namespace _3D_Game
         protected Keys attackKey;
         protected Keys secondAttackKey;
         //Gamepad
-        protected Buttons upButton;
+        public Buttons upButton;
         protected Buttons downButton;
         protected Buttons leftButton;
         protected Buttons rightButton;
@@ -391,6 +390,7 @@ namespace _3D_Game
 
         private void shield()
         {
+            rotation = Matrix.Identity;
             isShielding = true;
             shieldScale -= TIME_COUNTDOWN * 3;
             if (shieldScale <= 0)
@@ -500,7 +500,6 @@ namespace _3D_Game
                 jumpMomentum = DOUBLEJUMP_MOMENTUM;
                 doubleJumped = true;
                 myModelManager.playSound(ModelManager.sound.DOUBLEJUMP);
-                doubleJumpTimer = 2f;
             }
         }
 
@@ -524,7 +523,11 @@ namespace _3D_Game
             if (rollCooldown > 0)
                 rollCooldown -= TIME_COUNTDOWN;
             if (smashCooldown > 0)
+            {
+                if(smashCooldown - TIME_COUNTDOWN <= 0)
+                    rotation = Matrix.Identity; 
                 smashCooldown -= TIME_COUNTDOWN;
+            }
             if (smashTimerLeft > 0)
                 smashTimerLeft -= TIME_COUNTDOWN;
             if (smashTimerRight > 0)

@@ -35,7 +35,7 @@ namespace _3D_Game
 
         public SplashScreen splashScreen;
 
-        Texture2D bg, dancebg;
+        Texture2D bg;
 
         public Game1()
         {           
@@ -92,7 +92,6 @@ namespace _3D_Game
 
             // TODO: use this.Content to load your game content here
             bg = Content.Load<Texture2D>(@"textures\stadium_bg");
-            dancebg = Content.Load<Texture2D>(@"textures\FUNK");
     
             soundManager.LoadContent(Content);
             //MediaPlayer.Play(soundManager.menuMusic);
@@ -178,18 +177,6 @@ namespace _3D_Game
                     new Rectangle(0, 0, 
                         GraphicsDevice.PresentationParameters.BackBufferWidth,
                         GraphicsDevice.PresentationParameters.BackBufferHeight), 
-                        Color.White);
-            }
-            else if (currentGameState == GameState.DANCING)
-            {
-                //Not Working...
-                GraphicsDevice.Clear(Color.White);
-
-                spriteBatch.Draw(
-                    dancebg,
-                    new Rectangle(0, 0,
-                        GraphicsDevice.PresentationParameters.BackBufferWidth,
-                        GraphicsDevice.PresentationParameters.BackBufferHeight),
                         Color.White);
             }
             else if (currentGameState == GameState.INTRO)

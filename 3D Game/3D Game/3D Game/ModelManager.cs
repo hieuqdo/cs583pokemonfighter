@@ -70,9 +70,9 @@ namespace _3D_Game
             models.Add(p2);
 
             shield1 = new BasicModel(
-                Game.Content.Load<Model>(@"models\pokeball"));
+                Game.Content.Load<Model>(@"models\pokeballmodel"));
             shield2 = new BasicModel(
-                Game.Content.Load<Model>(@"models\pokeball"));
+                Game.Content.Load<Model>(@"models\pokeballmodel"));
 
             //Lives
             stock = Game.Content.Load<Texture2D>(@"textures\stock");
@@ -196,6 +196,7 @@ namespace _3D_Game
 
         public void reset()
         {
+            shots.Clear();
             models.Clear();
             LoadContent();
         }

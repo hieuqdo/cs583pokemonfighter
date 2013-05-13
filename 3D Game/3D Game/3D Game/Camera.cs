@@ -116,8 +116,8 @@ namespace _3D_Game
                 //isRumbling = false;
 
                 //Adjust camera position
-                if (Math.Abs(posP1.X - posP2.X) / .5f > minDist)
-                    cameraPosition = new Vector3((posP1.X + posP2.X) / 2, (posP1.Y + posP2.Y) / 2, Math.Abs(posP1.X - posP2.X) / .5f);
+                if (Math.Abs(posP1.X - posP2.X) / .5f > minDist || Math.Abs(posP1.Y - posP2.Y)/.5f > minDist)
+                    cameraPosition = new Vector3((posP1.X + posP2.X) / 2, (posP1.Y + posP2.Y) / 2, Math.Max(Math.Abs(posP1.X - posP2.X) / .5f, Math.Abs(posP1.Y - posP2.Y) / .5f));
                 else cameraPosition = new Vector3((posP1.X + posP2.X) / 2, (posP1.Y + posP2.Y) / 2, minDist);
                 //Console.Out.WriteLine("Camera Zoom (Z) = " + Math.Abs(posP1.X - posP2.X) / .5f);
 

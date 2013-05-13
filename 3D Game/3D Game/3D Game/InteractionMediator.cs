@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 
 namespace _3D_Game
@@ -64,52 +65,62 @@ namespace _3D_Game
             if (attacker.CollidesWith(target.model, target.GetWorld()))//If colliding
             {
                 target.stunTimer = 0.2f;
-
-                switch (attackType)
+                // Up attack
+                if (Keyboard.GetState().IsKeyDown(attacker.upKey) || GamePad.GetState(attacker.myPlayerIndex).IsButtonDown(attacker.upButton))
                 {
-                    case attackType.BASIC:
-                        damageModifier = 3;
-                        knockbackModifier = 40f;
-                        attackKnockbackCap = 1;
-                        break;
-
-                    case attackType.SMASH:
-                        damageModifier = 5;
-                        knockbackModifier = 20f;
-                        attackKnockbackCap = -1;
-                        break;
+                    damageModifier = 3;
+                    knockbackModifier = 0.04f;
+                    target.currPercentage += damageModifier;
+                    target.jumpMomentum = knockbackModifier * target.currPercentage;
+                    target.jumping = true;
                 }
-
-                //Recognize the values from the switch
-                damageTotal = damageDealt * damageModifier;
-                knockbackTotal = knockbackDealt * knockbackModifier;
-
-                //Calculate and set damage
-                if (target.currPercentage + damageTotal > target.maxPercentage)
-                    target.currPercentage = target.maxPercentage;
                 else
-                    target.currPercentage += damageTotal;
+                {
+                    switch (attackType)
+                    {
+                        case attackType.BASIC:
+                            damageModifier = 3;
+                            knockbackModifier = 40f;
+                            attackKnockbackCap = 1;
+                            break;
 
-                //Calculate and set knockback
-                //
-                knockbackDirection = (target.getPosition().X - attacker.getPosition().X);
-                //Assess whether facing left or right
-                if (knockbackDirection > 0)
-                    direction = 1;
-                else direction = -1;
+                        case attackType.SMASH:
+                            damageModifier = 5;
+                            knockbackModifier = 20f;
+                            attackKnockbackCap = -1;
+                            break;
+                    }
 
-                if (knockbackDirection == 0)
-                    knockbackDirection = .000000001f;
-                knockbackDirection = knockbackDirection / Math.Abs(knockbackDirection);
+                    //Recognize the values from the switch
+                    damageTotal = damageDealt * damageModifier;
+                    knockbackTotal = knockbackDealt * knockbackModifier;
 
-                knockbackDistance = target.currPercentage / 1.5f / knockbackTotal * knockbackDirection;
+                    //Calculate and set damage
+                    if (target.currPercentage + damageTotal > target.maxPercentage)
+                        target.currPercentage = target.maxPercentage;
+                    else
+                        target.currPercentage += damageTotal;
 
-                //Cap knockback
-                if (attackKnockbackCap > 0 &&
-                    Math.Abs(knockbackDistance) > Math.Abs(attackKnockbackCap))
-                    target.knockback(attackKnockbackCap * direction);
-                else target.knockback(knockbackDistance);
+                    //Calculate and set knockback
+                    //
+                    knockbackDirection = (target.getPosition().X - attacker.getPosition().X);
+                    //Assess whether facing left or right
+                    if (knockbackDirection > 0)
+                        direction = 1;
+                    else direction = -1;
 
+                    if (knockbackDirection == 0)
+                        knockbackDirection = .000000001f;
+                    knockbackDirection = knockbackDirection / Math.Abs(knockbackDirection);
+
+                    knockbackDistance = target.currPercentage / 1.5f / knockbackTotal * knockbackDirection;
+
+                    //Cap knockback
+                    if (attackKnockbackCap > 0 &&
+                        Math.Abs(knockbackDistance) > Math.Abs(attackKnockbackCap))
+                        target.knockback(attackKnockbackCap * direction);
+                    else target.knockback(knockbackDistance);
+                }
                 return true;
             }
 

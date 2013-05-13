@@ -11,13 +11,6 @@ D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\Microsof
 D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.exe
 D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.pdb
 D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.csprojResolveAssemblyReference.cache
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\spaceship.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\3D Game.exe
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\3D Game.pdb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.csprojResolveAssemblyReference.cache
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.exe
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.pdb
 C:\Users\Thuong\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\spaceship.xnb
 C:\Users\Thuong\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\3D Game.exe
 C:\Users\Thuong\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\3D Game.pdb
@@ -129,35 +122,6 @@ D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\
 D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\SplashScreen3rd.xnb
 C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\menuback.xnb
 C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\homerun.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuDh.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuEyeDh.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuHohoDh.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuMouthDh.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\instructions.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\titleScreen.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\SplashInstructions.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\SplashScreen3rd.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\Pikachu.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\stage.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Fonts\georgia.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Fonts\menuFont.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\menumusic.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\battlemusic.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\jump.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\doublejump.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\select.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\ballopen.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\death.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\menuback.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\homerun.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuMouthDh_0.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuDh_0.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuHohoDh_0.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuEyeDh_0.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\cf9b3053_0.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\7f50457c_0.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\menumusic.wma
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\battlemusic.wma
 C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\attack.xnb
 C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\stock.xnb
 C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\theme.xnb
@@ -220,27 +184,6 @@ D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\
 D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\pokeball.xnb
 D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\pokeball.xnb
 D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\FBX\35A61F95\pokeball.fbm\pokeball_0.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\ammo.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\stock.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\stadium_bg.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\GAMEOVER1.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\GAMEOVER2.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\SPLASHEND.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\pokeball.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\pikachu_final.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\pokeball.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\theme.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\attack.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\smashattack.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\shock.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\smashhit.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\shield.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuEyeDh_1.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuDh_1.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuHohoDh_1.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuMouthDh_1.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\pokeball_0.xnb
-C:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\theme.wma
 D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\SkinnedModel.dll
 D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\SkinnedModel.pdb
 D:\Users\Hieu\Dropbox\CS 583\WORK\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\Dude\dude.xnb
