@@ -5,6 +5,10 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+// Created by Team Rocket: Hieu Do, Jason Santos, Ramzi Bandak, Saif Sabar, Steven Tran
+// San Diego State University
+// CS 583 - 3D Game Development | Professor Stewart
+
 namespace _3D_Game
 {
     public class BasicModel

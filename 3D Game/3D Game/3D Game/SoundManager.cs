@@ -9,6 +9,10 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Audio;
 
+// Created by Team Rocket: Hieu Do, Jason Santos, Ramzi Bandak, Saif Sabar, Steven Tran
+// San Diego State University
+// CS 583 - 3D Game Development | Professor Stewart
+
 namespace _3D_Game
 {
     public class SoundManager

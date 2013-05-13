@@ -6,6 +6,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+// Created by Team Rocket: Hieu Do, Jason Santos, Ramzi Bandak, Saif Sabar, Steven Tran
+// San Diego State University
+// CS 583 - 3D Game Development | Professor Stewart
+
 namespace _3D_Game
 {
     class Player2 : Player1
