@@ -217,3 +217,75 @@ C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game
 C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\shield.xnb
 C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\smashbullet.xnb
 C:\Users\HyperMetal\Documents\GitHub\cs583pokemonfighter\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\battleMusic.wma
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuDh.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuEyeDh.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuHohoDh.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuMouthDh.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\pokeball.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\stock.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\stadium_bg.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\GAMEOVER1.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\GAMEOVER2.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\pokeball.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\team.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\FUNK.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\INSTRUCTIONS_KEY.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\MENU.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\BLACKFUNK.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Textures\INSTRUCTIONS_PAD.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\Pikachu.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\stage.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\pikachu_final.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\pokeballmodel.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\PikachuDancing.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Fonts\georgia.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Fonts\menuFont.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\menumusic.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\theme.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\battleMusic.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\Gangnam Style.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\jump.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\doublejump.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\select.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\ballopen.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\menuback.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\homerun.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\attack.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\smashattack.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\shock.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\smashhit.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\bulletplus.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\deathCry.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\shield.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\smashbullet.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\shocksmashhit.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\shockhit.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\shieldbreak.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\pikabreak.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\ammo.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuMouthDh_0.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuDh_0.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuHohoDh_0.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuEyeDh_0.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\text3_0.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\text2_0.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuEyeDh_1.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuDh_1.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuHohoDh_1.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuMouthDh_1.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Models\pokeball.fbm\pokeball_0.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuEyeDh_2.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuDh_2.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuHohoDh_2.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\PikachuMouthDh_2.xnb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\menumusic.wma
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\theme.wma
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\battleMusic.wma
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\Content\Audio\Gangnam Style.wma
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\3D Game.exe
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\3D Game.pdb
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\SkinnedModel.dll
+E:\3D Game\3D Game\3D Game\bin\x86\Debug\SkinnedModel.pdb
+E:\3D Game\3D Game\3D Game\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+E:\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.exe
+E:\3D Game\3D Game\3D Game\obj\x86\Debug\3D Game.pdb

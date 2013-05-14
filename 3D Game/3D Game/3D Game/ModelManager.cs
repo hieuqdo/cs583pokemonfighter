@@ -341,7 +341,7 @@ namespace _3D_Game
                     new Vector2(
                         Game.Window.ClientBounds.Width / 7 * (offset * 2),                       
                         Game.Window.ClientBounds.Height / 5 * 4),
-                        Color.White);
+                        Color.DarkOrange);
 
             spriteBatch.End();
         }
@@ -409,14 +409,20 @@ namespace _3D_Game
                         if (models[j] != ((Bullet)shots[i]).getOwner() &&
                             shots[i].CollidesWith(models[j].model, models[j].GetWorld()))
                         {
-                            //If attack collided, remove
-                            if (mediator.processRangedAttack(
-                                ((Bullet)shots[i]),
-                                ((Player1)models[j]),
-                                ((Bullet)shots[i]).getType()))
-                            {                                
-                                shots.RemoveAt(i);
-                                --i;
+
+                            Object temp = models[j];
+                            if (temp != shield1 && temp != shield2)
+                            {
+
+                                //If attack collided, remove
+                                if (mediator.processRangedAttack(
+                                    ((Bullet)shots[i]),
+                                    ((Player1)models[j]),
+                                    ((Bullet)shots[i]).getType()))
+                                {
+                                    shots.RemoveAt(i);
+                                    --i;
+                                }
                             }
                             break;
                         }                        

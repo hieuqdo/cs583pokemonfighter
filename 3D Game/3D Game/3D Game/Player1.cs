@@ -104,6 +104,7 @@ namespace _3D_Game
         protected Buttons attackButton;
         protected Buttons secondAttackButton;
         protected Buttons smashLeft;
+        public Buttons smashUp;
         protected Buttons smashRight;
 
         public int currPercentage;
@@ -133,6 +134,7 @@ namespace _3D_Game
             secondAttackButton = Buttons.X;
             smashLeft = Buttons.RightThumbstickLeft;
             smashRight = Buttons.RightThumbstickRight;
+            smashUp = Buttons.RightThumbstickUp;
 
             tint = DEFAULT_TINT;
             myPlayerIndex = PlayerIndex.One;
@@ -340,6 +342,12 @@ namespace _3D_Game
                     if (mediator.rangedAttack(this, InteractionMediator.attackType.BULLET) == true)
                         myModelManager.playSound(ModelManager.sound.BULLET);
                 }
+                // smash up
+                else if (GamePad.GetState(myPlayerIndex).IsButtonDown(smashUp) && oldGamepadState.IsButtonUp(smashUp))
+                {
+                    if (mediator.attack(this, InteractionMediator.attackType.BASIC) == true)
+                        myModelManager.playSound(ModelManager.sound.SMASH);
+                }
             }
         }
           
@@ -544,7 +552,7 @@ namespace _3D_Game
                 sprintCheckTimerRight -= TIME_COUNTDOWN;
             if (sprintCheckTimerRight2 > 0)
                 sprintCheckTimerRight2 -= TIME_COUNTDOWN;
-            if (shieldScale <= 5)
+            if (shieldScale <= 5 && !rolling)
                 shieldScale += TIME_COUNTDOWN * 2;
             if (stunTimer > 0)
                 stunTimer -= TIME_COUNTDOWN;

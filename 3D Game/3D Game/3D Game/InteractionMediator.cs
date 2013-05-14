@@ -70,7 +70,7 @@ namespace _3D_Game
             {
                 target.stunTimer = 0.2f;
                 // Up attack
-                if (Keyboard.GetState().IsKeyDown(attacker.upKey) || GamePad.GetState(attacker.myPlayerIndex).IsButtonDown(attacker.upButton))
+                if (Keyboard.GetState().IsKeyDown(attacker.upKey) || GamePad.GetState(attacker.myPlayerIndex).IsButtonDown(attacker.upButton) || GamePad.GetState(attacker.myPlayerIndex).IsButtonDown(attacker.smashUp))
                 {
                     damageModifier = 3;
                     knockbackModifier = 0.04f;
@@ -117,7 +117,7 @@ namespace _3D_Game
                         knockbackDirection = .000000001f;
                     knockbackDirection = knockbackDirection / Math.Abs(knockbackDirection);
 
-                    knockbackDistance = target.currPercentage / 1.5f / knockbackTotal * knockbackDirection;
+                    knockbackDistance = target.currPercentage / 1.2f / knockbackTotal * knockbackDirection;
 
                     //Cap knockback
                     if (attackKnockbackCap > 0 &&

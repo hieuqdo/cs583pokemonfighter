@@ -38,7 +38,7 @@ namespace _3D_Game
         AnimationPlayer animationPlayer;
         AnimationClip animationClip;
         float cameraArc = 0;
-        float cameraRotation = 90;
+        float cameraRotation = 0;
         float cameraDistance = 150;
 
         //FADE INTRO
@@ -66,7 +66,7 @@ namespace _3D_Game
         protected override void LoadContent()
         {
             //ANIMATION
-            animatedModel = Game.Content.Load<Model>(@"models\PikachuDancing");
+            animatedModel = Game.Content.Load<Model>(@"models\pikachu_notail");
             SkinningData skinningData = animatedModel.Tag as SkinningData;
             if (skinningData == null)
                 throw new InvalidOperationException("This model does not contain a SkinningData tag.");
@@ -275,7 +275,7 @@ namespace _3D_Game
             Matrix[] bones = animationPlayer.GetSkinTransforms();
 
             // Compute camera matrices.
-            Matrix view = Matrix.CreateTranslation(130, 0, 0) *
+            Matrix view = Matrix.CreateTranslation(0, -20, 0) *
                           Matrix.CreateRotationY(MathHelper.ToRadians(cameraRotation)) *
                           Matrix.CreateRotationX(MathHelper.ToRadians(cameraArc)) *
                           Matrix.CreateLookAt(new Vector3(0, 0, -cameraDistance),
